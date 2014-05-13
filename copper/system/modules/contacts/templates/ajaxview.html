@@ -1,0 +1,100 @@
+                        <div class="cell cell-expanded-nav">
+                            <ul class="horiz-nav">
+                                <li></li>{actions}
+                            </ul>
+                        </div>
+                        <div class="expand">
+                            <!-- START MODULE CONTENT -->
+                            <div class="module-cont-compact">
+                                <!-- START LEFT COL -->
+                                <div class="col-l">
+                                    <p>{Notes}</p>
+
+                                    <h4 class="toggler"><a class="max" href="#task-comments" onclick="toggleComponent(this,'task-comments'); return false;">{MSG_COMMENTARY}</a></h4>
+
+                                    <!-- START COMMENTS -->
+                                    <div class="task-comments">
+                                        <ul class="comments">
+                                            {updates}
+                                        </ul>
+                                    </div>
+                                    <!-- END COMMENTS -->
+                                </div>
+                                <!-- END LEFT COL -->
+                                <!-- START RIGHT COL -->
+                                <div class="col-r">
+
+                                    <h4 class="toggler"><a class="max" href="#contact-details" onclick="toggleComponent(this,'contact-details'); return false;">{MSG_DETAILS}</a></h4>
+                                    <div class="contact-details">
+                                        <dl>
+                                            <dt>{MSG_CLIENT}</dt>
+                                            <dd>{ClientName}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{MSG_TITLE}</dt>
+                                            <dd>{Title}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{MSG_PHONE}</dt>
+                                            <dd>{Phone1}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{MSG_MOBILE}</dt>
+                                            <dd>{Phone3}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{MSG_EMAIL}</dt>
+                                            <dd><a href="mailto:{EmailAddress1}">{EmailAddress1}</a></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{MSG_IM_SKYPE}</dt>
+                                            <dd>{EmailAddress2}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                        </dl>
+                                        <div class="clear">&nbsp;</div>
+                                    </div>
+
+                                </div>
+                                <!-- END RIGHT COL -->
+                            </div>
+                        </div>
+                        <!-- END MODULE CONTENT -->
+<div id="resources" style="display:none">
+    <div id="template">
+    <form action="index.php" method="post" id="form-edit-taskcomment-$[txtCommentID]" name="form_taskcomment_$[txtCommentID]">
+        <input type="hidden" name="module" value="projects" />
+        <input type="hidden" name="action" value="taskcomment" />
+                <input type="hidden" name="contact" value="$[txtContact]" />
+        <input type="hidden" name="projectid" value="$[txtProjectID]" />
+        <input type="hidden" name="taskid" value="$[txtTaskID]" />
+        <input type="hidden" name="date" value="$[txtCommentDate]"/>
+        <input type="hidden" name="commentid" value="$[txtCommentID]" id="commentid">
+        <input type="hidden" name="caller" value="{caller}">
+        <div class="header">
+
+            <div class="owner"></div>
+            <div class="status">
+                <input class="comment-hrs" value=" $[txtHours]" name="hours" id="hours" />&nbsp;
+                <strong>{MSG_HRS},&nbsp;</strong>
+                <img class="date-selector"
+                onclick="popUpCalendar(this, form_taskcomment_$[txtCommentID].date, '{date_format}', 'date_display_$[txtCommentID]');"
+                src="assets/images/calendar_icon_comments.gif" width="17" height="17" alt="{MSG_SELECT_DATE}"/>&nbsp;
+                <strong id="date_display_$[txtCommentID]">{MSG_NOW}</strong>
+            </div>
+            <ul class="horiz-nav">
+                <li><a href="#" onclick="springboard.saveTaskEditComment($[txtCommentID]); return false;">{MSG_SAVE}</a></li>
+                <li><a href="#" onclick="springboard.cancelEditTaskComment($[txtCommentID]); return false;">Cancel</a></li>
+                <li><a href="#" onclick="Effect.toggle('form-taskcomment-more-$[txtCommentID]', 'blind',{duration:0.5}); return false;" class="moreLink">More</a></li>
+            </ul>
+        </div>
+        <div class="msg">
+            <textarea cols="50" rows="4" name="comment">$[txtComment]</textarea>
+        </div>
+        <div id="form-taskcomment-more-$[txtCommentID]" class="meta-secondary editable" style="display:none;">
+            <input class="checkbox" type="checkbox" {txtIsOutOfScope} name="outofscope" value="1" />{MSG_NOT_BILLABLE},
+            <input class="checkbox" type="checkbox" {txtIsIssue} name="issue" value="1" />{MSG_ISSUE}
+        </div>
+    </form>
+    </div>
+</div>

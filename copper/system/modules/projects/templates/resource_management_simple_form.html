@@ -1,0 +1,17 @@
+                                    <h4 class="toggler"><a class="max" href="#task-resources" onclick="toggleComponent(this,'task-resources'); return false;">{MSG_RESOURCES}</a></h4>
+                                    <div class="task-resources">
+                                          <dd class="add-minus-list">
+                                          <div id="resource-list-{taskID}">
+                                              {Resources}
+                                          </div>
+                                          <div class="add-new-{taskID}">
+                        <select class="edit" name="resourceAdd" id="resourceAdd">
+                        {resourceOptions}
+                        </select>
+                        <a href="#">
+                        <img class="add-minus-btn" height="16" border="0" width="8" alt="{lblAdd}" src="assets/images/btn/btn_add.gif" onclick="AddResource({taskID}); return false;"/>
+                        </a>
+                      </div>
+                      </dd>
+                      <dd class="divider">&nbsp;</dd>
+                  </div>

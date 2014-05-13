@@ -1,0 +1,17 @@
+            <ul class="files">
+                <!-- START FILE GROUP -->
+                <li class="sortable droppable collapsed" id="project_{txtProjectID}">
+                    <div class="sortableMeta">
+                    		<!-- for some reason, had style="background-color: rgb(0, 204, 255);" -->
+                        <div class="cell cellFirst cell-name"><a class="min" onclick="toggleProjectFolders(this, {txtProjectID}, 0, '{txtSortOrder}', '{txtSortDirection}'); return false;" href="#" id="toggler_{txtProjectID}_0"></a><span class="handle"><a href="index.php?module=projects&action=view&projectid={txtProjectID}">{txtProjectName}</a></span></div>
+                        <div class="cell cell-lastup">{txtLastModified}</div>
+                        <div class="cell cell-size">{txtSize}</div>
+                        <div class="cell cellLast cell-type">{txtType}</div>
+                    </div>
+                    <!-- START SORTABLE UL -->
+                    <ul class="folder-contents expandWrap" id="folderlist_{txtProjectID}_0" style="display:none">
+                    </ul>
+                    <!-- END SORTABLE UL -->
+                </li>
+                <!-- END FILE GROUP -->
+            </ul>

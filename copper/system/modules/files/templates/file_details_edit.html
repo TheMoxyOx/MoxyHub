@@ -1,0 +1,16 @@
+                                            <h4 class="toggler"><a class="max" href="#file-details" onclick="toggleComponent(this,'file-details'); return false;">{MSG_RELATES_TO}</a></h4>
+                                            <div class="file-details">
+                                                <dl>
+                                                    <dt>{MSG_PROJECT}</dt>
+                                                    <dd><select class="edit" name="project" id="projectSelect-{txtFileID}" onchange="getProjectTasks({txtFileID}, this.options[this.selectedIndex].value);">
+                                                        {projectoptions}
+                                                    </select></dd>
+                                                    <dd class="divider">&nbsp;</dd>
+                                                    
+                                                    <dt>{MSG_TASK}</dt>
+                                                    <dd><select class="edit" name="task" id="taskSelect-{txtFileID}">
+                                                        {taskoptions}
+                                                    </select></dd>
+                                                    <dd class="divider">&nbsp;</dd>
+                                                </dl>
+                                            </div>

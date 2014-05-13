@@ -1,0 +1,87 @@
+/* Sortables
+----------------------------------------------*/
+.sortable .expand {padding-top:5px; padding-bottom:10px;}
+
+/* Forms
+----------------------------------------------*/
+select.edit {width:100%}
+
+/* Admin > Settings
+----------------------------------------------*/
+.admin-settings dt { width:193px; }
+.admin-settings dd { width:232px; }
+.admin-settings dt, .admin-settings dd { padding:5px; }
+
+/* Admin > Appearance
+----------------------------------------------*/
+.admin-appearance dt { width:193px; }
+.admin-appearance dd { width:232px; }
+.admin-appearance dt, .admin-appearance dd { padding:5px; }
+
+/* Admin > Users
+----------------------------------------------*/
+
+/* userlist sortable */
+.module-cont.userlist {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+.module-cont-header p a{font-weight: bold;}
+
+/* Header */
+#userlist .sortableHead .cell-realname {width:170px;}
+
+/* Userlist cols */
+#userlist .cell-realname {width:150px;}
+#userlist .cell-username {width:150px;}
+#userlist .cell-title {width:90px;}
+#userlist .cell-email {width:170px;}
+#userlist .cell-groups {width:250px;}
+
+/* grouplist sortable */
+.module-cont.grouplist {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+/* Header */
+#grouplist .sortableHead .cell-realname {width:170px;}
+
+/* Userlist cols */
+#grouplist .cell-realname {width:150px;}
+#grouplist .cell-username {width:150px; }
+#grouplist .cell-title {width:90px;}
+#grouplist .cell-email {width:170px; }
+#grouplist .cell-groups {width:250px;}
+#grouplist .sortableHead .cell-groups {width:100%;}
+
+/* Forms */
+.admin-user dt {width:193px;}
+.admin-user dd {width:222px;}
+.admin-user dt, dd {padding:5px;}
+.admin-user .access-control dt {width:97px;}
+.admin-user .access-control dd {width:97px;}
+.admin-user .access-control dd.sub-definition {width:211px; font-weight:normal;}
+
+/* Admin > Labels
+----------------------------------------------*/
+
+/* tokenlist */
+#tokenlist .cellFirst {padding-left:0;}
+
+
+/* Header */
+
+/* tokenlist cols */
+.cell-token {width:375px;}
+.cell-default {width:294px;}
+.cell-new {width:200px;}
+.cell-alpha {font-weight:bold;}
+
+/* forms */
+#tokenlist textarea {width:196px;}
+#tokenlist .sortableMeta{border-bottom: 1px solid #ccc; clear: both; padding: 5px 0 0;}
+#tokenlist .sortableMeta .cell-new input{width: 192px;}
+
+/* making this have a plussie like the rest */
+#memberlist select.edit{width: 200px;}
+#memberlist dd{position: relative;}
+#memberlist a.add{width: 20px; height: 20px; position: absolute; top:6px; right: 2px; background: url(../images/btn/btn_add.gif) no-repeat center; text-indent: -999em;}
+
+/* backup is weird, but we want it like the others */
+.fakedSortableHeadTitle{text-transform: uppercase; font-size: 10px; color: #333; font-family: Arial,Helvetica,Tahoma,sans-serif;}

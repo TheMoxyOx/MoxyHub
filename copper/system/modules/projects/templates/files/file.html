@@ -1,0 +1,16 @@
+	<li rel="draggy_file" class="draggy_node" id="file_<?php echo $file->ID ?>">
+
+		<a class="draggy_handle" href="#">&nbsp;</a><ins></ins>
+		<em class="content">
+			<span><!-- see this span? This span is because the javascript has up(2) at helpers.js:472. Once that abomination is fixed, then we can remove this superfluous html -->
+				<em title="{MSG_CLICK_TO_VIEW_TASK_DETAILS_AND_COMMENTS}" class="name" id="file-opener-<?php echo $file->ID ?>" onclick='toggleFile(this, <?php echo $file->ID ?>); return false;'><?php echo $file->FileName ?></em>
+			</span>
+      <em class="cell cell-lastup"><?php echo Format::date($file->Date); ?></em>
+      <em class="cell cell-size"><?php echo Format::file_size($file->Size); ?></em>
+      <em class="cell cellLast cell-type"><?php echo $file->get_pathinfo('extension'); ?></em>
+		</em>
+
+		<div id="fileholder-<?php echo $file->ID ?>" style="display:none;" class="expandWrap"></div>
+		<div class="clearPlz"></div>
+
+	</li>

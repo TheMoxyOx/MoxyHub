@@ -1,0 +1,276 @@
+                <tr align="left" valign="middle">
+                    <td colspan="2">{MSG_AVAILABILITY_WIZARD}</td>
+                </tr>
+                <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                </tr>
+                {lblErrorMessage}
+                <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                </tr>
+                <tr align="left" valign="middle">
+                    <td width="50%">{MSG_STARTING_FROM}:</td>
+                    <td width="50%">
+                        <input type="text" name="startingFromDate" value="{txtStartingFromDate}" style="width:80" class="TaskEdit_tf">&nbsp;
+                        <img src="images/date_selector.gif" width="20" height="20" border="0" onClick="popUpCalendar(this, resourcesetsave.startingFromDate, '{date_format}');">
+                    </td>
+                </tr>
+                <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                </tr>
+                <tr align="left" valign="middle">
+                    <td width="50%">{MSG_UNTIL}:</td>
+                    <td width="50%">
+                        <input type="text" name="untilDate" value="{txtUntilDate}" style="width:80" class="TaskEdit_tf">&nbsp;
+                        <img src="images/date_selector.gif" width="20" height="20" border="0" onClick="popUpCalendar(this, resourcesetsave.untilDate, '{date_format}');">
+                    </td>
+                </tr>
+                <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                </tr>
+                <tr align="left" valign="middle">
+                    <td width="50%">{MSG_AVAILABILITY}</td>
+                    <td width="50%">
+                        <select name="availability[type]" style="width:100%" class="TaskEdit_tf"  onchange="showType();">
+                            <option value="always" {txtAlwaysSelected}>{lblAlways}</option>
+                            <option value="day" {txtDaySelected}>{lblDay}</option>
+                            <option value="weekday" {txtWeekdaySelected}>{lblWeekday}</option>
+                            <option value="week" {txtWeekSelected}>{lblWeek}</option>
+                            <option value="fortnight" {txtFortnightSelected}>{lblFortnight}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                </tr>
+                </table>
+
+                <table id="hours" style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblHoursTitle}</td>
+                        <td width="50%">
+                            <select name="{txtHoursName}" style="width:100%" class="TaskEdit_tf">
+                                {lblHoursOptions}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                </table>
+
+                <table id="starting" style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr align="left" valign="middle">
+                        <td width="50%">First week:</td>
+                        <td width="50%">
+                            <select name="{txtStartingName}"  style="width:100%" class="TaskEdit_tf">
+                                {lblStartingOptions}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                </table>
+
+                <table id="weekday" style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td colspan="2"><strong>{lblWeekdayHeading}</strong></td>
+                    </tr>
+                    <tr align="left" valign="middle" bgcolor="#CCCCCC">
+                        <td height="15" colspan="2"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle1}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions1}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle2}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions2}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle3}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions3}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle4}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions4}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle5}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions5}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle6}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions6}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle7}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions7}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                </table>
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                </tr>
+
+            </table>
+</td>
+<td class="innersplit"><img src="images/common/s.gif" width="20" height="100%"></td>
+<td class="innercell">
+                <table id="weekday2" style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr align="left" valign="middle">
+                        <td height="144" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td colspan="2"><strong>{lblWeekday2Heading}</strong></td>
+                    </tr>
+                    <tr align="left" valign="middle" bgcolor="#CCCCCC">
+                        <td height="15" colspan="2"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle1}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName2}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions1}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle2}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName2}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions2}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle3}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName2}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions3}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle4}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName2}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions4}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle5}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName2}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions5}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle6}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName2}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions6}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td width="50%">{lblWeekdayTitle7}</td>
+                        <td width="50%">
+                            <select name="{txtWeekdayName2}"  style="width:100%" class="TaskEdit_tf">
+                                {lblWeekdayOptions7}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                </table>
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr align="left" valign="middle">
+                        <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <input type="hidden" name="dateFormat" value="{date_format}">
+        <input type="hidden" name="availability[from][day]" value="">
+        <input type="hidden" name="availability[from][month]" value="">
+        <input type="hidden" name="availability[from][year]" value="">
+        <input type="hidden" name="availability[to][day]" value="">
+        <input type="hidden" name="availability[to][month]" value="">
+        <input type="hidden" name="availability[to][year]" value="">

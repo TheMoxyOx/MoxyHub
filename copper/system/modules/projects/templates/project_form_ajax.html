@@ -1,0 +1,130 @@
+{SCRIPTS}
+<form name="project" id="projectform" action="index.php" method="post">
+        <input type="hidden" name="module" value="projects">
+        <input type="hidden" name="action" value="save">
+        <input type="hidden" name="projectid" id="projectid" value="{txtID}">
+        {copy}
+        <!-- START MODULE HEADER -->
+        <div class="module-cont-header">
+            <div class="project-edit-header">
+                <input class="project-title edit" value="{txtName}" name="name" id="projectname" />
+                <input class="project-id edit" value="{txtProjectID}" name="userprojectid" />
+                <div class="perc-complete" style="color:{txtColour};">{txtPercentComplete}%</div>
+            </div>
+
+            <ul class="horiz-nav">
+                <li class="first"><a href="#" onclick="SaveProject({txtID}); return false;">{lblSaveChanges}</a></li>
+                <li>|<a href="#" onclick="cancelProject({txtID});">{lblCancel}</a></li>
+            </ul>
+        </div>
+        <!-- END MODULE HEADER -->
+        <!-- START MODULE CONTENT -->
+        <div class="module-cont">
+            <!-- START LEFT COL -->
+            <div class="col-l">
+                <textarea class="edit" rows="15" cols="10" name="description">{txtDescription}</textarea>
+
+                {relatedprojects}
+            </div>
+            <!-- END LEFT COL -->
+            <!-- START RIGHT COL -->
+            <div class="col-r">
+
+                <h4 class="toggler"><a class="max" href="#project-details" onclick="toggleComponent(this,'project-details'); return false;">{lblDetails}</a></h4>
+                <div class="project-details">
+                    <dl>
+
+                        <dt>{lblClient}</dt>
+                        <dd>
+                            <select class="edit" name="clientid">
+                                {txtClientList}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblProjectColour}</dt>
+                        <dd>
+                            <a class="color-swatch" style="background-color:{txtColour};" href="#"  onclick="SelectorShow(this, document.project.colour);"></a>&nbsp;
+                            <input class="edit short" name="colour" value="{txtColour}"/>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblStatus}</dt>
+                        <dd>
+                            <select class="edit" name="status">
+                                {txtStatus}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblPriority}</dt>
+                        <dd>
+                            <select class="edit" name="priority">
+                                {txtPriority}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblStartsEnds}</dt>
+                        <dd>
+                            <input class="edit short-date" value="{txtStartDate}" name="startdate" />
+                            <img class="date-selector" height="17" width="17" alt="{MSG_SELECT_DATE}" src="assets/images/calendar_icon.gif" onclick="popUpCalendar(this, project.startdate, '{date_format}');"/> / <input class="edit short-date" value="{txtEndDate}" name="enddate" />
+                            <img class="date-selector" height="17" width="17" alt="{MSG_SELECT_DATE}" src="assets/images/calendar_icon.gif" onclick="popUpCalendar(this, project.enddate, '{date_format}');"/>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+
+
+                        {budget}
+                    </dl>
+                </div>
+
+                <h4 class="toggler"><a class="max" href="#project-resources" onclick="toggleComponent(this,'project-resources'); return false;">{lblResources}</a></h4>
+                <div class="project-resources">
+                    <dl>
+                        <dt>{lblProjectOwner}</dt>
+                        <dd>
+                            <select class="edit" name="owner">
+                                {txtOwner}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblReadAccess}</dt>
+                        <dd class="add-minus-list">
+                            <div id="read-access-list">
+                                {txtReadAccess}
+                            </div>
+                            <div class="add-new">
+                                <select class="edit" name="readAccess" id="readAccessID">
+                                    {txtNoAccess}
+                                </select>
+                                <a href="#">
+                                <img class="add-minus-btn" height="16" border="0" width="8" alt="{lblAdd}" src="assets/images/btn/btn_add.gif" onclick="AddAccess('read')"/>
+                                </a>
+                            </div>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblWriteAccess}</dt>
+                        <dd class="add-minus-list">
+                            <div id="write-access-list">
+                                {txtWriteAccess}
+                            </div>
+                            <div class="add-new">
+                                <select class="edit" name="writeAccess" id="writeAccessID">
+                                    {txtNoAccess}
+                                </select>
+                                <a href="#">
+                                <img class="add-minus-btn" height="16" border="0" width="8" alt="{lblAdd}" src="assets/images/btn/btn_add.gif" onclick="AddAccess('write')"/>
+                                </a>
+                            </div>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                    </dl>
+                </div>
+            </div>
+            <!-- END RIGHT COL -->
+        </div>
+        <!-- END MODULE CONTENT -->
+

@@ -1,0 +1,99 @@
+<div class="module-cont-wrapper">
+	<div class="module-cont-header">
+		<h2>{MSG_SAVE_REPORT}</h2>
+			<ul class="horiz-nav">
+				<li><a href="javascript:SaveReport();">{MSG_SAVE_REPORT}</a></li>
+			</ul>
+			
+	<form name="workreport" id="workreport" method="post" action="index.php">
+	  <input type="hidden" name="module" value="reports">
+	  <input type="hidden" name="action" value="saveworkreport">
+	  <input type="hidden" name="period" value="{period}">
+	  <input type="hidden" name="startdate" value="{startDate}">
+	  <input type="hidden" name="enddate" value="{endDate}">
+	  <input type="hidden" name="users" value="{users}">
+	  <input type="hidden" name="clients" value="{clients}">
+	  <input type="hidden" name="projects" value="{projects}">
+	  <input type="hidden" name="report" value="{report}">
+		<input type="hidden" name="WithOtherItems" value="{WithOtherItems}">
+			<div class="general">
+				<dl>
+					<dt>{MSG_REPORT_NAME}</dt>
+					<dd><input type="text" style="width:100%" name="reportname" value="{reportName}" class="TaskEdit_tf"></dd>
+					<dt>{MSG_EMAIL_THIS_REPORT_TO_ME}</dt>
+					<dd><select name="frequency" style="width:100%" >{frequencyOptions}</select></dd>
+				</dl>
+			</div>
+	</form>
+			
+		
+	</div>
+	<div class="module-cont">
+	
+	
+	<script type="text/javascript">
+	  function SaveReport()
+	  {
+	      var t = document.forms.timesheet;
+	      var w = document.forms.workreport;
+	
+	      if ( w.reportname.value == '' )
+	      {
+	          alert( 'Reports must have a name.' );
+	          return;
+	      }
+	
+	      // Copy the form values from the visible form to the hidden form.
+	      var p = document.getElementById( 'periodSelect' );
+	      w.period.value = p.options[p.selectedIndex].value;
+	      w.startdate.value = t.startdate.value;
+	      w.enddate.value = t.enddate.value;
+	
+	      // Copy all the IDs of the selected users into the hidden field as a comma-separated string.
+	      var el = document.getElementById( 'userSelect' );
+	      var a = new Array();
+	      for ( i=0; i<el.options.length; i++ )
+	      {
+	          if ( el.options[i].selected )
+	              a.push( el.options[i].value );
+	      }
+	      w.users.value = a.join( ',' );
+	
+	      // Copy all the IDs of the selected clients into the hidden field as a comma-separated string.
+	      var el = document.getElementById( 'clientSelect' );
+	      var a = new Array();
+	      for ( i=0; i<el.options.length; i++ )
+	      {
+	          if ( el.options[i].selected )
+	              a.push( el.options[i].value );
+	      }
+	      w.clients.value = a.join( ',' );
+	
+	      // Copy all the IDs of the selected projects into the hidden field as a comma-separated string.
+	      var el = document.getElementById( 'projectSelect' );
+	      var a = new Array();
+	      for ( i=0; i<el.options.length; i++ )
+	      {
+	          if ( el.options[i].selected )
+	              a.push( el.options[i].value );
+	      }
+	      w.projects.value = a.join( ',' );
+	
+	      w.submit();
+	  }
+	</script>
+
+	
+	
+	
+	
+	<div class="clear"></div>
+	
+	<div class="sortableHead work_report">
+		<div class="cellTH cell-username"><p>{MSG_NAME}</p></div>
+		<div class="cellTH cell-date"><p>{MSG_DATE}</p></div>
+		<div class="cellTH cell-client"><p>{MSG_CLIENT}</p></div>
+		<div class="cellTH cell-project"><p>{MSG_PROJECT}</p></div>
+		<div class="cellTH cell-task"><p>{MSG_TASK}</p></div>
+		<div class="cellTH cell-hours cellLast"><p>{lblHoursWorked}</p></div>
+	</div>

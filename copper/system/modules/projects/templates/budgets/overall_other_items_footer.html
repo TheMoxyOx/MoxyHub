@@ -1,0 +1,36 @@
+			</ul>
+			
+			<ul>
+				<li>
+					<form method='POST' action='index.php' class='js_project_budgets_addnewotheritem_overview'>
+
+						<input type="hidden" value="<?php EF::val($project->ID); ?>" name="projectid" />
+						<input type="hidden" value="projects" name="module" />
+						<input type="hidden" value="ajaxaddotheritem" name="action" />
+						<input type="hidden" name="est" class="edit" id="est" value="1" />
+						<input type="hidden" name="logged" class="edit" id="logged" value="1" />
+						<div class="cell cell-task">
+							<input type="text" name="task" id="task" value="" />
+						</div>						
+						<div class="cell cell-budget">
+							<input type="text" name="budget" id="budget" value="" />
+						</div>
+						<div class="cell cell-cost">
+							<input type="text" name="cost"  id="cost" value="" />
+						</div>
+						<div class="cell cell-charge">
+							<input type="text"	name="charge" id="charge" value="" />
+						</div>
+						<div class="cell cellLast cell-addnewother">
+							<input type='submit' value="+">
+						</div>
+
+					</form>
+	
+				</li>			
+			</ul>
+		</div>  
+
+	</div>  
+</div>
+<!-- END MODULE CONTENT WRAPPER -->

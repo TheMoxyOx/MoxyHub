@@ -1,0 +1,56 @@
+                        <div class="cell cellLast cell-expanded-nav">
+                            <ul class="horiz-nav">
+                                <li></li>{actions}
+                            </ul>
+                        </div>
+                        <div class="expand">
+
+                            <!-- START MODULE CONTENT -->
+                            <div class="module-cont-compact admin-user">
+                                <!-- START LEFT COL -->
+                                <div class="col-l">
+                                
+                                    <h4 class="toggler"><a class="max" href="#details" onclick="toggleComponent(this,'details'); return false;">{MSG_USERS}</a></h4>
+                                    <div class="details">
+                                        <dl>
+                                            {userlist}
+                                            
+                                        </dl>
+                                    </div>
+                                </div>
+                                <!-- END LEFT COL -->
+                                <!-- START RIGHT COL -->
+                                <div class="col-r">
+                                    
+                                    <h4 class="toggler"><a class="max" href="#access-control" onclick="toggleComponent(this,'access-control'); return false;">{MSG_ACCESS_CONTROL}</a></h4>
+
+                                    <div class="access-control">
+                                        <!-- START DEFINITION LIST GROUP -->
+                                        <dl class="group">
+                                            {modules}
+                                            <dd class="divider">&nbsp;</dd>
+
+                                        </dl>
+                                        <!-- END DEFINITION LIST GROUP -->
+                                        <!-- START DEFINITION LIST GROUP -->
+                                        <dl class="group">
+                                            {clients}
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                        </dl>
+                                        <!-- END DEFINITION LIST GROUP -->
+                                        <!-- START DEFINITION LIST GROUP -->
+                                        <dl class="group">
+                                            {projects}
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                        </dl>
+                                        <!-- END DEFINITION LIST GROUP -->
+                                    </div>    
+                                
+                                </div>
+                                <!-- END RIGHT COL -->
+                            </div>
+                            <!-- END MODULE CONTENT -->
+                        </div>
+

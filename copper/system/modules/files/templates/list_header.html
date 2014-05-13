@@ -1,0 +1,156 @@
+<!-- List Header Start -->
+<script type="text/javascript">
+function openWindow(file, textvalue)
+{
+    if (textvalue == 'filedetails' || textvalue == 'filedel' || textvalue == 'fileedit')
+        window.location.href = "index.php?module=files&fileid=" + file + "&action=" + textvalue;
+    else
+    {
+        window.open('index.php?module=files&fileid='+file+'&action=' + textvalue,'_blank');
+        window.location.reload();
+    }
+}
+
+function toggleFolder( obj, img, id ) 
+{
+    var image = document.getElementById( img );
+    var action = ( image.src.indexOf( 'plus' ) > 0 ) ? 'show' : 'hide';
+    image.src = ( action == 'show' ) ? 'images/expander_minus.gif' : 'images/expander_plus.gif';
+    ajaxFileList( obj, id, action );
+    return true;
+}
+
+function toggleAllFolders()
+{
+    var image = document.getElementById( 'toggleAll' );
+    image.src = ( image.src.indexOf( 'plus' ) > 0 ) ? 'images/expander_minus.gif' : 'images/expander_plus.gif';
+
+    var elements = document.getElementsByName( 'expander' );
+    for ( var i=0, len=elements.length; i<len; i++ )
+    {
+        if ( !elements[i].src.match( image.src ) )
+        {
+            if ( elements[i].onclick )
+                elements[i].onclick();
+        }
+    }
+}
+
+function ajaxFileList( div_id, id, action ) 
+{
+    var ajaxObj = new Ajax.Request(
+        'index.php?module=files&action='+action+'files&folderid=' + id + '&order={order}&direction={direction}&r=' + Math.random(),  // Random to prevent caching
+        {  // options
+            method:'get',
+            onComplete:function( req ) { populate( req, div_id, action ) }
+        } );
+}
+
+function populate( req, div_id, action )
+{
+    var html = req.responseText;
+    if ( action == 'show' )
+        $( div_id ).innerHTML += html;
+    else
+        $( div_id ).innerHTML = html;
+}
+</script>
+<tr>
+  <td align="center" valign="top">
+    <table class="outer"  border="0" cellpadding="10" cellspacing="0">
+      <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td align="center" valign="top" bgcolor="#FFFFFF">
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr align="left" valign="middle">
+                    <td width="20" align="center"><img src="images/expander_plus.gif" width="16" height="16" id="toggleAll" onClick="toggleAllFolders();"></td>
+                    <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="100"><table width="100%" cellpadding="0" cellspacing="1"  border="0">
+                                                <tr>
+                                                    <td width="100%" rowspan="2" NOWRAP><strong>{lblFolder}</strong>&nbsp;&nbsp;</td>
+                                                    <td><a href="index.php?module=files&amp;order=folder&amp;direction=up"><img src="images/arrow_up.gif" width="5" height="5"  border="0" alt="{lblAsc}" /></a></td>                                                 </tr>
+                                                    <tr>
+                                                <td><a href="index.php?module=files&amp;order=folder&amp;direction=down"><img src="images/arrow_down.gif" width="5" height="5"  border="0" alt="{lblDesc}" /></a></td>
+                                                    <tr>
+                        </table></td>
+                      <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="100">
+                                            <table width="100%" cellpadding="0" cellspacing="1" border="0">
+                                                <tr>
+                                                    <td width="100%" rowspan="2" NOWRAP><strong>{lblProjectName}</strong>&nbsp;&nbsp;</td>
+                                                    <td><a href="index.php?module=files&order=projectname&amp;direction=up"><img src="images/arrow_up.gif" width="5" height="5" border="0" alt="{lblAsc}" /></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                <td><a href="index.php?module=files&order=projectname&amp;direction=down"><img src="images/arrow_down.gif" width="5" height="5" border="0" alt="{lblDesc}" /></a></td>
+                                                    </tr>
+                                                </table>
+                      </td>
+                      <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="100" nowrap>
+                                            <table width="100%" cellpadding="0" cellspacing="1" border="0">
+                                                <tr>
+                                                    <td width="100%" rowspan="2" NOWRAP><strong>{lblTaskName}</strong>&nbsp;&nbsp;</td>
+                                                    <td><a href="index.php?module=files&order=taskname&amp;direction=up"><img src="images/arrow_up.gif" width="5" height="5" border="0" alt="{lblAsc}" /></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                <td><a href="index.php?module=files&order=taskname&amp;direction=down"><img src="images/arrow_down.gif" width="5" height="5" border="0" alt="{lblDesc}" /></a></td>
+                                                    </tr>
+                                                </table>
+                      </td>
+                      <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                      <td width="25" nowrap>&nbsp;</td>
+                      <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="170"><table width="100%" cellpadding="0" cellspacing="1"  border="0">
+                                                <tr>
+                                                    <td width="100%" rowspan="2" NOWRAP><strong>{lblFileName}</strong>&nbsp;&nbsp;</td>
+                                                    <td><a href="index.php?module=files&order=file&direction=up"><img src="images/arrow_up.gif" width="5" height="5"  border="0" alt="{lblAsc}" /></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                <td><a href="index.php?module=files&order=file&amp;direction=down"><img src="images/arrow_down.gif" width="5" height="5"  border="0" alt="{lblDesc}" /></a></td>
+                                                    </tr>
+                        </table></td>
+                      <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="90" nowrap><table width="100%" cellpadding="0" cellspacing="1"  border="0">
+                                                <tr>
+                                                    <td width="100%" rowspan="2" NOWRAP><strong>{lblLastChange}</strong>&nbsp;&nbsp;</td>
+                                                    <td><a href="index.php?module=files&amp;order=lastchange&amp;direction=up"><img src="images/arrow_up.gif" width="5" height="5"  border="0" alt="{lblAsc}" /></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                <td><a href="index.php?module=files&amp;order=lastchange&amp;direction=down"><img src="images/arrow_down.gif" width="5" height="5"  border="0" alt="{lblDesc}" /></a></td>
+                        </tr>
+                        </table></td>
+                      <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="70" nowrap><table width="100%" cellpadding="0" cellspacing="1"  border="0">
+                                                <tr>
+                                                    <td width="100%" rowspan="2" NOWRAP><strong>{lblStatus}</strong>&nbsp;&nbsp;</td>
+                                                    <td><a href="index.php?module=files&amp;order=status&amp;direction=up"><img src="images/arrow_up.gif" width="5" height="5"  border="0" alt="{lblAsc}" /></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                <td><a href="index.php?module=files&amp;order=status&amp;direction=down"><img src="images/arrow_down.gif" width="5" height="5"  border="0" alt="{lblDesc}" /></a></td>
+                                                    <tr>
+                        </table></td>
+                    <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="85" nowrap><strong>{lblAction}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    <td height="15"><img src="images/common/s.gif" width="20" height="15"></td>
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    <td height="15"><img src="images/common/s.gif" width="20" height="15"></td>
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    <td height="15"><img src="images/common/s.gif" width="20" height="15"></td>
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    <td height="15"><img src="images/common/s.gif" width="20" height="15"></td>
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    <td height="15"><img src="images/common/s.gif" width="20" height="15"></td>
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    <td height="15"><img src="images/common/s.gif" width="20" height="15"></td>
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    <td height="15"><img src="images/common/s.gif" width="20" height="15"></td>
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    <td height="15"><img src="images/common/s.gif" width="20" height="15"></td>
+                    <td height="15" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                  </tr>
+<!-- List Header End -->

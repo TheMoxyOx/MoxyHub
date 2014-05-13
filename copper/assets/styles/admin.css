@@ -1,0 +1,62 @@
+/* Sortables
+----------------------------------------------*/
+.sortable .expand {padding-top:5px; padding-bottom:10px;}
+
+/* Forms
+----------------------------------------------*/
+select.edit {width:100%}
+
+/* Admin > Settings
+----------------------------------------------*/
+.admin-settings dt { width:193px;}
+.admin-settings dd { width:232px;}
+.admin-settings dt, .admin-settings dd { padding:5px;}
+
+/* Admin > Appearance
+----------------------------------------------*/
+.admin-appearance dt { width:193px;}
+.admin-appearance dd { width:232px;}
+.admin-appearance dt, .admin-appearance dd { padding:5px;}
+
+/* Admin > Users
+----------------------------------------------*/
+
+/* userlist sortable */
+.module-cont.userlist {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+/* Header */
+#userlist .sortableHead .cell-realname {width:170px;}
+
+/* Userlist cols */
+#userlist .cell-realname {width:150px;}
+#userlist .cell-username {width:150px;}
+#userlist .cell-title {width:90px;}
+#userlist .cell-email {width:170px;}
+#userlist .cell-groups {width:250px;}
+
+/* Forms */
+.admin-user dt {width:193px;}
+.admin-user dd {width:222px;}
+.admin-user dt, dd {padding:5px;}
+.admin-user .access-control dt {width:97px;}
+.admin-user .access-control dd {width:97px;}
+.admin-user .access-control dd.sub-definition {width:211px; font-weight:normal;}
+
+/* Admin > Labels
+----------------------------------------------*/
+
+/* tokenlist */
+#tokenlist {padding:10px 0 20px 0; margin:0;}
+#tokenlist, #tokenlist li {list-style:none;}
+#tokenlist ul.dropzone {}
+#tokenlist .droppable {font-size:1px;} /* For IE, to make empty droppable's snug. Over-ride below. */
+#tokenlist .droppable div {font-size:11px;}
+
+/* tokenlist cols */
+.cell-token {width:375px;}
+.cell-default {width:295px;}
+.cell-new {width:200px;}
+.cell-alpha {}
+
+/* forms */
+#tokenlist textarea {width:196px;}

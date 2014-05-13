@@ -1,0 +1,37 @@
+<!-- START MODULE CONTENT WRAPPER -->
+<div class="module-cont-wrapper">
+	<!-- START MODULE CONTENT -->
+	<div class="module-cont admin-appearance">
+		<!-- START LEFT COL -->
+		<div class="col-l">
+
+			<h4>{MSG_BACKUP}</h4>
+			<p><a href="index.php?module=administration&action=export">{MSG_EXPORT_DB}</a></p>
+			
+			<h4>{MSG_RESTORE}</h4>
+			<p>Select your MySQL backup file:</p>
+			<form name="uploadfile" action="index.php" enctype="multipart/form-data" method="post">
+				<input type="hidden" name="module" value="administration">
+				<input type="hidden" name="action" value="importdb">
+				<input type="file" name="file" />
+				<p><a href="#" onclick="document.uploadfile.submit();">Restore now</a></p>
+			</form>
+			
+		</div>
+		<!-- END LEFT COL -->
+		<!-- START RIGHT COL -->
+		<div class="col-r">
+			<h4>Import from Basecamp</h4>
+			<p>Select your basecamp XML file:</p>
+			<form action="index.php" enctype="multipart/form-data" method="post">
+				<input type="hidden" name="module" value="administration">
+				<input type="hidden" name="action" value="import_from_basecamp">
+				<input type="file" name="basecamp_xml" />
+				<input type="submit" name="import" value="Import from Basecamp" />
+			</form>
+		</div>
+		<!-- END RIGHT COL -->
+	</div>
+	<!-- END MODULE CONTENT -->
+</div>
+<!-- END MODULE CONTENT WRAPPER -->

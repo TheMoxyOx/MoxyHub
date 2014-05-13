@@ -1,0 +1,74 @@
+ <tr>
+  <td align="center" valign="top"><table class="outer" border="0" cellpadding="10" cellspacing="0"> 
+    <tr> 
+      <td><table width="100%" border="0" cellspacing="0" cellpadding="5"> 
+        <tr> 
+          <td align="left" valign="top" bgcolor="#FFFFFF"> <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+            <tr align="right" valign="top">
+                <td colspan="7"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr><td valign="top" width="350"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+                          <tr align="left" valign="top"> 
+                              <td colspan="7" nowrap><strong>{MSG_PERMISSIONS}:&nbsp;{txtUserName}</strong></td>
+                          </tr>
+                          <tr align="left" valign="top"> 
+                            <td height="15" colspan="7" nowrap bgcolor="#E7E7E7"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                          </tr>
+                             <form action="index.php" method="post" name="addmodule">
+                          <input type="hidden" name="module" value="administration">
+                          <input type="hidden" name="action" value="{MODULEACTION}">
+                          <input type="hidden" name="id" value="{USERID}">
+                          <tr align="left" valign="middle">
+                            <td height="100%" width="30%">{MSG_AREAS}&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td width="60%"><select name="objectid" style="width: 100%">{MODULELIST}</select></td>
+                            <td>&nbsp;</td>
+                            <td width="10%"><select name="accessid" style="width: 100%">{MODULEACCESSLIST}</select>
+                            </td>
+                            <td nowrap>&nbsp;</td>
+                            <td width="20" nowrap align="center"><a class="linkon" href="javascript:document.addmodule.submit();"><img src="images/common/add.gif" width="15" height="15" border="0" alt="{MSG_ADD}"></a></td>
+                          </tr>
+                          </form>
+                          <form action="index.php" method="post" name="addproj">
+                          <input type="hidden" name="module" value="administration">
+                          <input type="hidden" name="action" value="{PROJECTACTION}">
+                          <input type="hidden" name="id" value="{USERID}">
+                          <input type="hidden" name="objectid" value="projects">
+                          <tr align="left" valign="middle">
+                            <td height="100%">{MSG_PROJECTS}&nbsp;</td>
+                            <td height="100%">&nbsp;</td>
+                            <td>
+                              <select name="itemid" style="width: 100%">                              {PROJECTITEMLIST}                              </select>
+                            </td>
+                            <td height="100%">&nbsp;</td>
+                            <td nowrap>
+                              <select name="accessid" style="width: 100%">                              {ACCESSLIST}                              </select>
+                            </td>
+                            <td nowrap>&nbsp;</td>
+                            <td nowrap align="center"><a class="linkon" href="javascript:document.addproj.submit();"><img src="images/common/add.gif" width="15" height="15" border="0" alt="{MSG_ADD}"></a></td>
+                          </tr>
+                          </form>
+            </table>
+            </td>
+            <td class="innersplit"><img src="images/common/s.gif" class="innersplit"></td>
+            <td valign="top" align="right" class="innercell">&nbsp;</td>
+                </tr></table></td></tr>
+            <tr align="right" height="15"> 
+              <td height="20" align="left" colspan="7" bgcolor="#FFFFFF"><img src="images/common/s.gif" width="100%" height="20"></td></tr>
+                <tr>
+                    <td width="100">&nbsp;</td>
+                  <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="100" nowrap><strong>{MSG_OBJECT}</strong></td>
+                  <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                    <td width="50" nowrap><strong>{MSG_ACCESS}</strong></td>
+                  <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                  <td width="50" nowrap><strong>{MSG_ACTION}</strong></td>
+                </tr><tr align="left" valign="middle"> 
+                  <td height="15" valign="top" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                  <td height="15" valign="top"><img src="images/common/s.gif" width="20" height="15"></td>
+                  <td height="15" valign="top" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                  <td height="15" valign="top"><img src="images/common/s.gif" width="20" height="15"></td>
+                  <td height="15" valign="top" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                  <td height="15" valign="top"><img src="images/common/s.gif" width="20" height="15"></td>
+                  <td height="15" valign="top" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                </tr> 
+{ITEMS}

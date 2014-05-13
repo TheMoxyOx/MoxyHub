@@ -1,0 +1,13 @@
+.js_jstree li.draggy_node a.draggy_handle, .js_jstree li.draggy_node a.draggy_handle:hover {background: none; cursor: default}
+.js_jstree li.draggy_node em{font-style: normal;}
+.js_jstree li.draggy_node em.content em.name:hover{background-image: url(../../images/btn/btn_min_over.gif);color:#0198fd;}
+.js_jstree li.draggy_node a.draggy_handle.tree_expanded:hover{background: #f7f7f7;}
+.js_jstree li.draggy_node em.content.tree_expanded em.name:hover{background-image: url(../../images/btn/btn_up.png);color:#0198fd;}
+
+.drag_disabled{display:none; !important}
+
+
+/* here we get NO LOVE for dragging. Check the JS for adding the class */
+#jstree_1.explorerfail li.draggy_node a.draggy_handle,
+#jstree_1.explorerfail li.draggy_node a.draggy_handle:hover {background: none; cursor: default;}
+#jstree_1.explorerfail li.draggy_node a.tree_expanded{background-color: #f9f9f9;}

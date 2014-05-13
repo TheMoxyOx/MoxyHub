@@ -1,0 +1,130 @@
+<script language="javascript">
+    <!--
+
+    function SubmitForm () {
+        var form = document.taskedit;
+        if (form.taskname.value.length < 3) {
+            alert("{MSG_PLEASE_ENTER_A_VALID_TASK_NAME}");
+            form.taskname.focus();
+        }
+        else {
+            form.submit();
+        }
+    }
+    -->
+</script>
+<div class="module-cont-wrapper">
+
+    <form name="taskedit" action="index.php" method="post" >
+        <input type="hidden" name="module" value="projects" >
+        <input type="hidden" name="action" value="tasksave" >
+        <input type="hidden" name="taskid" value="{txtTaskID}" >
+        <input type="hidden" name="projectid" value="{txtProjectID}" >
+        {Copy}
+        <div class="module-cont-header">
+            <h2>{txtName}</h2>
+        </div>
+        <div class="module-cont">
+        <div class="col-l">
+
+            <h4 class="toggler"><a class="max" href="#general" onclick="toggleComponent(this,'general'); return false;">{MSG_GENERAL}</a></h4>
+            <div class="general">
+                <dl>
+                    <dt>Copy To</dt>
+                    <dd>{txtProjectList}</dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{lblProject}</dt>
+                    <dd>{txtProject}</dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{MSG_TASK_NAME}</dt>
+                    <dd><input type="text" class="edit" style="width:100%" id="taskname" name="taskname" value="{txtName}"></dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{MSG_DESCRIPTION}</dt>
+                    <dd><textarea name="description" rows="5" wrap="VIRTUAL" class="edit" style="width:100%">{txtDescription}</textarea></dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{MSG_DURATION}</dt>
+                    <dd>
+                        <input type="text" name="duration" class="edit" style="width:40px" value="{txtDuration}">
+                        <select name="dayhour" class="edit" style="width:40px">
+                            <option value="1" {txtHours}>{MSG_HOUR_S}</option>
+                            <option value="{DAY_LENGTH}" {txtDays}>{MSG_DAY_S}</option>
+                        </select>
+                    </dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{MSG_START_DATE}</dt>
+                    <dd><input type="text" name="startdate" class="edit" style="width:40px" value="{txtStartDate}" ID="Text1"><img src="images/date_selector.gif" width="16" height="18" vspace="0" hspace="3" border="0" onClick="popUpCalendar(this, taskedit.startdate, '{date_format}');"></dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{MSG_END_DATE}</dt>
+                    <dd><input type="text" name="enddate" class="edit" style="width:40px" value="{txtEndDate}"><img src="images/date_selector.gif" width="16" height="18" vspace="0" hspace="3" border="0" onClick="popUpCalendar(this, taskedit.enddate, '{date_format}');"></dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{lblTargetBudget}</dt>
+                    <dd>{txtTargetBudget}</dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="col-r">
+            <h4 class="toggler"><a class="max" href="#task-dependencies" onclick="toggleComponent(this,'task-dependencies'); return false;">{MSG_TASK_DEPENDENCIES}</a></h4>
+
+            <!-- START DEPENDENCIES -->
+            <div class="task-dependencies">
+                <dl>
+                    <dd class="add-minus-list">
+                        {taskDependenciesCurrent}
+                        <div class="add-new">
+                            <select class="edit" id="dependencyAddSelect">
+                                {taskDependenciesSelect}
+                            </select>
+
+                            <a href="#" onclick="dependencyAdd({txtProjectID}, {txtTaskID}); return false;">
+                                <img class="add-minus-btn" height="16" border="0" width="8" src="assets/images/btn/btn_add.gif" alt="{MSG_ADD}"/>
+                            </a>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <!-- END DEPENDENCIES -->
+            <div class="clear">&nbsp;</div>
+
+            <h4 class="toggler"><a class="max" href="#ownership" onclick="toggleComponent(this,'ownership'); return false;">{MSG_OWNERSHIP_AND_STATUS}</a></h4>
+            <div class="ownership">
+                <dl>
+                    <dt>{MSG_TASK_OWNER}</dt>
+                    <dd><select name="owner" class="edit">{selectUsers}</select></dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{MSG_URGENCY}</dt>
+                    <dd><select name="priority" class="edit" >
+                        {selectPriority}
+                        </select>
+                        </dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+                <dl>
+                    <dt>{MSG_PERCENTAGE_COMPLETE}</dt>
+                    <dd><select name="percentcomplete" style="width:50%" class="edit" >
+                        {selectPercentage}
+                        </select></dd>
+                    <dd class="divider">&nbsp;</dd>
+                </dl>
+            </div>
+        </div>
+        <input type="hidden" name="hassign" value="">
+    </form>
+</div>
+</div>

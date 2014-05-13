@@ -1,0 +1,39 @@
+<!-- START MODULE CONTENT WRAPPER -->
+<div class="module-cont-wrapper">
+
+	<div class="module-cont-header">
+		<ul class="horiz-nav">
+			<li><a href="#" onclick="newGroup(); return false;">{MSG_NEW_GROUP}</a></li>
+		</ul>            			
+	</div>
+
+    <div class="module-cont grouplist">
+    
+        <ul id="grouplist">
+        
+            <!-- START GROUPLIST HEADER ROW -->
+            <li class="sortableHead">
+                <div class="cellTH cellFirst cellLast cell-groups">
+                    <p>{txtMessage}</p>
+                </div>
+            </li>
+
+			</ul>
+    </div>
+</div>
+<!-- END NEW MODULE CONTENT -->
+{script}
+<script type="text/javascript">
+function saveGroup(groupID)
+{
+    $('editgroup'+groupID).submit();
+}
+
+function changeModulePerm(SID, objectID, accessID) {
+    $('sid').value = SID;
+    $('objectid').value = objectID;
+    $('accessid').value = accessID;
+    $('addmoduleform').submit();
+}
+
+</script>

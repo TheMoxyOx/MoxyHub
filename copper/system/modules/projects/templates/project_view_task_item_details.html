@@ -1,0 +1,361 @@
+                        <div class="cell cell-expanded-nav">
+                            <ul class="horiz-nav">
+                                <li></li>{actions}
+                            </ul>
+                        </div>
+                        <div class="expand">
+                            <!-- START MODULE CONTENT -->
+                            <div class="module-cont-compact">
+                                <!-- START LEFT COL -->
+                                <div class="col-l">
+	                                <h4 class="toggler"><a class="max" href="#task-description" onclick="toggleComponent(this,'task-description'); return false;">{MSG_DESCRIPTION}</a></h4>
+                                  <div class="task-description">
+                                    <p>{txtDescription}</p>
+                                  </div>
+
+	
+	
+                                  <h4 class="toggler"><a class="max" href="#task-comments" onclick="toggleComponent(this,'task-comments'); return false;">{lblCommentary}</a></h4>
+
+                                    <!-- START COMMENTS -->
+                                    <div class="task-comments">
+                                        <ul class="comments">
+                                            <!-- START COMMENT -->
+                                            <li id="task-comment-form-wrapper" class="topForm">
+                                                <form action="index.php" method="post" id="form-taskcomment-{txtTaskID}" name="form_taskcomment_{txtTaskID}">
+                                                    <input type="hidden" name="module" value="projects" />
+                                                    <input type="hidden" name="action" value="taskcomment" />
+                                                    <input type="hidden" name="projectid" value="{txtProjectID}" />
+                                                    <input type="hidden" name="taskid" value="{txtTaskID}" />
+                                                    <input type="hidden" name="date" value="{txtCommentDate}"/>
+                                                    <input type="hidden" name="oldhours" value="{txtOldHours}">
+                                                    <input type="hidden" name="commentid" value="{txtCommentID}" id="commentid">
+                                                    <input type="hidden" name="caller" value="{caller}">
+                                                    <input type="hidden" name="contactName" id="contactName" value="">
+                                                    
+                                                    <div class="header">
+                                                        
+	                                                      <div class="avatar">
+	                                                      	<img src="{txtAvatarImage}" alt="{txtUsername}" width='48' height='48'>
+	                                                      </div>   
+                                                        
+                                                        <div class="status">
+
+                                                            <span class="block">
+	                                                            <img class="date-selector" onclick="popUpCalendar(this, form_taskcomment_{txtTaskID}.date, '{date_format}', 'date_display_{txtTaskID}');" src="assets/images/calendar_icon_comments.gif" width="17" height="17" alt="{lblDateSelect}"/>
+                                                            <!-- &nbsp;<strong id="date_display_{txtTaskID}" style="font-weight:300">{lblCommentDate}</strong> -->
+                                                            </span>                                                        
+                                                            
+                                                            <span class="block middleBlock">
+	                                                            <input class="comment-hrs" value="{txtHours}" name="hours" id="hours" /> <span>{lblHrs}</span> 
+                                                            </span>                                                            
+                                                        
+                                                            <span class="block">
+	                                                            <select class="edit" name="percentage" id="percentage-options-{txtTaskID}">
+	                                                                {txtPercentageOptions}
+	                                                            </select> <span>%</span>
+                                                            </span>
+                                                        </div>
+                                                        
+                                                        <ul class="horiz-nav">
+                                                            <li><a href="#" onclick="springboard.saveTaskComment({txtTaskID}); return false;">{lblSave}</a></li>
+                                                            <li><a href="#" class="moreLink" onclick="Effect.toggle('form-taskcomment-more-{txtTaskID}', 'blind',{duration:0.5}); return false;">More<span class="downArrow"></span></a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <div class="msg">
+                                                        <textarea cols="50" rows="4" name="comment">{txtComment}</textarea>
+                                                    </div>
+                                                    <div id="form-taskcomment-more-{txtTaskID}" class="meta-secondary editable" style="display:none">
+                                                        {lblContact}:
+                                                        <span class="contact-edit">
+                                                            <select class="comment-contact" name="contact">
+                                                             {txtClientOptions}
+                                                            </select>
+                                                        </span>,
+                                                        <input class="checkbox" type="checkbox" {txtIsOutOfScope} name="outofscope" value="1" />{lblNotBillable},
+                                                        <input class="checkbox" type="checkbox" {txtIsIssue} name="issue" value="1" />{lblIssue}
+                                                    </div>
+                                                </form>
+                                            </li>
+                                            <!-- END COMMENT -->
+                                            {commentlist}	
+                                        </ul>
+                                    </div>
+                                    <!-- END COMMENTS -->
+                                    <h4 class="toggler"><a class="max" href="#task-dependencies" onclick="toggleComponent(this,'task-dependencies'); return false;">{MSG_TASK_DEPENDENCIES}</a></h4>
+                  <!-- START DEPENDENCIES -->
+                                    <div class="task-dependencies">
+                                        <p>
+                                            {taskDependencies}
+                                        </p>
+                                    </div>
+                                    <!-- END DEPENDENCIES -->
+
+
+                                </div>
+                                <!-- END LEFT COL -->
+                                <!-- START RIGHT COL -->
+                                <div class="col-r">
+                                    <h4 class="toggler"><a class="max" href="#task-details" onclick="toggleComponent(this,'task-details'); return false;">{lblDetails}</a></h4>
+                                    <div class="task-details">
+                                        <dl>
+                                            <dt>{lblOwner}</dt>
+                                            <dd>{txtOwner}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{lblPriority}</dt>
+                                            <dd>{txtPriority}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{lblHours}: {lblEstimated} / {lblCommitted} / {lblActual}</dt>
+                                            <dd>{txtDuration} / {txtHoursCommitted} / <span class="hrs_actual_{txtTaskID}">{txtHoursWorked}</span></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{lblStartsEnds}</dt>
+                                            <dd>{txtStartEndDate}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            {budget}
+                                        </dl>
+
+                                    </div>
+
+                                    <h4 class="toggler"><a class="max" href="#task-resources" onclick="toggleComponent(this,'task-resources'); return false;">{lblResources}</a></h4>
+                                    <div class="task-resources">
+                                    {resourceManagement}
+                                    </div>
+
+                                    <h4 class="toggler"><a class="max" href="#task-files" onclick="toggleComponent(this,'task-files'); return false;">{lblAttachedFiles}</a></h4>
+                                    <div class="task-files">
+
+                                            <form name="file-form-{txtTaskID}" id="file-form-{txtTaskID}" method="post" action="index.php" enctype="multipart/form-data">
+                                            <input type="hidden" name="module" value="springboard"/>
+                                            <input type="hidden" name="action" value="upload"/>
+                                            <input type="hidden" name="taskid" value="{txtTaskID}"/>
+                                            <input type="hidden" name="projectid" value="{txtProjectID}" />
+                                            <input type="hidden" name="caller" value="{caller}">
+            <dl class="files" id="taskfiles-{txtTaskID}">
+                <dd class="file-upload" style="background-position:-445px 0px;">
+                    <div class="upload-details">
+                        {MSG_UPLOAD_A_NEW_FILE}:
+                        <span class="file-details">&nbsp;</span>
+                    </div>
+                    <div class="linklist">
+                        <div id="uploaderOverlay{txtFileState}{txtFileID}" style="position:absolute; z-index:2; width:43px; height:16px; right:2px;"></div> 
+                        <a href="#" id="selectLink{txtFileState}{txtFileID}">{MSG_SELECT}</a>
+                    </div>
+                </dd>
+                <dd class="divider">&nbsp;</dd>
+                <dd class="file-upload" style="background-position:-445px 0px; display:none;" id="uploader-progressbar{txtFileState}{txtFileID}">
+                    <div class="upload-details {txtClass}">
+                        <input type="hidden" id="hidden-filename{txtFileState}{txtFileID}" name="hidden-filename{txtFileState}{txtFileID}" value="">
+                        <input type="hidden" id="hidden-filesize{txtFileState}{txtFileID}" name="hidden-filesize{txtFileState}{txtFileID}" value="">
+                        {MSG_UPLOADING} <span id="uploader-filename{txtFileState}{txtFileID}"></span>
+                        <span class="file-details" id="uploader-progress{txtFileState}{txtFileID}"></span>
+                    </div>
+                    <div class="linklist"><a href="#" onclick="uploaders['{txtFileState}{txtFileID}'].cancel(fileIDs['{txtFileID}']); $('uploader-progressbar{txtFileState}{txtFileID}').hide(); $('uploader-divider{txtFileState}{txtFileID}').hide(); uploaders['{txtFileState}{txtFileID}'].enable(); return false;">{MSG_CANCEL}</a></div>
+                </dd>
+                <dd class="divider" style="display:none;" id="uploader-divider{txtFileState}{txtFileID}">&nbsp;</dd>
+                {filelist}
+            </dl>
+
+
+                                                                                        </form>
+
+                                    </div>
+                                </div>
+                                <!-- END RIGHT COL -->
+                            </div>
+                        </div>
+                        <!-- END MODULE CONTENT -->
+
+<div id="resources" style="display:none">
+    <div id="template">
+    <form action="index.php" method="post" id="form-edit-taskcomment-$[txtCommentID]" name="form_taskcomment_$[txtCommentID]">
+        <input type="hidden" name="module" value="projects" />
+        <input type="hidden" name="action" value="taskcomment" />
+        <input type="hidden" name="projectid" value="$[txtProjectID]" />
+        <input type="hidden" name="taskid" value="$[txtTaskID]" />
+        <input type="hidden" name="date" value="$[txtCommentDate]"/>
+        <input type="hidden" name="commentid" value="$[txtCommentID]" id="commentid">
+        <input type="hidden" name="caller" value="{caller}">
+
+				<!-- this comes in when we edit! -->
+        <div class="header">
+
+            <div class="avatar">
+            	<img src="{txtAvatarImage}" alt="{txtUsername}" width='48' height='48'>
+            </div>
+            
+            
+            <!-- <div class="owner">{txtUsername}</div> -->
+            
+            <div class="status">
+
+                $[txtPercentage]%&nbsp;
+                <input class="comment-hrs" value=" $[txtHours]" name="hours" id="hours" />&nbsp;
+                {lblHrs},&nbsp;
+                <img class="date-selector"
+                onclick="popUpCalendar(this, form_taskcomment_$[txtCommentID].date, '{date_format}', 'date_display_$[txtCommentID]');"
+                src="assets/images/calendar_icon_comments.gif" width="17" height="17" alt="{MSG_SELECT_DATE}"/>&nbsp;
+                <strong id="date_display_$[txtCommentID]" style="font-weight:300;">{lblCommentDate}</strong>
+            </div>
+            <ul class="horiz-nav">
+                <li><a href="#" onclick="springboard.saveTaskEditComment($[txtCommentID]); return false;">{lblSave}</a></li>
+                <li><a href="#" onclick="springboard.cancelEditTaskComment($[txtCommentID]); return false;">Cancel</a></li>
+                <li><a href="#" onclick="Effect.toggle('form-taskcomment-more-$[txtCommentID]', 'blind',{duration:0.5}); return false;" class="moreLink">More</a></li>
+            </ul>
+        </div>
+        <div class="msg">
+            <textarea cols="50" rows="4" name="comment">$[txtComment]</textarea>
+        </div>
+        <div id="form-taskcomment-more-$[txtCommentID]" class="meta-secondary editable" style="display:none;">
+            {lblContact}: <span id='contactSelect'>$[txtSelectBox]</span>,
+            <input class="checkbox" type="checkbox" {txtIsOutOfScope} name="outofscope" value="1" />{lblNotBillable},
+            <input class="checkbox" type="checkbox" {txtIsIssue} name="issue" value="1" />{lblIssue}
+        </div>
+    </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+if (typeof(uploaderCallbacks) == 'undefined') { var uploaderCallbacks = {}; }
+if (typeof(uploaders) == 'undefined') { var uploaders = {}; }
+if (typeof(fileIDs) == 'undefined') { var fileIDs = {}; }
+
+    uploaderCallbacks.handleClearFiles = function() {
+        uploaders["{txtFileState}{txtFileID}"].enable();
+        fileIDs['{txtFileID}'] = null;
+        
+        $('uploader-progressbar{txtFileState}{txtFileID}').hide();
+    }
+        
+    // When contentReady event is fired, you can call methods on the uploaders["{txtFileState}{txtFileID}"].
+    uploaderCallbacks.handleContentReady = function() {
+        // Allows the uploader to send log messages to trace, as well as to YAHOO.log
+        uploaders["{txtFileState}{txtFileID}"].setAllowLogging(false);
+        
+        // Restrict selection to a single file (that's what it is by default,
+        // just demonstrating how).
+        uploaders["{txtFileState}{txtFileID}"].setAllowMultipleFiles(false);
+    }
+
+    // Initiate the file upload. Since there's only one file, 
+    // we can use either upload() or uploadAll() call. fileList 
+    // needs to have been populated by the user.
+    uploaderCallbacks.upload = function() {
+        if (fileIDs['{txtFileID}'] != null) {
+            uploaders["{txtFileState}{txtFileID}"].upload(
+							fileIDs['{txtFileID}'], 
+							"{txtUrl}", 
+							"POST", 
+							{
+								module:'files', 
+								action:'swffilesave', 
+								fileid:{txtFileID}, 
+								projectid:{txtProjectID}, 
+								taskid:{txtTaskID}, 
+								userid:{txtUserID}, 
+								version:'{txtVersion}',
+								post_cookie: document.cookie
+							}
+						);
+						
+            fileIDs['{txtFileID}'] = null;
+        }
+    }
+    
+    // Fired when the user selects files in the "Browse" dialog
+    // and clicks "Ok".
+    uploaderCallbacks.onFileSelect = function(event) {
+        for (var item in event.fileList) {
+            if(YAHOO.lang.hasOwnProperty(event.fileList, item)) {
+                YAHOO.log(event.fileList[item].id);
+                fileIDs['{txtFileID}'] = event.fileList[item].id;
+            }
+        }
+        uploaders["{txtFileState}{txtFileID}"].disable();
+        
+        $('uploader-filename{txtFileState}{txtFileID}').update(event.fileList[fileIDs['{txtFileID}']].name);
+        $('hidden-filename{txtFileState}{txtFileID}').value = event.fileList[fileIDs['{txtFileID}']].name;
+        $('hidden-filesize{txtFileState}{txtFileID}').value = event.fileList[fileIDs['{txtFileID}']].size;
+    
+        var size = Math.round(parseInt( event.fileList[fileIDs['{txtFileID}']].size ) / 1024);
+        $('uploader-progress{txtFileState}{txtFileID}').update("0Kb {MSG_OF} " + size + 'Kb (0%)');
+
+        $('uploader-progressbar{txtFileState}{txtFileID}').setStyle({backgroundPosition:'-445px 0px'});
+        $('uploader-progressbar{txtFileState}{txtFileID}').show();
+        $('uploader-divider{txtFileState}{txtFileID}').show();
+        uploaderCallbacks.upload();
+    }
+
+    // Do something on each file's upload start.
+    uploaderCallbacks.onUploadStart = function(event) {
+    }
+    
+    // Do something on each file's upload progress event.
+    uploaderCallbacks.onUploadProgress = function(event) {
+        var progressBarWidth = parseInt(445); // Progress bar width in pixels, this may change
+        progress = progressBarWidth - Math.round(progressBarWidth*(event["bytesLoaded"]/event["bytesTotal"]));
+        $('uploader-progressbar{txtFileState}{txtFileID}').setStyle({backgroundPosition:'-'+progress+'px 0px'});
+
+        var loaded = Math.round(parseInt( event["bytesLoaded"] ) / 1024);
+        var total = Math.round(parseInt( event["bytesTotal"] ) / 1024);
+        var percent = Math.round(100*event["bytesLoaded"]/event["bytesTotal"]);
+        $('uploader-progress{txtFileID}').update(loaded + "Kb {MSG_OF} " + total + 'Kb ('+percent+'%)');
+    }
+    
+    // Do something when each file's upload is complete.
+    uploaderCallbacks.onUploadComplete = function(event) {
+        $('uploader-progressbar{txtFileState}{txtFileID}').hide(); 
+        $('uploader-divider{txtFileState}{txtFileID}').hide(); 
+        uploaders["{txtFileState}{txtFileID}"].enable();
+    }
+    
+    // Do something if a file upload throws an error.
+    // (When uploadAll() is used, the Uploader will
+    // attempt to continue uploading.
+    uploaderCallbacks.onUploadError = function(event) {
+    }
+
+    // Do something if an upload is cancelled.
+    // For some reason this event doesn't fire when cancel is called
+    uploaderCallbacks.onUploadCancel = function(event) {
+    }
+    
+    // Do something when data is received back from the server.
+    uploaderCallbacks.onUploadResponse = function(event) {
+        var obj = eval('('+event.data+')');
+        var url = 'index.php?module=files&action=ajaxfiledetails&fileid=' + obj.fileid;
+        var xhr = cu.ajaxGet(url, function() {
+            $('taskfiles-{txtTaskID}').insert(xhr.transport.responseText);
+        });
+    }
+
+    uploaderCallbacks.handleRollOver = function() {
+        YAHOO.util.Dom.setStyle(YAHOO.util.Dom.get('selectLink{txtFileState}{txtFileID}'), 'color', "#0198FD");
+    }
+
+    uploaderCallbacks.handleRollOut = function() {
+        YAHOO.util.Dom.setStyle(YAHOO.util.Dom.get('selectLink{txtFileState}{txtFileID}'), 'color', "#333333");
+    }
+
+    // Instantiate the uploader and write it to its placeholder div.
+    YAHOO.widget.Uploader.SWFURL = "assets/flash/uploader.swf";
+    uploaders["{txtFileState}{txtFileID}"] = new YAHOO.widget.Uploader( "uploaderOverlay{txtFileState}{txtFileID}" );
+
+    // Add event listeners to various events on the uploader.
+    // Methods on the uploader should only be called once the 
+    // contentReady event has fired.
+    uploaders["{txtFileState}{txtFileID}"].addListener('contentReady', uploaderCallbacks.handleContentReady);
+    uploaders["{txtFileState}{txtFileID}"].addListener('fileSelect', uploaderCallbacks.onFileSelect)
+    uploaders["{txtFileState}{txtFileID}"].addListener('uploadStart', uploaderCallbacks.onUploadStart);
+    uploaders["{txtFileState}{txtFileID}"].addListener('uploadProgress', uploaderCallbacks.onUploadProgress);
+    uploaders["{txtFileState}{txtFileID}"].addListener('uploadCancel', uploaderCallbacks.onUploadCancel);
+    uploaders["{txtFileState}{txtFileID}"].addListener('uploadComplete', uploaderCallbacks.onUploadComplete);
+    uploaders["{txtFileState}{txtFileID}"].addListener('uploadCompleteData', uploaderCallbacks.onUploadResponse);
+    uploaders["{txtFileState}{txtFileID}"].addListener('uploadError', uploaderCallbacks.onUploadError);
+    uploaders["{txtFileState}{txtFileID}"].addListener('rollOver', uploaderCallbacks.handleRollOver);
+    uploaders["{txtFileState}{txtFileID}"].addListener('rollOut', uploaderCallbacks.handleRollOut);
+</script>

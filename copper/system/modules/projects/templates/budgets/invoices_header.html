@@ -1,0 +1,44 @@
+
+<!-- START MODULE CONTENT WRAPPER -->
+	<div class="module-cont-wrapper">
+		<!-- START MODULE HEADER -->
+		<div class="module-cont-header graphs_header_action">
+
+			<h2>{MSG_INVOICE_AND_QUOTES}</h2>
+			<ul class="horiz-nav">
+				<li><a href="#new_invoice" onclick="Copper.billing.createInvoice(); return false;">{MSG_NEW_INVOICE}</a></li>
+				<li> | <a href="#new_quote" onclick="Copper.billing.createInvoice(1); return false;">{MSG_NEW_QUOTE}</a></li>
+				<li> | <a href='#other_items' class='js_project_budgets_show_addotheritems js_scroll_to'>{MSG_ADD_OTHER_ITEMS}</a></li>
+			</ul>
+			
+
+			<div id='billing_overview' class='budget_chart'>
+				<img src="assets/images/projects/budgets/budget_overview.jpg" width="302" height="242" alt="Budget Overview">
+				<p class="explain_the_graphs">{MSG_BUDGETS_SAMPLE_EXPLANATION}</p>
+			</div>
+			<div id='invoices_timeline' style='width: 550px; height: 300px;' class='budget_chart'>
+				<img src="assets/images/projects/budgets/budget_invoices.jpg" width="540" height="300" alt="Budget Invoices">
+				<p class="explain_the_graphs">{MSG_INVOICE_SAMPLE_EXPLANATION}</p>
+			</div>
+
+		</div>
+
+		<div class="module-cont invoicelist">
+		
+			<ul id="invoicelist">
+			
+				<!-- START INVOICE HEADER ROW -->
+				<li class="sortableHead">
+					<div class="cellTH cellFirst cell-invoice">
+						<p>{MSG_INVOICE_AND_QUOTES}</p>
+					</div>
+					<div class="cellTH cell-type">
+						<p>{MSG_TYPE}</p>
+					</div>
+					<div class="cellTH cell-duedate">
+						<p>{MSG_DUE_DATE}</p>
+					</div>
+					<div class="cellTH cellLast cell-amount">
+						<p>{MSG_TOTAL}</p>
+					</div>
+				</li>

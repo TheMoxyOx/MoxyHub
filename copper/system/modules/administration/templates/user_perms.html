@@ -1,0 +1,28 @@
+                    <!-- inserting perms here -->
+                    <tr><td colspan="3" width="100%"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr align="left" valign="top"> 
+                              <td nowrap><strong>{MSG_PERMISSIONS}</strong></td>
+                          </tr>
+                          <tr align="left" valign="middle" bgcolor="#CCCCCC"> 
+                            <td height="15" colspan="7"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                            </tr>
+                         </form>
+                            <form action="index.php" method="post" name="addmodule">
+                          <input type="hidden" name="module" value="administration">
+                          <input type="hidden" name="action" value="usermodadd">
+                          <input type="hidden" name="id" value="{USERID}">
+                          <input type="hidden" name="objectid" value="">
+                          <input type="hidden" name="accessid" value="">
+                         </form>
+<script type="text/javascript">
+function changeModulePerm(objectID, accessID)
+{
+//alert('changeModulePerm('+objectID+', '+accessID+')');
+    var f = document.forms.addmodule;
+    f.objectid.value = objectID;
+    f.accessid.value = accessID;  
+    f.submit();
+}
+</script>
+                            {ITEMS}
+                            </table></td></tr>

@@ -1,0 +1,24 @@
+
+<!-- START PROJECT -->
+<li class="sortable droppable collapsed">
+	<div class="sortableMeta">
+		<div class="cell cellFirst cell-task">
+			<a class="min" title="{MSG_CLICK_FOR_QUICKVIEW} {MSG_TASKS}" onclick="toggleProjectTasks(this, {txtProjectID}); return false;" href="#" style="background-color:{txtColour};"></a>
+			<span class="handle">
+				<a title="{MSG_CLICK_TO_VIEW} {MSG_PROJECT}"  href="index.php?module=projects&amp;action=view&amp;projectid={txtProjectID}" alt="{txtOwner}" title="{txtOwner}">{txtProjectName}</a>
+			</span>
+		</div>
+		<div class="cell cell-client"><a href="index.php?module=clients&amp;action=view&amp;id={txtClientID}">{txtClientName}</a></div>
+		<div class="cell cell-perc"><div class="perc-bar"><div style="width:{txtPercentComplete}%; background:{txtColour};">&nbsp;</div></div></div>
+		<div class="cell cell-status">{txtStatus}</div>
+		<div class="cell cell-targetbudget">{txtTargetBudget}</div>
+		<div class="cell cell-actualbudget">{txtBudgetCharge}</div>
+		<div class="cell cell-priority">{txtPriority}</div>
+		<div class="cell cell-start">{txtStartDate}</div>
+		<div class="cell cellLast cell-end">{txtEndDate}</div>
+	</div>
+	<div class="expandWrap" style="display:none;" id="projectholder-{txtProjectID}">
+	</div>
+	
+</li>
+<!-- END PROJECT -->

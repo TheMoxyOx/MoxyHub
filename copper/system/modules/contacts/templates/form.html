@@ -1,0 +1,135 @@
+    <!-- START NEW MODULE CONTENT -->
+    <div class="module-cont-wrapper">
+        <div class="module-cont contacts">
+
+        <form name="contact" action="index.php" method="post">
+        <input type="hidden" name="module" value="contacts">
+        <input type="hidden" name="action" value="save">
+        <input type="hidden" name="id" value="{ID}">
+        <input type="hidden" name="keycontact" value="0"></td>
+        <table class="outer" border="0" cellpadding="10" cellspacing="0">
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                  <td align="left" valign="top" bgcolor="#FFFFFF"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr align="left" valign="top">
+                        <td class="innercell"><table border="0" cellspacing="0" cellpadding="0" class="innercell">
+                            <tr align="left" valign="top">
+                              <td colspan="2" nowrap><span class="header">{FirstName}&nbsp;{LastName}</span></td>
+                            </tr>
+                            <tr align="left" valign="top" bgcolor="#CCCCCC">
+                              <td height="15" colspan="2" nowrap><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td width="100" valign="middle" nowrap>{MSG_FIRST_NAME}</td>
+                              <td width="250"><input type="text" style="width:100%" class="TaskEdit_tf" name="firstname" value="{FirstName}"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td valign="middle" nowrap>{MSG_LAST_NAME}</td>
+                              <td><input type="text" style="width:100%" class="TaskEdit_tf" name="lastname" value="{LastName}" ID="Text1"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td valign="middle" nowrap>{MSG_NOTES}</td>
+                              <td><textarea name="notes" rows="5" wrap="virtual" class="TaskEdit_ta" style="width:100%">{Notes}</textarea></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>                            
+                            <tr align="left" valign="top">
+                              <td valign="middle" nowrap>{lblClient}</td>
+                              <td>
+                                <select name="clientid" class="TaskUpdate_dd" id="clientid" style="width:100%">                                {txtClientList}                                </select>
+                              </td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="3"><img src="images/common/s.gif" width="100%" height="10"></td>
+                              </tr>
+                          </table></td>
+                        <td class="innersplit"><img src="images/common/s.gif" class="innersplit"></td>
+                        <td class="innercell"><table border="0" cellspacing="0" cellpadding="0" class="innercell">
+                            <tr align="left" valign="top">
+                              <td colspan="2"><strong>{MSG_DETAILS}</strong></td>
+                            </tr>
+                            <tr align="left" valign="top" bgcolor="#CCCCCC">
+                              <td height="15" colspan="2" nowrap><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td width="100" valign="middle">{MSG_TITLE}</td>
+                              <td width="250"><input name="title" type="text" class="TaskEdit_tf" style="width:100%" value="{Title}"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td valign="middle">{MSG_EMAIL_ADDRESS_1}</td>
+                              <td> <input name="emailaddress1" type="text" class="TaskEdit_tf" style="width:100%" value="{EmailAddress1}"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td valign="middle">{MSG_EMAIL_ADDRESS_2}</td>
+                              <td> <input name="emailaddress2" type="text" class="TaskEdit_tf" style="width:100%" value="{EmailAddress2}"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td valign="middle">{MSG_PHONE_1}</td>
+                              <td> <input name="phone1" type="text" class="TaskEdit_tf" style="width:100%" value="{Phone1}"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td valign="middle">{MSG_PHONE_2}</td>
+                              <td> <input name="phone2" type="text" class="TaskEdit_tf" style="width:100%" value="{Phone2}" ID="Text2"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td valign="middle">{MSG_MOBILE}</td>
+                              <td> <input name="phone3" type="text" class="TaskEdit_tf" style="width:100%" value="{Phone3}" ID="Text3"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="3"><img src="images/common/s.gif" width="100%" height="10"></td>
+                              </tr>
+                          </table></td>
+                      </tr>
+                      <tr align="left" valign="top">
+                        <td height="15" colspan="3" bgcolor="#E7E7E7"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                      </tr>
+                      <tr align="left" valign="top">
+                        <td height="18" colspan="3"><table height="18" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="105" align="left" valign="top" height="18" bgcolor="#E7E7E7"><a href="javascript:SubmitForm()" target="_self" onfocus="if(this.blur)this.blur()"><img src="images/icons/but_save.gif" border="0"></a></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+      </form>
+        </div>    
+    </div>
+
+
+  <script language="JavaScript">
+  <!--
+    function SubmitForm()
+    {
+        var form = document.contact;
+           form.submit();
+    }
+
+  //-->
+  </script>

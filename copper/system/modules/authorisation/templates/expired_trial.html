@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	 <head>
+		  <meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+		  <title>Copper</title>
+		  <style type="text/css" title="copper" media="screen">
+				@import "assets/styles/global.css?v={TIMESTAMP}";
+				@import "assets/styles/login.css?v={TIMESTAMP}";		 
+		  </style>
+
+		<link rel="shortcut icon" type="image/x-icon" href="assets/images/global/favicon.ico" />
+
+		<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-5821577-15']);
+		_gaq.push(['_setDomainName', 'none']);
+		_gaq.push(['_setAllowLinker', true]);
+		_gaq.push(['_setAllowHash', false]);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		</script>
+
+	 </head>
+	 <body>
+			<!-- warn those silly ie6 users. seriously. 10 years old now -->
+			<!--[if lte IE 6]>
+				<script src="assets/js/lib/ie6warning/warning.js"></script>
+				<script>window.onload=function(){e("assets/js/lib/ie6warning/")}</script>
+			<![endif]-->
+			
+				<div class="spinner" id="ajaxSpinner"><span class="spinIn" id="ajaxSpinnerInner"></span></div>
+		  <div id="preload1"></div>
+		  <div id="wrapper">
+				<!-- START HEADER -->
+				<div id="header" style="background: url('{HEADER_BG}') left top no-repeat;">
+					 <!-- START LOGO -->
+		  <h1><a href="http://www.copperproject.com/" title="{MSG_ABOUT_COPPER}" onfocus="if(this.blur)this.blur()"><img src="{LOGO}" width="136" height="41" alt="{MSG_ABOUT_COPPER}" /></a></h1>
+		  <!-- END LOGO -->
+				</div>
+				<!-- END HEADER -->
+		  <!-- START LOGIN WRAPPER -->
+				<div id="login-wrapper">
+					 <div id="login-img-top"></div>
+					 <img src="{HOME_IMAGE}" width="950" height="590" alt="" />
+					 <div id="login-island">
+						  <div id="login-island-content" class='expired_trial'>
+							  <h2 class="handle">Your Copper trial has expired!</h2>
+							  <p class="message">If you liked Copper, you can <a href='http://www.copperproject.com/pricing/'>sign up here</a>.</p>
+								<p>If you didn't, <a href='http://www.copperproject.com/contact/'>let us know why</a>.</p> 
+								<p>Finally, if you are still deciding whether to use Copper, <a href='mailto:info@copperproject.com?subject=Trial extension for {DOMAIN}'>let us know and we can extend your trial</a>.</p>
+						  </div>
+						  <div id="login-island-btm"></div>
+					 </div>
+					 <div id="login-img-btm"></div>
+				</div>
+				<!-- END LOGIN WRAPPER -->
+
+				<!-- END WRAPPER -->
+		  </div>
+		  <!-- END WRAPPER -->
+
+	 </body>
+</html>
+

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+	<meta name="version" content="{CU_PRODUCT_VERSION}">
+	<meta name="version:info" content="$Id$">
+	<title>{TITLE}</title>
+	<style type="text/css" title="copper" media="screen,print">
+		@import "assets/styles/global.css";
+		@import "assets/styles/login.css";
+		@import "assets/styles/m1.css";
+		@import "assets/styles/dragndrop.css";
+		@import "assets/styles/reports.css";
+		@import "assets/styles/alertbar.css";
+		@import "assets/styles/timer.css";
+		{STYLES}
+	</style>
+
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/global/favicon.ico" />
+
+	<script type="text/javascript">
+		var Copper = {JS_DATA};
+	</script>
+
+	<script type="text/javascript" src="assets/js/lib/prototype.js"></script>
+	<script type="text/javascript" src="assets/js/scriptaculous/scriptaculous.js?load=effects,dragdrop"></script>
+	<script type="text/javascript" src="assets/js/cu.js"></script>
+	<script type="text/javascript" src="assets/js/common.js"></script>
+	<script type="text/javascript" src="assets/js/helpers.js"></script>
+	<script type="text/javascript" src="assets/js/billing.js"></script>
+	<script type="text/javascript" src="assets/js/lib/modal.js"></script>
+	<script type="text/javascript" src="assets/js/calendar.js"></script>
+	<script type="text/javascript" src="assets/js/selectors/colourselector.js"></script>
+	<script type="text/javascript" src="assets/js/m1.js"></script>
+	<script type="text/javascript" src="assets/js/listeners.js"></script>
+
+	<!-- uploader scripts -->
+	<script type="text/javascript" src="assets/js/lib/yahoo/yahoo-dom-event.js"></script>
+	<script type="text/javascript" src="assets/js/lib/yahoo/element-min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/yahoo/uploader-min.js"></script>
+
+	<!-- datepicker stuff -->
+	<link rel="stylesheet" type="text/css" href="assets/styles/dateselector.css">
+	<script language="JavaScript" src="assets/js/selectors/selector.lib.js"></script>
+	<script language="JavaScript" src="assets/js/selectors/dateselector.js"></script>
+
+	<script type="text/javascript" src="assets/js/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery/jstree/jquery.tree.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery/jquery.uuid.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery/jquery.scrollto.min.js"></script>
+	<script type="text/javascript"> $.noConflict(); // relinquish jquery control for now until we port the old code. </script>
+	<script type="text/javascript" src="assets/js/toys.js"></script>
+	<script type="text/javascript" src="assets/js/ui.js"></script>	
+
+		<!-- finally, load google api for graphs -->
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+		
+	{SCRIPTS}
+	{HEADER}
+		
+	<!--[if IE ]>
+	 <link rel="stylesheet" href="assets/styles/iefail/fail.css" type="text/css" media="screen, projection">
+	<![endif]-->
+
+	<!--[if lte IE 6]>
+	 <link rel="stylesheet" href="assets/styles/iefail/6.css" type="text/css" media="screen, projection">
+	<![endif]-->
+
+	<!--[if IE 7]>
+	 <link rel="stylesheet" href="assets/styles/iefail/7.css" type="text/css" media="screen, projection">
+	<![endif]-->
+
+	<!--[if gt IE 7]>
+	 <link rel="stylesheet" href="assets/styles/iefail/8plus.css" type="text/css" media="screen, projection">
+	<![endif]-->
+
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', Copper.tracking.ga_tracking_code]);
+	var domain = window.location.hostname.match(/[a-z]+\.[a-z]+$/);
+	_gaq.push(['_setDomainName', (domain == null) ? 'none' : domain]);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_setAllowHash', false]);
+	
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
+
+</head>
+<body class='{ICON_STYLE}'>
+
+<div class="spinner" id="ajaxSpinner"><span class="spinIn" id="ajaxSpinnerInner"></span></div>
+
+<div id="preload1"></div>
+<!-- START WRAPPER -->
+<div id="wrapper">
+<!-- START HEADER -->
+<div id="header" class="header" style="background: url('{HEADER_BG}') left top no-repeat;">
+	<!-- START LOGO -->
+	<h1><a href="index.php?module={USER_MODULE}" title="{MSG_ABOUT_COPPER}" onfocus="if(this.blur)this.blur()"><img src="{LOGO}" width="136" height="41" alt="{MSG_ABOUT_COPPER}" /></a></h1>
+	<!-- END LOGO -->
+	{STOPWATCH}
+</div>
+<!-- END HEADER -->
+<!-- START DASH -->
+
+<div id="dash">
+
+	<div id="search-results">
+			<p>
+				<span class="d wideD" id="search-results-gohere"></span>
+			<span class="clearPlz"></span>
+			<span class="bottom"></span>
+			</p>
+	</div>
+
+	<div id="dash-header">
+		<ul id="dash-nav" class="m1">
+			{ICONS}
+		</ul>
+		<div id="search">
+			<form id="frm_search" action="" method="post" name="frm_search">
+				<div>
+				<input id="sub-search" name="sub_search" type="image" src="assets/images/search_icon.gif" />
+				<input id="fld_search" type="text" name="fld_search" onkeyup="javascript:fillResults(this.value);"/>				
+								<a href="#" class="x" id="fld_searchX"></a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<h2 id="head-module">{MODULE}</h2>
+	<ul class="horiz-nav">
+		<li></li>{actions}
+	</ul>
+	<div class="theDash">
+		{DASH}
+	</div>
+	<div id="dash-btm"></div>
+	<div class="clearPlz clearTheDash" id="clearTheDash"></div>
+</div>
+
+<!-- END DASH -->
+
+<?php foreach($alerts as $alert): ?>
+	<div class="alert_bar <?php EF::raw($alert->style) ?> closeable-<?php EF::raw($alert->closeable) ?>">
+		<h3><?php EF::raw($alert->title); ?></h3>
+		<div class="content">
+			<?php EF::raw($alert->body); ?>
+		</div>
+		<a class="close_the_alert js_close_alert" href="#" rel="<?php EF::raw($alert->id); ?>">Close</a>
+		<div class="clear"></div>
+	</div>
+<?php endforeach; ?>
+
+
+<div class="clearPlz"></div>

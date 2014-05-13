@@ -1,0 +1,69 @@
+<!-- this is the non-ajaxey tasks header on first load -->
+
+<!-- START NEW MODULE CONTENT -->
+<div id="tasklist" class="module-cont-wrapper projectlistInProjects">
+	<div class="module-cont tasks tree_parent">
+		<ul id="tasks">
+			
+			<li class="sortableHead">
+				<div class="cellTH cellFirst cell-task">
+					<p>{lblTask}</p>
+					<div class="table-sort">
+						<a href="#" onclick="taskSort('task','up',{projectID});" class="up"></a>
+						<a href="#" onclick="taskSort('task','down',{projectID});" class="down"></a>
+					</div>
+				</div>
+				<div class="cellTH cell-owner"><p>{lblOwner}</p>
+					<div class="table-sort">
+						<a href="#" onclick="taskSort('owner','up',{projectID});" class="up"></a>
+						<a href="#" onclick="taskSort('owner','down',{projectID});" class="down"></a>
+					</div>
+				</div>
+				<div class="cellTH cell-perc">
+					<p>{lblEstPercent}</p>
+					<div class="table-sort">
+						<a href="#" onclick="taskSort('progress','up',{projectID});" class="up"></a>
+						<a href="#" onclick="taskSort('progress','down',{projectID});" class="down"></a>
+					</div>
+				</div>
+				<div class="cellTH cell-priority">
+					<p>{lblPriority}</p>
+					<div class="table-sort">
+						<a href="#" onclick="taskSort('priority','up',{projectID});" class="up"></a>
+						<a href="#" onclick="taskSort('priority','down',{projectID});" class="down"></a>
+					</div>
+				</div>
+				<div class="cellTH cell-eff">
+					<p>{lblEst} / {lblCom} / {lblAct}</p>
+				</div>
+				<div class="cellTH cell-latest">
+					<p>{lblLatestActivity}</p>
+					<div class="table-sort">
+						<a href="#" onclick="taskSort('latest','up',{projectID});" class="up"></a>
+						<a href="#" onclick="taskSort('latest','down',{projectID});" class="down"></a>
+					</div>
+				</div>
+				<div class="cellTH cell-start">
+					<p>{lblStart}</p>
+					<div class="table-sort">
+						<a href="#" onclick="taskSort('start','up',{projectID});" class="up"></a>
+						<a href="#" onclick="taskSort('start','down',{projectID});" class="down"></a>
+					</div>
+				</div>
+				<div class="cellTH cellLast cell-end">
+					<p>{lblEnd}</p>
+					<div class="table-sort">
+						<a href="#" onclick="taskSort('deadline','up',{projectID});" class="up"></a>
+						<a href="#" onclick="taskSort('deadline','down',{projectID});" class="down"></a>
+					</div>
+				</div>
+			</li>
+		</ul>
+								
+		<div class='js_jstree'>
+			<ul>
+			{txtTasks}
+			</ul>
+		</div>
+	</div>
+</div>

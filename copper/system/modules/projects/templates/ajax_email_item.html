@@ -1,0 +1,46 @@
+                        <div class="cell cell-expanded-nav">
+                            <ul class="horiz-nav">
+                                <li><a href="#">REPLY</a></li>
+                                <li>|<a href="#">FORWARD</a></li>
+                                <li>|<a href="index.php?module=projects&action=deleteemail&projectid={txtProjectID}&email={txtID}" class="lbOn" rel="confirmLightBox" >DELETE</a></li>
+                            </ul>
+                        </div>
+                        <div class="expand">
+                            <!-- START MODULE CONTENT -->
+                            <div class="module-cont-compact">
+                                <!-- START LEFT COL -->
+                                <div class="col-l">
+                                    <p>{txtBody}</p>
+                                </div>
+                                <!-- END LEFT COL -->
+                                <!-- START RIGHT COL -->
+                                <div class="col-r">
+                                
+                                    <h4 class="toggler"><a class="max" href="#email-details" onclick="toggleComponent(this,'email-details'); return false;">Details</a></h4>
+                                    <div class="email-details">
+                                        <dl>
+                                            <dt>Date</dt>
+                                            <dd>{txtDate}</dd>
+                                            <dd class="divider">&nbsp;</dd>                                 
+                                            
+                                            <dt>From</dt>
+                                            <dd>{txtFrom}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                                                                        
+                                            <dt>To</dt>
+                                            <dd>{txtTo}</dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                                                                        
+                                            <dt>Link to .eml</dt>
+                                            <dd><a href="index.php?module=projects&action=saveemailaseml&email={txtID}&projectid={txtProjectID}">.eml</a></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                        </dl>
+                                        <div class="clear">&nbsp;</div>
+                                    </div>
+                                        
+                                </div>
+                                <!-- END RIGHT COL -->
+                            </div>
+                        </div>
+                        <!-- END MODULE CONTENT -->

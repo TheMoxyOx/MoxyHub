@@ -1,0 +1,120 @@
+<tr>
+  <td align="center" valign="top"><table class="outer" border="0" cellpadding="10" cellspacing="0" bgcolor="#E7E7E7" >
+    <tr>
+      <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0" >
+            <tr align="left" valign="top">
+              <td class="innercell"><table border="0" cellspacing="0" cellpadding="0" class="innercell">
+                  <tr>
+                    <td width="100%" colspan="2"><span class="header">{txtName}</span></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td colspan="2" width="100%">{txtDescription}</td>
+                  </tr>
+                  <tr align="left" valign="middle" bgcolor="#CCCCCC">
+                    <td height="15" colspan="2"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td width="50%">{lblProject}</td>
+                    <td width="50%"><strong>{txtProject}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td width="50%">{lblOwner}</td>
+                    <td width="50%"><strong>{txtOwnerName}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td>{lblCreated}</td>
+                    <td><strong>{txtStartDate}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td>{lblDeadline}</td>
+                    <td><strong>{txtEndDate}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td>{lblDuration}</td>
+                    <td><strong>{txtDuration}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td>{lblActualDuration}</td>
+                    <td><strong> {txtActualDuration}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td>{lblBudgetTarget}</td>
+                    <td><strong>{txtBudgetTarget}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td>{lblBudgetActual}</td>
+                    <td><strong>{txtBudgetActual}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="20" colspan="2"><img src="images/common/s.gif" width="100%" height="20"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td colspan="2"><strong>{lblDependencies}</strong></td>
+                  </tr>
+                  <tr align="left" valign="middle" bgcolor="#CCCCCC">
+                    <td height="15" colspan="2"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td colspan="2">{taskDependencies}</td>
+                  </tr>
+                  <tr align="left" valign="middle">
+                    <td height="20" colspan="2"><img src="images/common/s.gif" width="100%" height="20"></td>
+                  </tr>
+                  {FileList}
+                  <tr align="left" valign="middle">
+                    <td height="20" colspan="2"><img src="images/common/s.gif" width="100%" height="20"></td>
+                  </tr>
+                </table></td>
+              <td class="innersplit" valign="top"><img src="images/common/s.gif" class="innersplit"></td>
+              <td class="innercell" valign="top"><!-- start flash table -->
+                <form name="assignuser" action="index.php" method="post">
+                  <input type="hidden" name="module" value="projects" >
+                  <input type="hidden" name="action" value="assignuser" >
+                  <input type="hidden" name="taskID" value="{TaskID}" >
+                  <table border="0" cellspacing="0" cellpadding="0" class="innercell">
+                    <tr>
+                      <td colspan="2"><strong>{lblAssignedUsers}</strong></td>
+                    </tr>
+                    <tr align="left" valign="middle" bgcolor="#CCCCCC">
+                      <td height="15" colspan="2" bgcolor="{txtColour}"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                    </tr>
+                    <tr align="left" valign="middle">
+                      <td colspan="2"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="444" height="197">
+                          <param name="movie" value="system/modules/projects/templates/task-commitment.swf">
+                          <param name="quality" value="high">
+                          <param name="bgcolor" value="#ffffff">
+                          <param name="FlashVars" value="taskID={TaskID}">
+                          <embed src="system/modules/projects/templates/task-commitment.swf" FlashVars="taskID={TaskID}" quality="high" bgcolor="#ffffff" width="444" height="197" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+                        </object></td>
+                    </tr>
+                    <tr align="left" valign="top">
+                      <td height="10" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="10"></td>
+                    </tr>
+                  </table>
+                </form>

@@ -1,0 +1,120 @@
+<ul id="billablelist">
+
+	<!-- START BILLABLE ITEMS HEADER ROW -->
+	<li class="sortableHead">
+		<div class="cellTH cellFirst cell-task">
+			<p>{MSG_TASKS_AND_RESOURCES}</p>
+		</div>
+		<div class="cellTH cell-budget">
+			<p>{MSG_BUDGET}</p>
+		</div>
+		<div class="cellTH cell-esthrs">
+			<p>{MSG_EST_HRS}</p>
+		</div>
+		<div class="cellTH cell-logged">
+			<p>{MSG_LOGGED}</p>
+		</div>
+		<div class="cellTH cell-billed">
+			<p>{MSG_TOTAL}/{MSG_BILLED}</p>
+		</div>
+		<div class="cellTH cell-tobill">
+			<p>{MSG_TO_BILL}</p>
+		</div>
+		<div class="cellTH cell-billthis cellLast">
+			<p>{MSG_BILL_THIS_ITEM_NOW}</p>
+		</div>
+	<!--					 <div class="cellTH cellLast cell-tick"><input class="checkbox" type="checkbox" /></div> -->
+	</li>
+	<!-- END BILLABLE ITEMS HEADER ROW -->
+
+	<?php EF::raw($task_list); ?>
+
+	<li>
+		<div class="sortableMeta total">
+			<div class="cell cellFirst cell-tasktotals">{MSG_TASK_TOTALS}</div>
+			<div class="cell cell-budget"><?php EF::money($task_totals['TargetBudget']) ?></div>
+			<div class="cell cell-esthrs"><?php EF::t($task_totals['Duration']) ?></div>
+			<div class="cell cell-logged"><?php EF::t($task_totals['HoursWorked']) ?>hrs</div>
+			<div class="cell cell-billed"><?php EF::t($task_totals['Billed']) ?></div>
+			<div class="cell cell-tobill" id="totalToBill"><?php EF::t($task_totals['ToBill']) ?></div>
+	<!--						 <div class="cell cellLast cell-tick"></div> -->
+		</div>
+	</li>
+
+	<!-- END BILLABLE ITEM -->
+</ul>
+
+<ul id="otheritemslist" class="otheritemslist">
+	<!-- START OTHER ITEMS HEADER ROW -->
+	<li class="sortableHead">
+		<div class="cellTH cell-task">
+			<p>{MSG_OTHER_ITEMS}</p>
+		</div>
+
+		<div class="cellTH cell-budget">
+			<p>{MSG_BUDGET}</p>
+		</div>
+		<div class="cellTH cell-rate">
+			<p>{MSG_COST}</p>
+		</div>
+		<div class="cellTH cell-charge">
+			<p>{MSG_CHARGE}</p>	 
+		</div>
+		<div class="cellTH cell-billed">
+			<p><!-- {MSG_BILLED} -->&nbsp;</p>
+		</div>
+		<div class="cellTH cell-tobill">
+			<p>{MSG_TO_BILL}</p>
+		</div>
+		<div class="cellTH cell-addnewother cellLast">
+			<p>{MSG_ADD}</p>
+		</div>
+	</li>
+	<!-- END OTHER ITEMS HEADER ROW -->
+	<?php EF::raw($other_items_list); ?>
+	<div id="addedItems"></div>
+	
+	<li class="sortable droppable collapsed">
+		<div class="sortableMeta" id="otherItemsEditRow">
+			<input type="hidden" value="<?php EF::val($project->ID); ?>" id="projectid" />
+			<input type="hidden" value="projects" id="module" />
+			<input type="hidden" value="ajaxaddotheritem" id="action" />
+			<input type="hidden" name="esthrs" class="edit" id="est" value="1" />
+			<input type="hidden" name="logged" class="edit" id="logged" value="1" />
+			<div class="cell cellFirst cell-task"><input type="text" name="task" class="edit" id="task" value="" /></div>
+			<div class="cell cell-budget"><input type="text" name="budget" class="edit" id="budget" value="" /></div>
+			<div class="cell cell-rate"><input type="text" name="rate" class="edit" id="cost" value="" /></div>
+			<div class="cell cell-charge"><input type="text"	name="charge"class="edit" id="charge" value="" /></div>
+			<div class="cell cell-billed"></div>
+			<div class="cell cell-tobill"></div>
+			<div class="cell cellLast cell-addnewother"><img width="8" height="16" border="0" src="assets/images/btn/btn_add.gif" alt="Add" id="addOtherItem"/></div>
+		</div>
+	</li>
+	
+	<li>
+		<div class="sortableMeta total">
+			<div class="cell cellFirst cell-otheritemssubtotal">Other items subtotal</div>
+			<div class="cell cell-budgetsubtotal"><?php EF::t($other_totals['Budget']); ?></div>
+			<div class="cell cell-rate"><?php EF::money($other_totals['Cost']); ?></div>
+			<div class="cell cell-charge"><?php EF::money($other_totals['Charge']); ?></div>
+			<div class="cell cell-billed"><?php EF::money($other_totals['Billed']); ?></div>
+			<div class="cell cell-tobill"	id="totalOtherToBill"><?php // EF::money($other_totals['ToBill']); ?></div>
+	<!--						 <div class="cell cellLast cell-tick"></div> -->
+		</div>
+	</li>
+	
+	<li>
+		<div class="sortableMeta project-total">
+			<div class="cell cellFirst cell-projecttotals">{MSG_PROJECT_TOTALS}</div>
+			<div class="cell cell-rate"></div>
+			<div class="cell cell-charge"></div>
+			<div class="cell cell-budget"><?php EF::money($project_totals['Budget']); ?></div>
+			<div class="cell cell-esthrs"></div>
+			<div class="cell cell-logged"></div>
+			<div class="cell cell-invoicetotaltitle">{MSG_INVOICE_TOTAL}</div>
+			<div class="cell cell-tobill"	id="totalProjectToBill"><?php EF::money($project_totals['ToBill']); ?></div>
+	<!--						 <div class="cell cellLast cell-tick"></div> -->
+		</div>
+	</li>
+	<!-- END OTHER ITEM -->
+</ul>

@@ -1,0 +1,146 @@
+<form name="group" method="post" action="index.php">
+    <input type="hidden" name="module" value="administration" >
+    <input type="hidden" name="action" value="groupsave" >
+    <input type="hidden" name="id" value="{txtID}" >
+    <input type="hidden" name="hassign" value="">
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+            <td align="left" valign="top" bgcolor="#FFFFFF">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr align="left" valign="top">
+                        <td class="innercell">
+                            <table border="0" cellspacing="0" cellpadding="0" class="innercell">
+                                <tr align="left" valign="top">
+                                    <td colspan="2" nowrap><span class="header">{txtGroupName}</span></td>
+                                </tr>
+                                <tr align="left" valign="top" bgcolor="#CCCCCC">
+                                    <td height="15" colspan="2" nowrap><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                                </tr>
+                                <tr align="left" valign="top">
+                                    <td width="50%" valign="middle" nowrap>{lblGroupName}</td>
+                                    <td width="50%"><input type="text" name="groupname" style="width:100%" class="TaskEdit_tf" value="{txtGroupName}">
+                                    </td>
+                                </tr>
+                                <tr align="left" valign="top">
+                                    <td height="20" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="20"></td>
+                                </tr>
+                                <tr align="left" valign="top">
+                                    <td width="100%" colspan="2" nowrap><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr align="left" valign="top">
+                                                <td width="200"><strong>{MSG_USERS}</strong><br /><select name="users" size="10" multiple style="width: 100%" ondblclick="MoveOption(document.group.users, document.group.assigned);">{selectUsers}</select></td>
+                                                <td height="100%"><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td height="20" colspan="3"><img src="images/common/s.gif" width="100%" height="20"></td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td align="right"><table width="12" height="12" border="0" cellpadding="0" cellspacing="0" bgcolor="#00CCFF">
+                                                                    <tr>
+                                                                        <td valign="top"><a href="javascript:MoveOption(document.group.assigned, document.group.users)" target="_self" onfocus="if(this.blur)this.blur()"><img src="images/common/arrow_remove_mask.gif" width="12" height="12" border="0"></a></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td width="10" height="60"><img src="images/common/s.gif" width="10" height="60"></td>
+                                                            <td align="left">
+                                                                <table width="12" height="12" border="0" cellpadding="0" cellspacing="0" bgcolor="#00CCFF">
+                                                                    <tr>
+                                                                        <td><a href="javascript:MoveOption(document.group.users, document.group.assigned)" target="_self" onfocus="if(this.blur)this.blur()"><img src="images/common/arrow_add_mask.gif" width="12" height="12" border="0"></a></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td width="200"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td><strong>{MSG_ASSIGNED_TO_GROUP}</strong></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><select name="assigned" size="10" multiple  style="width:100%" ondblclick="MoveOption(document.group.assigned, document.group.users);">{selectAssigned}</select></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                    </table></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="innersplit">
+                            <img src="images/common/s.gif" class="innersplit">
+                        </td>
+                        <td class="innercell">
+                            <table border="0" cellspacing="0" cellpadding="0" class="innercell">
+                                {perms}
+                            </table>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td height="20" colspan="3"><img src="images/common/keyline_mask.gif" width="100%" height="20"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+<script language="javascript">
+    <!--
+
+    function MoveOption(objSourceElement, objTargetElement)
+    {
+        var aryTempSourceOptions = new Array();
+        var x = 0;
+
+        //looping through source element to find selected options
+        for (var i = 0; i < objSourceElement.length; i++) {
+            if (objSourceElement.options[i].selected) {
+                //need to move this option to target element
+                var intTargetLen = objTargetElement.length++;
+                objTargetElement.options[intTargetLen].text = objSourceElement.options[i].text;
+                objTargetElement.options[intTargetLen].value = objSourceElement.options[i].value;
+            }
+            else {
+                //storing options that stay to recreate select element
+                var objTempValues = new Object();
+                objTempValues.text = objSourceElement.options[i].text;
+                objTempValues.value = objSourceElement.options[i].value;
+                aryTempSourceOptions[x] = objTempValues;
+                x++;
+            }
+        }
+
+        //resetting length of source
+        objSourceElement.length = aryTempSourceOptions.length;
+        //looping through temp array to recreate source select element
+        for (var i = 0; i < aryTempSourceOptions.length; i++) {
+            objSourceElement.options[i].text = aryTempSourceOptions[i].text;
+            objSourceElement.options[i].value = aryTempSourceOptions[i].value;
+            objSourceElement.options[i].selected = false;
+        }
+    }
+
+
+    function SubmitForm()
+    {
+        var form = document.group;
+        var fl = form.assigned.length - 1;
+        var grpName = form.groupname.value;
+
+        if (grpName.length < 1)
+        {
+            alert('{MSG_ENTER_A_GROUP_NAME}');
+            return;
+        }
+        form.hassign.value = "";
+        icount = 1;
+        for (fl; fl > -1; fl--) {
+            if (icount == 1) {
+                form.hassign.value = form.assigned.options[fl].value;
+            } else {
+                form.hassign.value = form.assigned.options[fl].value + "," + form.hassign.value;
+            }
+            ++icount;
+        }
+
+        form.submit();
+    }
+    -->
+</script>

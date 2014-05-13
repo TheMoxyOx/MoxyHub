@@ -1,0 +1,169 @@
+    <!-- START MODULE CONTENT WRAPPER -->
+    <div class="module-cont-wrapper">
+        <!-- START MODULE HEADER -->
+        <div class="module-cont-header">
+            <h2>{MSG_SETTINGS}</h2>
+            <ul class="horiz-nav">
+                <li><a href="#" onclick="document.settings.submit(); return false;">{MSG_SAVE_CHANGES}</a></li>
+            </ul>
+        </div>
+        <!-- END MODULE HEADER -->
+<form name="settings" id="settings-form" method="post" action="index.php" enctype="multipart/form-data">
+<input type="hidden" name="module" value="administration">  
+<input type="hidden" name="action" value="savesettings">  
+        <!-- START MODULE CONTENT -->
+        <div class="module-cont admin-settings">
+            <!-- START LEFT COL -->
+            <div class="col-l">
+            
+                <h4 class="toggler"><a class="max" href="#general" onclick="toggleComponent(this,'general'); return false;">{MSG_GENERAL}</a></h4>
+                <div class="general">
+                    <dl>
+                        <dt>{MSG_RECORDS_PER_PAGE}</dt>
+                        <dd><input class="edit" name="records_per_page" value="{txt_records_per_page}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_CURRENCY_SYMBOL}</dt>
+                        <dd><input class="edit" name="currency_symbol" value="{txt_currency_symbol}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_VIEW_DATE_FORMAT}</dt>
+                        <dd>
+                        <select class="edit" name="pretty_date_format">
+                            {txt_pretty_date_format}
+                        </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_FORM_DATE_FORMAT}</dt>
+                        <dd>
+                        <select class="edit" name="date_format">
+                            {txt_date_format}
+                        </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_DISABLE_NICE_DATES}</dt>
+                        <dd><input class="checkbox" type="checkbox" name="disable_nice_dates" {txt_disable_nice_dates}/></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_TIME_ZONE}</dt>
+                        <dd>
+                            <select class="edit" name="time_zone">
+                                {txt_time_zone}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_DEFAULT_LANGUAGE}</dt>
+                        <dd>
+                            <select class="edit" name="default_language">
+                                {DEFAULT_LANGUAGE_SELECT}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_START_OF_WEEK}</dt>
+                        <dd>
+                            <select class="edit" name="weekstart">
+                                {weekStartOptions}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_RESOURCE_MANAGEMENT}</dt>
+                        <dd>
+                            <select class="edit" name="resource_management">
+                                {resourceManagementOptions}    
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_SHOW_SYSTEM_USERS_IN_CONTACTS}</dt>
+                        <dd><input class="checkbox" type="checkbox" name="users_in_contacts" {txt_users_in_contacts}/></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                    </dl>
+                </div>
+                
+            </div>
+            <!-- END LEFT COL -->
+            <!-- START RIGHT COL -->
+            <div class="col-r">
+                
+                <h4 class="toggler"><a class="max" href="#proj-settings" onclick="toggleComponent(this,'proj-settings'); return false;">{MSG_PROJECT_SETTINGS}</a></h4>
+                <div class="proj-settings">
+                    <dl>
+                        <dt>{MSG_PROJECT_ID_COUNTER}</dt>
+                        <dd><input class="checkbox" type="checkbox" name="auto_id" value="1" {txt_auto_id} />&nbsp;<input class="edit short" name="id_value" value="{txt_id_value}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_USERS_CAN_EDIT_THEIR_LOG_UPDATES}</dt>
+                        <dd><input class="checkbox" type="checkbox" name="task_log_edit" value="1" {txt_task_log_edit} /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_SHOW_DEPENDENT_TASKS_IN_SPRINGBOARD}</dt>
+                        <dd><input class="checkbox" type="checkbox" name="show_dependent_tasks" value="1" {txt_show_dependent_tasks}/></dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_CONVERT_HOURS_TO_DAYS}</dt>
+                        <dd><input class="checkbox" type="checkbox" name="convert_to_days" value="1" {txt_convert_to_days}/></dd>
+                        <dd class="divider">&nbsp;</dd>
+                    </dl>
+                </div>
+                
+                <h4 class="toggler"><a class="max" href="#email-notifications" onclick="toggleComponent(this,'email-notifications'); return false;">{MSG_EMAIL_NOTIFICATIONS}</a></h4>
+                <div class="email-notifications">
+                    <dl>
+                        <dt>{MSG_SEND_ALERT_BEFORE_TASK_IS_DUE} ({MSG_DAYS})</dt>
+                        <dd>
+                            <select class="edit" name="days_before">
+                                <option value="0">{MSG_OFF}</option>
+                                {before_task}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_SEND_ALERT_AFTER_TASK_IS_DUE} ({MSG_DAYS})</dt>
+                        <dd>
+                            <select class="edit" name="days_after">
+                                <option value="0">{MSG_OFF}</option>
+                                {after_task}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_SEND_ALERTS_AFTER_EVERY_UPDATE}</dt>
+                        <dd><input class="checkbox" type="checkbox" name="email_updates" value="1" {email_updates}/></dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_SEND_ALERTS_TO_TASK_OWNER}</dt>
+                        <dd><input class="checkbox" type="checkbox" name="cc_alerts" value="1" {cc_alerts} /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                    </dl>
+                </div>
+                
+                <h4 class="toggler"><a class="max" href="#billing" onclick="toggleComponent(this,'billing'); return false;">{MSG_BILLING}</a></h4>
+                <div class="billing">
+                    <dl>
+                        <dt>{MSG_DEFAULT_TERMS} ({MSG_DAYS})</dt>
+                        <dd><input class="edit" name="terms" value="{terms}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{MSG_DEFAULT_HOURLY_RATE} ({txt_currency_symbol})</dt>
+                        <dd><input class="edit" name="hourly_rate" value="{txt_hourly_rate}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_TAX_RATE} (%)</dt>
+                        <dd><input class="edit" name="tax_rate" value="{txt_tax_rate}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                    </dl>
+                </div>
+                
+            </div>
+            <!-- END RIGHT COL -->
+        </div>
+        <!-- END MODULE CONTENT -->
+</form>
+    </div>
+    <!-- START MODULE CONTENT WRAPPER -->

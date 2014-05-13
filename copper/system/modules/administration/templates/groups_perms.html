@@ -1,0 +1,77 @@
+                <!-- inserting perms here -->
+                    <tr><td colspan="3" width="100%"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr align="left" valign="top"> 
+                              <td nowrap><strong>{MSG_PERMISSIONS}</strong></td>
+                          </tr>
+                          <tr align="left" valign="middle" bgcolor="#CCCCCC"> 
+                            <td height="15" colspan="7"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                          </tr>
+                         </form>
+                             <form action="index.php" method="post" name="addmodule">
+                          <input type="hidden" name="module" value="administration">
+                          <input type="hidden" name="action" value="{MODULEACTION}">
+                          <input type="hidden" name="id" value="{USERID}">
+                          <tr align="left" valign="middle">
+                            <td>{MSG_AREAS}&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td width="60%"><select name="objectid" style="width: 100%">{MODULELIST}</select></td>
+                            <td>&nbsp;</td>
+                            <td width="10%"><select name="accessid" style="width: 100%">{MODULEACCESSLIST}</select></td>
+                            <td nowrap>&nbsp;</td>
+                            <td width="20" nowrap><a class="linkon" href="javascript:document.addmodule.submit();">{MSG_ADD}</a></td>
+                          </tr>
+                          </form>
+                          <form action="index.php" method="post" name="addclient">
+                          <input type="hidden" name="module" value="administration">
+                          <input type="hidden" name="action" value="{CLIENTACTION}">
+                          <input type="hidden" name="id" value="{USERID}">
+                          <input type="hidden" name="objectid" value="clients">
+                          <tr align="left" valign="middle"> 
+                            <td height="100%">{MSG_CLIENTS}&nbsp;</td>
+                            <td height="100%">&nbsp;</td>
+                            <td><select name="itemid" style="width: 100%">{CLIENTITEMLIST}</select></td>
+                            <td height="100%">&nbsp;</td>
+                            <td nowrap><select name="accessid" style="width: 100%">{ACCESSLIST}</select></td>
+                            <td nowrap>&nbsp;</td>
+                            <td nowrap><a class="linkon" href="javascript:document.addclient.submit();">{MSG_ADD}</a></td>
+                          </tr>
+                          </form>
+                          <form action="index.php" method="post" name="addproj">
+                          <input type="hidden" name="module" value="administration">
+                          <input type="hidden" name="action" value="{PROJECTACTION}">
+                          <input type="hidden" name="id" value="{USERID}">
+                          <input type="hidden" name="objectid" value="projects">
+                          <tr align="left" valign="middle">
+                            <td height="100%">{MSG_PROJECTS}&nbsp;</td>
+                            <td height="100%">&nbsp;</td>
+                            <td><select name="itemid" style="width: 100%">{PROJECTITEMLIST}</select></td>
+                            <td height="100%">&nbsp;</td>
+                            <td nowrap><select name="accessid" style="width: 100%">{ACCESSLIST}</select></td>
+                            <td nowrap>&nbsp;</td>
+                            <td nowrap><a class="linkon" href="javascript:document.addproj.submit();">{MSG_ADD}</a></td>
+                          </tr>
+                          </form>
+                          <tr align="right" height="15"> 
+                            <td height="20" align="left" colspan="7" bgcolor="#FFFFFF"><img src="images/common/s.gif" width="100%" height="20"></td>
+                          </tr>
+                            <tr>
+                              <td width="100">&nbsp;</td>
+                              <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                              <td width="100" nowrap><strong>{MSG_OBJECT}</strong></td>
+                              <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                              <td width="50" nowrap><strong>{MSG_ACCESS}</strong></td>
+                              <td width="20" height="100%"><img src="images/common/s.gif" width="20" height="20"></td>
+                              <td width="50" nowrap><strong>{MSG_ACTION}</strong></td>
+                            </tr><tr align="left" valign="middle"> 
+                              <td height="15" valign="top" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                              <td height="15" valign="top"><img src="images/common/s.gif" width="20" height="15"></td>
+                              <td height="15" valign="top" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                              <td height="15" valign="top"><img src="images/common/s.gif" width="20" height="15"></td>
+                              <td height="15" valign="top" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                              <td height="15" valign="top"><img src="images/common/s.gif" width="20" height="15"></td>
+                              <td height="15" valign="top" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                          </tr>    
+                            {ITEMS}
+                          
+                            </table></td></tr>
+                    <!-- end perms-->                          

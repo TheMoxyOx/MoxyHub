@@ -1,0 +1,27 @@
+/*
+http://mahzeh.org/?p=23 (explains why login island needs to appear before header in markup)
+*/
+
+/* Login image
+-----------------------------------------------*/
+#login-wrapper {position:relative; margin-bottom: 2em;}
+#login-wrapper img {position:relative; display:block; z-index:-1; top:-2px}
+#login-img-top {background: transparent url(../images/login/login_img_cnrs_top.gif) left top no-repeat; position:relative; height:2px;}
+#login-img-btm {background: transparent url(../images/login/login_img_cnrs_btm.gif) left top no-repeat; position:relative; height:2px; top:-4px;}
+
+/* Login form
+-----------------------------------------------*/
+#login-island {background:transparent url(../images/login/login_island_top.gif) left top no-repeat; position:absolute; top:60px; left:325px; width:320px; padding: 2px 0 0 0;  text-align:left; z-index:1001;}
+#login-island-content {background:#fff; padding:8px 10px;}
+#login-island h2 {cursor:move; background:#303030 url(../images/login/login_island_head_bg.gif) 0 0 no-repeat; color:#fff; height:31px; padding:9px 10px 0 45px; margin: 0 0 0.5em 0; font-size:16px; overflow:hidden;}
+#login-island ul, #login-island dl, #login-island p {padding: 0 10px;}
+#login-island dl {}
+#login-island dt, #login-island dd {width:140px;}
+#login-island p {clear:both; font-size:10px; }
+#login-island p.message span {display:block; padding: 5px 0; color:#d90000;}
+#login-island .submit {font-family:Arial,Helvetica,Tahoma,sans-serif; font-weight:bold; font-size:10px; text-transform:uppercase; text-decoration:none; background: #fff; border: none; padding: 0; margin: 0 0 10px 0; cursor: pointer;}
+#login-island button.submit{margin-left: -3px;}
+#login-island .submit:hover, #login-island .submit:focus{color: #09f;}
+#login-island-btm {clear:both; height:2px; background:transparent url(../images/login/login_island_btm.gif) left top no-repeat;}
+
+#login-island-content.expired_trial p {font-size: 12px; line-height: 2em; padding-top: 10px; padding-bottom: 10px;}

@@ -1,0 +1,196 @@
+/* Projects - Generic
+----------------------------------------------*/
+
+/* Related tasks */
+.project-related p {margin:0.5em 0; padding:0 5px;}
+/* Task dependencies  */
+.task-dependencies p {margin:0.5em 0; padding:0 5px;}
+/* Project resources & details */
+.project-details, .project-resources dl {margin:0;}
+.project-details dt, .project-details dd, .project-resources dt, .project-resources dd {padding: 5px;}
+.project-details dt, .project-resources dt {width:193px;}
+.project-details dd, .project-resources dd {width:232px;}
+
+
+/* Projects > Budgets
+----------------------------------------------*/
+.sortableMeta .cell-invoice a.check_me_out_im_a_freakin_edit{background: #f9f9f9 url(../images/dragndrop/edit-mode-pencil.jpg) no-repeat 5px 50% !important; height: 24px;}
+
+#billing_overview p.explain_the_graphs, #invoices_timeline p.explain_the_graphs{text-align: center; background: #f7f7f7; font-weight: normal; padding: 5px 0; color: #666;}
+#invoices_timeline p.explain_the_graphs{text-align: left;padding-left: 70px;}
+
+/* invoicelist sortable */
+.module-cont.invoicelist {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+/* invoicelist Header */
+#invoicelist .sortableHead .cell-invoice {width:600px;}
+/* reset the cursor for bs sortables */
+#invoicelist .sortableMeta span { cursor: auto; }
+/* invoicelist cols */
+
+#invoicelist .cell-desc {width:360px;}
+#invoicelist .cell-type {width:72px;}
+#invoicelist .cell-duedate {width:98px;}
+#invoicelist .cell-subtotal {width:80px;}
+#invoicelist .cell-tax {width:100px;}
+#invoicelist .cell-total {width:70px;}
+#invoicelist .cell-amount {width:70px;}
+#invoicelist .cell-invoice {width:580px;}
+#invoicelist .cell-invoice input {width:192px;}
+#invoicelist .cell-duedate input {width:70px;}
+
+/* Collapsable task list */
+#invoicelist .invoicetasklist .cell-task {width:200px; padding-left:0; font-weight:normal;}
+#invoicelist .invoicetasklist .cell-message {width:200px; padding-right:0px;}
+#invoicelist .invoicetasklist .cell-message textarea {width:100%;}
+
+/* billablelist sortable */
+.module-cont.billablelist {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+#billablelist .sortable .cell-expanded-nav {display:none;}
+
+/* billablelist Header */
+#billablelist .sortableHead .cell-task {width:320px;}
+
+/* billablelist cols */
+/* lost 70px from cell-billable */
+#billablelist, #otheritemslist{padding-top: 6px; padding-left: 20px; border-left: 1px dotted #ccc;}
+#otheritemslist{border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+#billablelist .cell-task {width:300px;}   
+#otheritemslist .cell-task{width: 320px;}
+#otheritemslist .cell-budget, #billablelist .cell-budget {width:69px;}   
+#otheritemslist .cell-esthrs, #billablelist .cell-esthrs {width:70px;}   
+#otheritemslist .cell-logged, #billablelist .cell-logged {width:70px;}
+#otheritemslist .cell-billed, #billablelist .cell-billed {width:120px;}
+#otheritemslist .cell-tobill, #billablelist .cell-tobill {width:60px;}   
+#otheritemslist .cell-addnewother, #billablelist .cell-billthis, #otheritemslist .cell-removenewother {width:60px;}   
+#otheritemslist .cell-tick, #billablelist .cell-tick {width:60px; position: relative; height: 16px;} 
+
+
+
+/* Collapsable task list */
+#billablelist .billableresourcelist .cell-task{padding-left: 0; width: 320px;}
+#billablelist .billableresourcelist .cell-userloggedhrs{width: 175px; text-align: right; padding-right: 5px;}
+#billablelist .billableresourcelist .cell-usercharge{width: 70px;}
+
+
+
+/* otheritemslist Header */
+#otheritemslist .sortableHead .cell-task,
+#otheritemslist .sortableHead .cell-budget,
+#otheritemslist .sortableHead .cell-esthrs,
+#otheritemslist .sortableHead .cell-logged,
+#otheritemslist .sortableHead .cell-rate,
+#otheritemslist .sortableHead .cell-charge,
+#otheritemslist .sortableHead .cell-billable,
+#otheritemslist .sortableHead .cell-billed,
+#otheritemslist .sortableHead .cell-tobill,
+#otheritemslist .sortableHead .cell-addnewother,
+#otheritemslist .sortableHead .cell-tick {overflow: hidden;}
+
+
+/* hide these guys */
+#otheritemslist .sortableHead .cell-logged{border-color: #fff;}
+#otheritemslist .cell-esthrs{border-color:#fff; width: 50px; }
+
+/* otheritemslist sortable */
+.module-cont.otheritemslist {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+#otheritemslist .cellFirst{padding-left: 0;}
+#otheritemslist .cell-rate{width:70px;}   
+#otheritemslist .cell-charge{width:70px;}   
+
+#otheritemslist .cell-tick{position: relative;}
+#otheritemslist .cell-tick input{margin: 0 auto;}
+#otheritemslist .cell-tick a{ display: block;}
+#otheritemslist .sortable .cell-expanded-nav {display:none;}
+#otheritemslist .sortableMeta .cell-addnewother, #otheritemslist .sortableMeta .cell-removenewother{text-align: center;}
+#otheritemslist .sortableMeta .cell-addnewother img, #otheritemslist .sortableMeta .cell-removenewother img{padding: 0 10px;}
+
+
+/* otheritemslist cols */
+/* see #billablelist */
+
+/* totals */
+#otheritemslist .total, #billablelist .total {background:#e7e7e7; margin-top:2px; border-bottom: 1px solid #ccc;}
+#otheritemslist .project-total {background: #e7e7e7; padding-top:5px; margin-top:0;}
+#billablelist .cell-tasktotals{width: 315px; padding-left: 5px;}
+#otheritemslist .cell-budgetsubtotal{width: 70px;}
+#otheritemslist .cell-otheritemssubtotal{width:315px; padding-left: 5px;}
+
+
+/* last of all */
+#otheritemslist .project-total{background: #fff; border:3px solid #ccc;}
+#otheritemslist .cell-projecttotals{width: 132px; padding-left: 5px;}
+
+/* totals */
+#otheritemslist .checkbox, #billablelist .checkbox {position: absolute; top:0; left: 50%; margin-left: -8px;}
+
+#otheritemslist .project-total .cell-invoicetotaltitle { font-weight:bold; padding-left:100px; text-align:right; width:100px;}
+#otheritemslist .project-total .cell-tobill{width: 75px; text-align: right;}
+
+#totalProjectToBill{padding-right: 0;}
+
+
+/* Projects > Budgets > purchase items! Golly.
+----------------------------------------------*/
+.purchase_items .cell-task{width:340px;}
+.purchase_items .cell-budget{width:120px;}
+.purchase_items .cell-cost{width:120px;}
+.purchase_items .cell-charge{width:200px;}
+.purchase_items .cell-addnewother{width:50px; text-align: center;}
+.purchase_items .cell input{width: 100%;}
+
+.purchase_items .sortableMeta{overflow: visible;} /*not quite sure why this is happening, this is a quick fix */
+
+.purchase_items .cell-addnewother input, .purchase_items .cell-addnewother a{background: none; border: 1px solid #fff; font-weight: bold; color: #333; cursor: pointer; font-size: 14px;}
+.purchase_items .cell-addnewother input:hover, .purchase_items .cell-addnewother a:hover{color: #09f;}
+
+/* Projects > Emails
+----------------------------------------------*/
+
+/* emaillist sortable */
+.module-cont.emaillist {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+/* emaillist Header */
+#emaillist .sortableHead .cell-subject {width:344px;}
+
+/* emaillist cols */
+#emaillist .cell-subject {width:324px;}
+#emaillist .cell-date {width:66px;}
+#emaillist .cell-from {width:160px;}
+#emaillist .cell-to {width:160px;}
+#emaillist .cell-attach {width:100px;}
+
+/* Contact details */
+.email-details dl {margin:0;}
+.email-details dt {padding: 5px;}
+.email-details dt {width:193px;}
+.email-details dd {width:232px;}
+
+.folder-contents li:first-child { border:none; }
+.folder-contents li li:first-child { border-top:1px solid #ccc; }
+.folder-contents li:first-child+ li { border-top:0; }
+
+
+/* billings thingamie  */
+.graphs_header_action{height: 380px;}
+#billing_overview{width: 300px; position: absolute; top:60px; left: 10px; background: #fff;}
+#billing_overview iframe{border: 1px solid #ccc;}
+#invoices_timeline{position: absolute; top:60px; right:20px;}
+.annotatedtimelinetable > tbody > tr > td > div{display: block; position: absolute; top:0; left: -20px;} 
+.annotatedtimelinetable > tbody > tr > td > div.annotationsdiv{display: block; position: absolute; top: 0; right:0; left: auto;}
+#invoices_timeline .chartclient-annotation-table{font-size: 10px; position: relative;}
+#invoices_timeline .chartclient-annotation-title{display: block;}
+/* */
+
+
+/* this is a simple version of the contacts thing */
+/* also stealing styles from sortable header */
+.simpleContacts th, .simpleContacts td{border-bottom: 1px solid #ccc; padding: 5px; width: 280px; float: none; border-right: 5px solid #fff;}
+.simpleContacts td.name{font-weight: bold;}
+.simpleContacts td.last{border-bottom: none;}
+
+
+
+/* now this hack is to stop the flash from killing poups */
+body.modalised #invoices_timeline,
+body.modalised #billing_overview{visibility: hidden;}

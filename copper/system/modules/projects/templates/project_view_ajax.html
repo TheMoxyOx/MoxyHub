@@ -1,0 +1,63 @@
+        <!-- START MODULE HEADER -->
+        <div class="module-cont-header">
+            <h2>{txtName} <span class="subhead">{lblFor} <a href="index.php?module=clients&action=view&id={txtClientID}">{txtClient}</a></span></h2>
+            <div class="perc-complete" style="color:{txtColour};">{txtPercentComplete}%</div>
+            <ul class="horiz-nav">
+                <li></li>{actions}
+            </ul>
+        </div>
+        <!-- END MODULE HEADER -->
+        <!-- START MODULE CONTENT -->
+        <div class="module-cont" style="display:{DETAILS_DISPLAY};">
+            <!-- START LEFT COL -->
+            <div class="col-l">
+                <p>{txtDescription}</p>
+
+                <h4 class="toggler"><a class="max" href="#project-related" onclick="toggleComponent(this,'project-related'); return false;">{lblRelatedProjects}</a></h4>
+                <div class="project-related">
+                    {txtRelatedProjectsList}
+                </div>
+            </div>
+            <!-- END LEFT COL -->
+            <!-- START RIGHT COL -->
+            <div class="col-r">
+                <h4 class="toggler"><a class="max" href="#project-details" onclick="toggleComponent(this,'project-details'); return false;">{lblDetails}</a></h4>
+                <div class="project-details">
+                    <dl>
+                        <dt>{lblStatus}</dt>
+                        <dd>{txtStatus}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblPriority}</dt>
+                        <dd>{txtPriority}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblStartsEnds}</dt>
+                        <dd>{txtStartsEnds}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        {budget}
+                    </dl>
+                </div>
+
+                <h4 class="toggler"><a class="max" href="#project-resources" onclick="toggleComponent(this,'project-resources'); return false;">{lblResources}</a></h4>
+                <div class="project-resources">
+                    <dl>
+                        <dt>{lblOwner}</dt>
+                        <dd>{txtOwner}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblReadAccess}</dt>
+                        <dd>{txtReadAccess}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblWriteAccess}</dt>
+                        <dd>{txtWriteAccess}</dd>
+                        <dd class="divider">&nbsp;</dd>
+                    </dl>
+                </div>
+
+            </div>
+            <!-- END RIGHT COL -->
+        </div>
+        <!-- END MODULE CONTENT -->

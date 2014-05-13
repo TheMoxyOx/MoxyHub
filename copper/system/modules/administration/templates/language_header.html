@@ -1,0 +1,34 @@
+    <!-- START MODULE CONTENT WRAPPER -->
+    <div class="module-cont-wrapper">
+        <!-- START MODULE HEADER -->
+        <div class="module-cont-header">
+            <h2>{MSG_LABEL_EDITOR}</h2>
+            <ul class="horiz-nav">
+                <li><a href="#" onclick="document.language.submit(); return false;">{MSG_SAVE_CHANGES}</a></li>
+            </ul>
+            <p>
+                {MSG_LABEL_SHOW}: {LETTERS}
+            </p>
+        </div>
+        <!-- END MODULE HEADER -->
+<div class="module-cont">
+            <ul id="tokenlist">
+            
+                <!-- START USERLIST HEADER ROW -->
+                <li class="sortableHead">
+                    <div class="cellTH cellFirst cell-token">
+                        <p>{MSG_TOKEN}</p>
+                    </div>
+                    <div class="cellTH cell-default">
+                        <p>{MSG_DEFAULT_VALUE}</p>
+                    </div>
+                    <div class="cellTH cellLast cell-new">
+                        <p>{MSG_NEW_VALUE}</p>
+                    </div>
+                </li>
+                <!-- END USERLIST HEADER ROW -->
+
+<form name="language" action="index.php" method="post">
+<input type="hidden" name="module" value="administration">  
+<input type="hidden" name="action" value="language_save">  
+<input type="hidden" name="filter" value="{FILTER}">

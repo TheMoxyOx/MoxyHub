@@ -1,0 +1,99 @@
+<div class="module-cont-wrapper">
+
+			<div class="module-cont-header">
+				<h2>{USER_USERNAME}</h2>
+				<ul class="horiz-nav">
+					<li class="first"><a href="?module=profile&action=edit">Edit</a></li>
+		    </ul>				
+			</div>    
+
+    <!-- Main Content Table/Form Start -->
+
+    <form name="editprofile" action="index.php" method="post">
+        <input type="hidden" name="module" value="profile">
+        <input type="hidden" name="action" value="save">
+        <div class='module-cont'>
+            <div class='col-l'>
+                <h4 class="toggler"><a class="max" href="#client-details" onclick="toggleComponent(this,'client-details'); return false;">{HEADER_PERSONAL}</a></h4>
+                <div class="client-details">
+                    <dl>
+                        <dt>{FORM_USERNAME}</dt>
+                        <dd>
+                            <strong>{USER_USERNAME}</strong>
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_FIRSTNAME}</dt>
+                        <dd>
+                            {USER_FIRSTNAME}
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_LASTNAME}</dt>
+                        <dd>
+                            {USER_LASTNAME}
+                        </dd>
+                        <dd class="divider"> </dd>
+                    </dl>
+                </div>
+
+                <h4 class="toggler">
+                    <a class="max" href="#client-details2" onclick="toggleComponent(this,'client-details2'); return false;">
+                        {HEADER_SETTINGS}
+                    </a>
+                </h4>
+                <div class="client-details2">
+                    <dl>
+                        <dt>{FORM_NOTIFY}</dt>
+                        <dd>
+                            {USER_NOTIFY}
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_MODULE}</dt>
+                        <dd>
+                           {USER_MODULE}
+                        </dd>
+                        <dd class="divider"> </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class='col-r'>
+                <h4 class="toggler">
+                    <a class="max" href="#client-details3" onclick="toggleComponent(this,'client-details3'); return false;">
+                        {HEADER_CONTACT}
+                    </a>
+                </h4>
+                <div class="client-details3">
+                    <dl>
+                        <dt>{FORM_EMAIL}</dt>
+                        <dd>
+                            {USER_EMAIL}
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_PHONE1}</dt>
+                        <dd>
+                            {USER_PHONE1}
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_PHONE2}</dt>
+                        <dd>
+                            {USER_PHONE2}
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_PHONE3}</dt>
+                        <dd>
+                            {USER_PHONE3}
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,113 @@
+/* Files
+----------------------------------------------*/
+.module-cont.files-list {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+
+/* Task cols */
+.cell-name {width:572px;}
+.cell-lastup {width:130px;}
+.cell-size {width:64px;}
+.cell-type {width:64px;}
+
+.sortableHead .cell-name {width:592px;} /*change for header */
+.sortableHead .cell-size {width:64px;}
+
+/* New Folder */
+.new-folder {height: 65px; margin-left: 5px; margin-top: 5px;}
+/* #jstree_1 .new-folder ul{background: none; padding-left: 25px;} */
+.new-folder .sortableMeta .cell-name {height:20px; width:577px; background:transparent url(../images/file/folder/small_open.gif) 22px 8px no-repeat;}
+.new-folder .sortableMeta .cell-name span.newFolder{display: block; padding-left: 20px;}
+.new-folder .cell-expanded-nav {width: 870px;}
+.new-folder .cell-lastup,
+.new-folder .cell-size,
+.new-folder .cell-type{display: none;}
+#jstree_1 .new-folder .cell-expanded-nav ul{background: none;}
+
+/* Folder-contents list */
+.folder-contents .sortable .sortableMeta .cellFirst{padding-left: 0;}
+.folder-contents .sortableMeta a {height:19px !important; width:21px !important; margin:0 8px 0 6px !important;}
+.folder-contents .sortableMeta a.min, .folder-contents .sortableMeta a.max:hover {background:transparent url(../images/folder_icon.gif) 0 0 no-repeat !important; padding:0;}
+.folder-contents .sortableMeta a.min:hover, .folder-contents .sortableMeta a.max {background-image:url(../images/folder_icon_open.gif) !important;}
+
+
+/* Files */
+.folder-contents .file .expand {background:transparent url(../images/bg_v_dotdiv.gif) repeat-y; padding:20px; overflow:auto; border-bottom: 1px solid #ccc;}
+/* because different files have different icons, we will place the image in markup, not css */
+
+/* Folder/file nesting */
+.files .folder-contents{padding-left: 10px; position: relative;}
+.files ul .folder-contents{border-bottom: 1px solid #ccc;}
+
+/* now the funny case of files within a PROJECT */
+.files-in-project .files .folder-contents{padding-left: 0;}
+.files-in-project .files .folder-contents .folder-contents{padding-left: 10px;}
+
+/* now we do this because there's no better way... */
+.files ul .cell-name {width:582px;}
+.files ul ul .cell-name {width:572px;}
+.files ul ul ul .cell-name {width:562px;}
+.files ul ul ul ul .cell-name {width:552px;}
+.files ul ul ul ul ul .cell-name {width:542px;}
+
+.files-in-project .files ul .cell-name {width:592px;}
+.files-in-project .files ul ul .cell-name {width:582px;}
+.files-in-project .files ul ul ul .cell-name {width:572px;}
+.files-in-project .files ul ul ul ul .cell-name {width:562px;}
+.files-in-project .files ul ul ul ul ul .cell-name {width:552px;}
+
+
+.files ul .expanded ul{ background:#fff url(../images/bg_v_dotdiv.gif) 0 0 repeat-y; padding-bottom: 10px;}
+
+/* now we're making the "cancel" etc buttons change */
+.files ul .expanded ul.horiz-nav{background: none;}
+
+
+/* Styles for hover states of Sven Fuchs sortable-tree plugin */
+.drop_hover {background: url(../images/drag.png) no-repeat bottom left;}
+.drop_top {background-position: 0 top;}
+.drop_bottom {background-position: 0 bottom;}
+.drop_insert {background-position: 30px 100%;}
+
+
+/* position the edit stuff better, do expandables */
+.files li.expanded .folderName,
+.files li.expanded .newFile,
+.files li.expanded .file .sortableMeta
+{background: #f7f7f7; padding-bottom: 30px; border-top:1px solid #ccc;}
+
+/* reset again */
+.files li.expanded li.expanded .folder-contents .folderName,
+.files li.expanded .folder-contents .folder-contents .sortableMeta{background: #fff; border-top: 0px; padding-bottom: 0;}
+
+.files li.expanded .folder-contents .folderName{}
+
+/* this moves the 'folderNav' thing around to be in the right place, absolutely */
+.folderNav{position: absolute; width: 500px; top:-30px; left: 35px;}
+
+/* holy leaping thundernuts batman, reset the RESET for new file?! No, really. */
+.newFileSortableMeta{margin-left: 5px; border-top: 1px solid #ccc;}
+.newFileSortableMeta .cell-name{padding-left: 15px;}
+.newFileInstruct{font-weight: bold; background: url(../images/file/file/small.gif) no-repeat 0 0; display: block; padding: 0 0 0 20px;}
+
+.fakefile {display:none;height:0px;} 
+
+/* File History */
+.task-files dt {width:320px;}
+
+/* Attached tasks */
+.tasks-related p {margin:0; padding:5px; border-bottom:1px solid #E6E6E6;}
+.tasks-related a {text-decoration:none;}
+
+/* File details */
+.file-details dl {margin:0;}
+.file-details dt {padding: 5px;}
+.file-details dt {width:198px;}
+.file-details dd {width:232px;}
+
+
+/* Forms
+----------------------------------------------*/
+
+form {margin-bottom:0;}
+select.edit {width:100%;}
+.files .sortableMeta .edit {width:200px;}

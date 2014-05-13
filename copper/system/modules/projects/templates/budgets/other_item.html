@@ -1,0 +1,28 @@
+<!-- START OTHER ITEM -->
+<li class="sortable droppable collapsed" id="block_<?php EF::val($item->ID) ?>">
+	<input type="hidden" value="<?php EF::val($item->ID) ?>" />
+	<div class="sortableMeta">
+		
+		<div class="cell cellFirst cell-task">                            
+			<span class="handle"><?php EF::t($item->TaskName) ?></span>
+		</div>
+
+		<div class="cell cell-budget"><?php EF::t($item->Budget) ?></div>
+		<div class="cell cell-rate"><?php EF::t($item->Cost) ?></div>
+		<div class="cell cell-charge"><?php EF::t($item->Charge) ?></div>		
+
+		<div class="cell cell-billed"><?php EF::t($item->Billed) ?></div>
+		<div class="cell cell-tobill">
+			<input class="edit" type="text" value="<?php EF::t($item->Billable - $item->Amount) ?>" id="otherToBillValue_<?php EF::val($item->ID) ?>"/>
+		</div>
+		<div class="cell cellLast cell-removenewother">
+			<a href="#" onclick="Copper.billing.deleteOther(<?php EF::val($item->ID) ?>); return false;"><img src="assets/images/btn/btn_minus.gif" /></a>
+			<!-- okay don't change this. The javascript looks for checkboxes over here, and we trick it by acually giving the checked attribute, even though it's a hidden field -->
+			<input class='payable' id="otherToBill_<?php EF::val($item->ID) ?>" isTask="false" name="toBillOtherValues[]" type="hidden" checked="true"/>
+			
+		</div>
+	</div>
+	<div class="expandWrap" style="display:none;" id="OtherItemId_<?php EF::val($item->ID) ?>"></div>
+</li>
+<!-- END OTHER ITEM -->
+

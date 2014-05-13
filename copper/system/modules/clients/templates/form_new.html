@@ -1,0 +1,267 @@
+<script type="text/javascript">
+function SubmitClientForm() {
+    if ($F('name').length == 0) {
+        alert('{MSG_PLEASE_ENTER_A_VALID_CLIENT_NAME}');
+        $('name').focus();
+    } else {
+        $('clientform').submit();
+    }
+}
+</script>
+
+        <div class="module-cont-wrapper">
+        <form name="client" action="index.php" method="post" id='clientform'>
+        <input type="hidden" name="module" value="clients">
+        <input type="hidden" name="action" value="save">
+        <input type="hidden" name="id" id="clientid" value="{ID}">
+        <input type="hidden" name="readassign" value="">
+        <input type="hidden" name="writeassign" value="">
+        <div class="module-cont-header">
+            <div class="client-edit-header">
+                <input type="text" class="edit" name="name" id="name" value="{CLIENT_NAME}" style="width:33%">
+            </div>
+            <ul class="horiz-nav">
+                            <li class="first">
+                                <a href="#" onclick="SubmitClientForm(); return false;">{MSG_SAVE_CHANGES}</a>
+                             </li>
+                             <li>|
+                                <a href="{cancelUrl}">{MSG_CANCEL}</a>
+                             </li>
+            </ul>
+        </div>
+		<div class="module-cont">
+
+       <!-- START LEFT COL -->
+       <div class="col-l">
+	       <p><textarea class="client-edit edit" name="description">{CLIENT_DESCRIPTION}</textarea></p>
+       </div>
+
+	    <div class="col-r">
+                <h4 class="toggler"><a class="max" href="#client-details" onclick="toggleComponent(this,'client-details'); return false;">Details</a></h4>
+                <div class="client-details">
+                    <dl>
+                        <dt>{FORM_MANAGER}</dt>
+                        <dd>
+                            <select name="manager" class="TaskUpdate_dd" style="width:100%">{txtManager}</select>
+                        </dd>                                                
+                        <dd class="divider">&nbsp;</dd>
+                                                
+                        <dt>{FORM_COLOUR}</dt>
+                        <dd>
+                            <a class="color-swatch" style="background-color:{CLIENT_COLOUR};" href="#"  onclick="SelectorShow(this, document.client.colour);"></a>&nbsp;
+                            <input class="edit short" name="colour" value="{CLIENT_COLOUR}"/>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{FORM_EMAIL}</dt>
+                        <dd>
+                                                    <input class="edit" name="contactemail" type="text" value="{CLIENT_EMAIL}" />
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+                        <dt>{FORM_URL}</dt>
+                        <dd><input class="edit" name="url" type="text" value="{CLIENT_URL}" /></dd>
+
+                        <dd class="divider">&nbsp;</dd>
+                        <dt>{FORM_ADDRESS1}</dt>
+                        <dd><input class="edit" name="address1" type="text" value="{CLIENT_ADDRESS1}" /></dd>                        
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{FORM_ADDRESS2}</dt>                        
+                        <dd><input class="edit" name="address2" type="text" value="{CLIENT_ADDRESS2}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{FORM_CITY}</dt>
+                        <dd><input name="city" type="text" class="edit" value="{CLIENT_CITY}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{FORM_STATE}</dt>
+                        <dd><input class="edit" name="state" type="text" value="{CLIENT_STATE}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+
+                        <dt>{FORM_COUNTRY}</dt>
+                        <dd>
+                            <input name="country" type="text" class="edit" value="{CLIENT_COUNTRY}">
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{FORM_POSTCODE}</dt>
+                        <dd><input class="edit" type="text" name="postcode" value="{CLIENT_POSTCODE}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                        
+                        <dt>{FORM_PHONE1}</dt>
+                        <dd><input class="edit" type="text" name="phone1" value="{CLIENT_PHONE1}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{FORM_PHONE2}</dt>
+                        <dd><input class="edit" type="text" name="phone2" value="{CLIENT_PHONE2}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{FORM_PHONE3}</dt>
+                        <dd><input class="edit" type="text" name="phone3" value="{CLIENT_PHONE3}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{FORM_FAX}</dt>
+                        <dd><input class="edit" type="text" name="fax" value="{CLIENT_FAX}" /></dd>
+                        <dd class="divider">&nbsp;</dd>
+                    </dl>
+                </div>	    
+	    </div>
+	  </form>
+	</div>
+
+<script language="JavaScript">
+
+    function SubmitForm()
+    {
+        var form = document.client;
+        if (form.name.value.length == 0)
+        {
+            alert('{FORM_SAVEERROR}');
+            form.name.focus();
+        }
+        else
+        {
+            var rl = form.read.length - 1;
+            var wl = form.write.length - 1;
+
+            form.readassign.value = "";
+            form.writeassign.value = "";
+            icount = 1;
+            for (rl; rl > -1; rl--) 
+            {
+                if (icount == 1) 
+                    form.readassign.value = form.read.options[rl].value;
+                else
+                    form.readassign.value = form.read.options[rl].value + "," + form.readassign.value;
+                ++icount;
+            }
+
+            icount = 1;
+            for (wl; wl > -1; wl--) 
+            {
+                if (icount == 1) 
+                    form.writeassign.value = form.write.options[wl].value;
+                else
+                    form.writeassign.value = form.write.options[wl].value + "," + form.writeassign.value;
+                ++icount;
+            }
+
+            form.submit();
+        }
+    }
+
+    function CheckURL ()
+    {
+        var url = document.client.client_url.value;
+        if (url.length > 6)
+        {
+            newwin = window.open("http://" + url, 'newwin', '');
+        }
+    }
+
+    function MoveOption(objSourceElement, objTargetElement)
+    {
+        var aryTempSourceOptions = new Array();
+        var x = 0;
+
+        //looping through source element to find selected options
+        for (var i = 0; i < objSourceElement.length; i++) 
+        {             
+            if (objSourceElement.options[i].selected) 
+            {
+                //need to move this option to target element
+                var intTargetLen = objTargetElement.length++;
+                objTargetElement.options[intTargetLen].text = objSourceElement.options[i].text;
+                objTargetElement.options[intTargetLen].value = objSourceElement.options[i].value;
+            }
+            else 
+            {                 
+                //storing options that stay to recreate select element
+                var objTempValues = new Object();
+                objTempValues.text = objSourceElement.options[i].text;
+                objTempValues.value = objSourceElement.options[i].value;
+                aryTempSourceOptions[x] = objTempValues;
+                x++;
+            }
+        }
+
+        //resetting length of source
+        objSourceElement.length = aryTempSourceOptions.length;
+        //looping through temp array to recreate source select element
+        for (var i = 0; i < aryTempSourceOptions.length; i++) 
+        {
+            objSourceElement.options[i].text = aryTempSourceOptions[i].text;
+            objSourceElement.options[i].value = aryTempSourceOptions[i].value;
+            objSourceElement.options[i].selected = false;
+        }
+    }
+
+        function AddAccess(mode)
+        {
+            console.log(mode);
+            // Get the selected permission item before we delete it.
+            var id = $F(mode+'AccessID');
+            var sel = $(mode+'AccessID');
+            sel.removeChild(sel.options[sel.selectedIndex]);
+            console.log('a')
+            // Remove the user from the other drop down - can't simultaneously have read and write perms.
+            var otherMode = (mode == 'write') ? 'read' : 'write';
+            var otherSel = $(otherMode+'AccessID');
+            for (i = 0; i < otherSel.options.length; i++)
+            {
+                if (id == otherSel.options[i].value)
+                {
+                    otherSel.removeChild(otherSel.options[i]);
+                }
+            }
+            console.log('b');
+            var url = 'index.php?module=clients&action=ajaxaddaccess&clientid='+$F('clientid')+'&mode='+mode+'&id='+id;
+            new Ajax.Updater(mode+'-access-list', url, {
+                method: 'get',
+                insertion: Insertion.Bottom
+            });
+            return false;
+        }
+
+        function RemoveAccess(mode, id)
+        {
+            var url = 'index.php?module=clients&action=ajaxremoveaccess&clientid='+$F('clientid')+'&mode='+mode+'&id='+id;
+            new Ajax.Request(url, {
+                method: 'get',
+                onSuccess: function(transport) {
+                    addOption(mode+'AccessID', transport.responseText, id);
+                    var otherMode = (mode == 'write') ? 'read' : 'write';
+                    addOption(otherMode+'AccessID', transport.responseText, id);
+                    $('permission-item-'+id).remove();
+                }
+            });
+            return false;
+        }
+
+        function addOption(elementID, str, value)
+        {
+            var obj = str.evalJSON();
+            var name = obj.name;
+            if(obj.isGroup){ name ="Group: "+name; }
+            var sel = $(elementID);
+            var len = sel.options.length;
+            var searchName = name.replace("Group: ","aaa");
+            for (i = 0; i < len; i++)
+            {
+                //replace Group: with aaa to force groups to the top of the list
+                var comparisonStr=(sel.options[i].text).replace(/Group: /, "aaa");
+                if (searchName.toLowerCase() < comparisonStr.toLowerCase())
+                {
+                    var opt = document.createElement('option');
+                    opt.setAttribute('value', value);
+                    opt.appendChild(document.createTextNode(name));
+                    sel.insertBefore(opt, sel.options[i]);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+  //-->
+  </script>

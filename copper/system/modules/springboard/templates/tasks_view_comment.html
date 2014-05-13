@@ -1,0 +1,34 @@
+
+                                            <!-- START COMMENT -->
+                                            <li id="task_comment_{txtCommentID}">
+                                                <form action="#" id="task_comment_form{txtCommentID}">
+                                                    <input type="hidden" name="taskid" value="{txtTaskID}" />
+                                                    <input type="hidden" name="commentid" value="{txtCommentID}"/>
+                                                    <input type="hidden" name="hours" value="{txtHours}"/>
+                                                    <input type="hidden" name="comment" value="{txtBodyValue}"/>
+                                                    <input type="hidden" name="outofscope" value="{txtBillable}"/>
+                                                    <input type="hidden" name="issue" value="{txtIsIssue}"/>
+                                                    <input type="hidden" name="date" value="{txtDayValue}"/>
+                                                    <div class="header">
+                                                        <div class="owner">
+                                                            <strong>{txtUsername}</strong>
+                                                        </div>
+                                                        <div class="status">
+                                                            {txtHours}{txtHoursLbl} {txtDay} {txtTime}
+                                                        </div>
+                                                        <ul class="horiz-nav">
+                                                            <li><a href="#" onclick="return springboard.editTaskComment({txtCommentID});">{txtEditMsg}</a></li>
+                                                            <li><a href="#" onclick="springboard.removeTaskComment({txtCommentID},{txtProjectID},{txtTaskID}); return false">X</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="msg">
+                                                        {txtBody}
+                                                    </div>
+                                                    <div class="meta-secondary">
+                                                        Contact: {txtContactName}
+                                                        {txtBillable}
+                                                        {txtIssue}
+                                                    </div>
+                                                </form>
+                                            </li>
+                                            <!-- END COMMENT -->

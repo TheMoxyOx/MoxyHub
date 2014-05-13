@@ -1,0 +1,56 @@
+
+    <!-- START MODULE CONTENT -->
+    <div class="module-cont-wrapper" id="files_by_itself">
+
+			<div class="module-cont-header">
+				<ul class="horiz-nav">
+					<li><a href="#" onclick="newFile(); return false;">{MSG_NEW_FILE}</a></li> | 
+					<li><a href="#" onclick="newFolder(); return false;">{MSG_NEW_FOLDER}</a></li>
+				</ul>            			
+			</div>
+
+      <div class="module-cont files-list">
+          <div id="sortableHead" class="sortableHead">
+                  <div class="cellTH cellFirst cell-name">
+                      <p>{MSG_NAME}</p>
+                      <div class="table-sort">
+                          <a href="index.php?module=files&order=name&direction=up" class="up"></a>
+                          <a href="index.php?module=files&order=name&direction=down" class="down"></a>
+                      </div>
+                  </div>
+
+                  <div class="cellTH cell-lastup">
+                      <p>{MSG_LAST_MODIFIED}</p>
+                      <div class="table-sort">
+                          <a href="index.php?module=files&order=date&direction=up" class="up"></a>
+                          <a href="index.php?module=files&order=date&direction=down" class="down"></a>
+                      </div>
+                  </div>
+                  <div class="cellTH cell-size">
+
+                      <p>{MSG_SIZE}</p>
+                      <div class="table-sort">
+                          <a href="index.php?module=files&order=size&direction=up" class="up"></a>
+                          <a href="index.php?module=files&order=size&direction=down" class="down"></a>
+                      </div>
+                  </div>
+                  <div class="cellTH cellLast cell-type">
+                      <p>{MSG_TYPE}</p>
+
+                      <div class="table-sort">
+                          <a href="index.php?module=files&order=type&direction=up" class="up"></a>
+                          <a href="index.php?module=files&order=type&direction=down" class="down"></a>
+                      </div>
+                  </div>
+              
+              
+          </div>
+
+              {filegroups}
+        </div>
+    </div>
+            {script}
+    <!-- END MODULE CONTENT -->
+<script type="text/javascript" src="assets/js/lib/yahoo/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="assets/js/lib/yahoo/element-min.js"></script>
+<script type="text/javascript" src="assets/js/lib/yahoo/uploader-min.js"></script>

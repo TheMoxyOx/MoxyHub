@@ -1,0 +1,31 @@
+<div class="module-cont-wrapper">
+	<form name="movetoprojectform" action="index.php" method="post" >
+
+		<input type="hidden" name="module" value="projects" >
+		<input type="hidden" name="action" value="taskmovesave" >
+		<input type="hidden" name="taskid" value="{TASKID}" >
+		<input type="hidden" name="projectid" value="{PROJECTID}" >
+	
+		<div class="module-cont-header">
+			<h2>{MSG_MOVE_TO}</h2>
+			<ul class="horiz-nav">
+					<li><a href="javascript:document.movetoprojectform.submit();" target="_self" onfocus="if(this.blur)this.blur()">{MSG_SAVE}</a></li>
+			</ul>
+		</div>
+	
+		<div class="module-cont">
+			<div class="col-l">
+				<dl>
+					<dt>{MSG_MOVE_TO}</dt>
+					<dd><select name="movetoproject">{selectItems}</select></dd>
+				</dl>		
+			</div>
+		</div>
+	
+	</form>
+
+</div>
+
+
+
+

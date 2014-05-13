@@ -1,0 +1,19 @@
+			</ul>
+    </div>
+</div>
+<!-- END NEW MODULE CONTENT -->
+{script}
+<script type="text/javascript">
+function saveGroup(groupID)
+{
+    $('editgroup'+groupID).submit();
+}
+
+function changeModulePerm(SID, objectID, accessID) {
+    $('sid').value = SID;
+    $('objectid').value = objectID;
+    $('accessid').value = accessID;
+    $('addmoduleform').submit();
+}
+
+</script>

@@ -1,0 +1,8 @@
+<script type="text/javascript">
+document.observe("dom:loaded", function() {
+    if ($('contact-opener-{txtID}')) {  
+        toggleContact($('contact-opener-{txtID}'), {txtID});
+    window.location.href='#contact-{txtID}';
+    }
+});
+</script>

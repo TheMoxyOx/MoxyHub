@@ -1,0 +1,130 @@
+  <div class="module-cont-wrapper">
+        <form name="uploadfile" action="index.php" enctype="multipart/form-data" method="post" >
+        <input type="hidden" name="module" value="projects" >
+        <input type="hidden" name="action" value="filesave" >
+        <input type="hidden" name="projectid" value="{txtProjectID}" >
+        <input type="hidden" name="fileid" value="{txtFileID}" >
+        <input type="hidden" name="oldtaskid" value="{txtOldTaskID}" >
+        <input type="hidden" name="filename" value="{txtFileName}" >
+        <input type="hidden" name="filedetails" value="{txtFileDetails}" >
+        <input type="hidden" name="owner" value="{txtOwner}" >
+        <input type="hidden" name="version" value="{txtVersion}" >
+        <input type="hidden" name="MAX_FILE_SIZE" value="{max_size}" >
+
+                  <table width="100%" border="0" cellspacing="0" cellpadding="10" >
+                      <tr align="left" valign="top"> 
+                        <td class="innercell"><table border="0" cellspacing="0" cellpadding="0" class="innercell">
+                            <tr align="left" valign="top"> 
+                              <td colspan="2"><strong class="Heading"> 
+                                {lblAction}
+                                </strong></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td height="15" colspan="2" bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td width=50%>{lblFileName}</td>
+                              <!-- Task Owner -->
+                              <td width="50%"><strong> {txtFileName}</strong></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                             <tr align="left" valign="top">
+                              
+                            <td>{MSG_FOLDER_EXISTS}</td>
+                              <!-- Task Owner -->
+                              <td><select style="width:100%" name="folder"><option value="0">{MSG_SELECT_FOLDER}</option>{selectFolder}</select></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              
+                            <td>{MSG_FOLDER_NEW}</td>
+                              <!-- Task Owner -->
+                              <td><input name="actual_folder" style="width:100%" type="text" class="TaskEdit_tf"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td>{lblTask}</td>
+                              <!-- Task Owner -->
+                              <td><select style="width:100%" name="taskid">{selectTasks}</select></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td colspan="2"><strong>{lblFileDescription}</strong></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td height="5" colspan="2"><img src="images/common/s.gif" width="100%" height="5"></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td colspan="2"><textarea name="description" rows="5" wrap="VIRTUAL" style="width:100%" class="TaskEdit_ta" >{txtDescription}</textarea></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                              {txtBrowse}
+                              {txtLinkedFile}
+                            <tr align="left" valign="top">
+                              <td height="20" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="20"></td>
+                            </tr>                            
+                          </table></td>
+                        <td class="innersplit"><img src="images/common/s.gif" class="innersplit"></td>
+                        <td class="innercell"><table border="0" cellspacing="0" cellpadding="0" class="innercell">
+                            <tr align="left" valign="top"> 
+                              <td colspan="2"><strong>{lblFileDetails}</strong></td>
+                            </tr>
+                            <tr align="left" valign="top" bgcolor="#CCCCCC"> 
+                              <td height="15" colspan="2"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td width="50%">{lblUploaded}</td>
+                              <td width="50%"><strong>{txtOwnerName}</strong></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td width="50%">{lblFileType}</td>
+                              <td width="50%"><strong>{txtFileType}</strong></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td width="50%">{lblFileSize}</td>
+                              <td width="50%"><strong>{txtFileSize}Kb</strong></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top"> 
+                              <td width="50%">{lblFileVersion}</td>
+                              <td width="50%"><strong>{txtVersion}</strong></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                            </tr>
+                            <tr align="left" valign="top">
+                              <td height="10" colspan="2">{ActivityLog}</td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                      <tr align="left" valign="top"> 
+                        <td height="15" colspan="3"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                      </tr>
+                      <tr align="left" valign="top"> 
+                        <td colspan="3"><table height="18" border="0" cellpadding="0" cellspacing="0" >
+                            <tr> 
+                              <td width="105" align="left" valign="top" height="18" bgcolor="#E7E7E7"><a href="javascript:document.uploadfile.submit();" target="_self" onfocus="if(this.blur)this.blur()"><img src="images/icons/but_save.gif" border="0"></a></td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table>
+      </form>
+</div>

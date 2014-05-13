@@ -1,0 +1,90 @@
+                        <div class="cell cell-expanded-nav cellLast">
+                            <ul class="horiz-nav">
+                                <li></li>{actions}
+                            </ul>
+                        </div>
+                        <div class="expand">
+                            <!-- START MODULE CONTENT -->
+                            <div class="module-cont-compact admin-user">
+<form id="editgroup{txtID}" name="editgroup{txtID}" action="index.php" method="post">
+<input type="hidden" name="module" value="administration" />
+<input type="hidden" name="caller" value="ajax" />
+<input type="hidden" name="action" value="groupsave" />
+<input type="hidden" name="id" value="{txtID}" />
+                                <!-- START LEFT COL -->
+                                <div class="col-l">
+                                    <h4 class="toggler"><a class="max" href="#details" onclick="toggleComponent(this,'details'); return false;">{MSG_DETAILS}</a></h4>
+
+                                    <div class="details">
+                                        <dl id="memberlist">
+                                            <dt>{MSG_NAME}</dt>
+                                            <dd><input class="edit" name="groupname" value="{txtGroupName}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_ADD_USER}</dt>
+                                            <dd><select id="groupadduser" class="edit">{selectUsers}</select> &nbsp; <a href="#" class="add" onclick="groupMemberAdd({txtID}, $F('groupadduser')); return false;">{MSG_ADD}</a></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            {userlist}
+                                        </dl>
+                                    </div>
+</form>
+                                </div>
+                                <!-- END LEFT COL -->
+                                <!-- START RIGHT COL -->
+                                <div class="col-r">
+                                    <div class="col-r stacked">
+                                        <h4 class="toggler"><a class="max" href="#access-control" onclick="toggleComponent(this,'access-control'); return false;">{MSG_ACCESS_CONTROL}</a></h4>
+                                        <div class="access-control">
+                                            <!-- START DEFINITION LIST GROUP -->
+                                            <dl class="group">
+<form action="index.php" method="post" name="addmodule" id="addmoduleform">
+<input type="hidden" name="module" value="administration">
+<input type="hidden" name="action" value="groupmodadd">
+<input type="hidden" name="id" value="{txtID}">
+<input type="hidden" name="objectid" id="objectid" value="">
+<input type="hidden" name="accessid" id="accessid" value="">
+<input type="hidden" name="sid" id="sid" value="">
+</form>
+                                                {modules}
+                                                <dd class="divider">&nbsp;</dd>
+                                            </dl>
+                                            <!-- END DEFINITION LIST GROUP -->
+                                            <!-- START DEFINITION LIST GROUP -->
+                                            <dl class="group">
+<form action="index.php" method="post" name="addclient" id="addclientform">
+<input type="hidden" name="module" value="administration">
+<input type="hidden" name="action" value="addclient">
+<input type="hidden" name="id" value="{txtID}">
+<input type="hidden" name="objectid" value="clients">
+                                                <dt>{MSG_CLIENTS}</dt>
+                                                <dd class="sub-definition"><select name="itemid[clients]" class="edit">{CLIENTITEMLIST}</select></dd>
+                                                <dd><select name="accessid[clients][new]" class="edit" onchange="if (this.selectedIndex > 0) $('addclientform').submit();"><option value="" selected>...</option>{ACCESSLIST}</select></dd>
+                                                {clients}
+                                                <dd class="divider">&nbsp;</dd>
+</form>
+                                            </dl>
+                                            <!-- END DEFINITION LIST GROUP -->
+                                            <!-- START DEFINITION LIST GROUP -->
+                                            <dl class="group">
+<form action="index.php" method="post" name="addproj" id="addprojform">
+<input type="hidden" name="module" value="administration">
+<input type="hidden" name="action" value="addproj">
+<input type="hidden" name="id" value="{txtID}">
+<input type="hidden" name="objectid" value="projects">
+                                                <dt>{MSG_PROJECTS}</dt>
+                                                <dd class="sub-definition"><select name="itemid[projects]" class="edit">{PROJECTITEMLIST}</select></dd>
+                                                <dd><select name="accessid[projects][new]" class="edit" onchange="if (this.selectedIndex > 0) $('addprojform').submit();"><option value="">...</option>{ACCESSLIST}</select></dd>
+                                                {projects}
+                                                <dd class="divider">&nbsp;</dd>
+</form>
+                                            </dl>
+                                            <!-- END DEFINITION LIST GROUP -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- END RIGHT COL -->
+                            </div>
+                            <!-- END MODULE CONTENT -->
+                        </div>

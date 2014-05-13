@@ -1,0 +1,149 @@
+<form name="calendar" action="index.php" method="post">
+<input type="hidden" name="module" value="calendar" />
+<input type="hidden" name="action" value="save" />
+<input type="hidden" name="id" value="{ID}" />
+
+<div class="module-cont-wrapper">
+
+	<div class="module-cont-header">
+		<div class="calendar-edit-header">
+			<input type="text" class="edit calendar-title" name="name" value="{Name}" /> 
+		</div>
+		
+
+		<ul class="horiz-nav">
+		  <li class="first"><a href="#" onclick="javascript:SubmitForm(); return false;">Save</a></li>
+		  <li>|<a href="index.php?module=calendar">Cancel</a></li>
+		  {DeleteAction}
+		</ul>
+
+
+	</div><!--/module-cont-header-->
+	
+		<div class="module-cont dtFix">
+			<div class="col-l">
+				<textarea name="description" rows="15" cols="10" class="edit">{Description}</textarea>
+			</div> <!--/col-l-->
+			
+			<div class="col-r">
+				<h4 class="toggler"><a class="max" href="#" onclick="toggleComponent(this,'event-details'); return false;">Details</a></h4>
+				<div class="event-details">
+					<dl>
+						
+						<dt>{MSG_DATE}</dt>
+						<dd>
+							<input type="text" name="date" class="edit short" value="{Date}" />
+							<img src="images/date_selector.gif" class="date-selector" width="16" height="18" onClick="popUpCalendar(this, calendar.date, '{date_format}');">
+						</dd>
+						<dd class="divider"></dd>
+						
+						<dt>{MSG_STARTS}</dt>
+						<dd>
+							<select name="hour" class="edit"><option>--</option>{selectHour}</select>
+							<select name="minute" class="edit"><option>--</option>{selectMinute}</select>
+						</dd>
+						<dd class="divider"></dd>
+												
+						<dt>{MSG_ENDS}</dt>
+						<dd>
+	            <select name="end_hour" class="edit"><option>--</option>{selectEndHour}</select>
+	            <select name="end_minute" class="edit"><option>--</option>{selectEndMinute}</select>						
+						</dd>
+						<dd class="divider"></dd>
+												
+						<dt>{MSG_COLOUR}</dt>
+						<dd>
+              <a class="color-swatch" style="background-color:{Colour};" href="#"  onclick="SelectorShow(this, document.calendar.colour);"></a>&nbsp;
+              <input class="edit short" name="colour" value="{Colour}" />							
+						</dd>
+						<dd class="divider"></dd>
+												
+						<dt>{MSG_HOLIDAY}</dt>
+						<dd><input type="checkbox" name="holiday" value="1" {Holiday} /></dd>
+						<dd class="divider"></dd>
+					</dl>
+				
+				</div><!--/#event-details-->
+				
+				<h4 class="toggler"><a class="max" href="#" onclick="toggleComponent(this,'event-users'); return false;">{MSG_USERS}</a></h4>
+				<div class="event-users">
+					<dl>
+						<dd class="userAssign">
+							<select name="users" size="10" multiple="multiple" ID="Select1" ondblclick="MoveOption(document.calendar.users, document.calendar.assigned);">{selectUsers}</select>
+							<select name="assigned" size="10"  multiple="multiple" ID="Select2" ondblclick="MoveOption(document.calendar.assigned, document.calendar.users);">{selectAssigned}</select>
+							<!-- what does this do?
+							<a href="javascript:MoveOption(document.calendar.users, document.calendar.assigned);" target="_self" onfocus="if(this.blur)this.blur()"><img src="images/common/arrow_remove_mask.gif" width="12" height="12" border="0"></a>
+							-->						
+						</dd>
+						<dd class="divider"></dd>
+					</dl>
+				</div><!--/#event-users-->
+
+			</div> <!--/col-r-->
+			<div class="clearPlz"></div>
+		</div><!--module-cont-wrapper-->
+
+	<input type="hidden" name="assignedarray" value="" />
+</form>
+
+  <script language="JavaScript">
+
+    function MoveOption(objSourceElement, objTargetElement)
+    {
+        var aryTempSourceOptions = new Array();
+        var x = 0;
+        //looping through source element to find selected options
+        for (var i = 0; i < objSourceElement.length; i++) {             if (objSourceElement.options[i].selected) {
+                //need to move this option to target element
+                var intTargetLen = objTargetElement.length++;
+                objTargetElement.options[intTargetLen].text = objSourceElement.options[i].text;
+                objTargetElement.options[intTargetLen].value = objSourceElement.options[i].value;
+            }
+            else {                 //storing options that stay to recreate select element
+                var objTempValues = new Object();
+                objTempValues.text = objSourceElement.options[i].text;
+                objTempValues.value = objSourceElement.options[i].value;
+                aryTempSourceOptions[x] = objTempValues;
+                x++;
+            }
+        }
+
+        //resetting length of source
+        objSourceElement.length = aryTempSourceOptions.length;
+        //looping through temp array to recreate source select element
+        for (var i = 0; i < aryTempSourceOptions.length; i++) {
+            objSourceElement.options[i].text = aryTempSourceOptions[i].text;
+            objSourceElement.options[i].value = aryTempSourceOptions[i].value;
+            objSourceElement.options[i].selected = false;
+        }
+    }
+
+
+
+    function SubmitForm() {
+        var form = document.calendar;
+        var al = form.assigned.length - 1;
+
+        form.assignedarray.value = "";
+            icount = 1;
+            for (al; al > -1; al--) {
+                if (icount == 1) {
+                    form.assignedarray.value = form.assigned.options[al].value;
+                } else {
+                    form.assignedarray.value = form.assigned.options[al].value + "," + form.assignedarray.value;
+                }
+                ++icount;
+            }
+
+
+           form.submit();
+    }
+
+    function Delete(id)    {
+        if (confirm('{FORM_CONFDEL}')) {
+            window.location = "index.php?module=calendar&action=delete&id=" + id;
+        }
+    }
+  </script>
+
+

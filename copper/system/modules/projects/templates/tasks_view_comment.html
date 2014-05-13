@@ -1,0 +1,38 @@
+
+                                            <!-- START COMMENT -->
+                                            <li id="task_comment_{txtCommentID}" class="otherComments {commentAlt}">
+                                                <form action="#" id="task_comment_form{txtCommentID}">
+                                                    <input type="hidden" name="taskid" value="{txtTaskID}" />
+                                                    <input type="hidden" name="commentid" value="{txtCommentID}"/>
+                                                    <input type="hidden" name="hours" value="{txtHours}"/>
+                                                    <input type="hidden" name="comment" value="{txtBodyValue}"/>
+                                                    <input type="hidden" name="outofscope" value="{txtBillableVal}"/>
+                                                    <input type="hidden" name="issue" value="{txtIssueVal}"/>
+                                                    <input type="hidden" name="date" value="{txtDayValue}"/>
+                                                    <input type="hidden" name="projectid" value="{txtProjectID}"/>
+                                                    <input type="hidden" name="percentage" value="{txtPercentage}"/>
+                                                    <div class="header">
+                                                    
+	                                                      <div class="avatar">
+	                                                      	<img src="{txtAvatarImage}" alt="{txtUsername}" width='48' height='48'>
+	                                                      </div>
+
+	                                                      <div class="existingDetails">
+		                                                      <em class='commentHrs_{txtTaskID}'>{txtUsername}</em> said, <em>{txtDay} at {txtTime}</em> ({txtPercentage}%)
+	                                                      </div>	                                                                                                     
+                                                
+                                                        <ul class="control">
+                                                          {txtEdit}
+                                                          {txtDel}                                                        
+                                                        </ul>
+                                                        
+                                                    </div>
+                                                    <div class="msg">
+                                                        {txtBody}
+                                                    </div>
+                                                    <div class="meta-secondary">
+                                                        {txtContactName}{txtBillable}{txtIssue} {txtHours} {txtHoursLbl}
+                                                    </div>
+                                                </form>
+                                            </li>
+                                            <!-- END COMMENT -->

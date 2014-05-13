@@ -1,0 +1,52 @@
+<script type="text/javascript">
+function SubmitImportForm() {
+if ($F('xml_file') == '')
+    alert('{MSG_PLEASE_SELECT_A_FILE}');
+else if ($F('client') == null)
+    alert('{MSG_PLEASE_SELECT_A_CLIENT}');
+else
+    document.uploadfile.submit();
+}
+</script>
+  <!-- START MODULE CONTENT WRAPPER -->
+  <div class="module-cont-wrapper">
+
+    <!-- START MODULE HEADER -->
+    <div class="module-cont-header">
+      <h2>{MSG_IMPORT}</h2>
+      <ul class="horiz-nav">
+        <li><a href="#" onclick="SubmitImportForm(); return false;">{MSG_SAVE}</a></li>
+      </ul>
+    </div>
+    <!-- END MODULE HEADER -->
+        <form name="uploadfile" action="index.php" enctype="multipart/form-data" method="post" >
+        <input type="hidden" name="module" value="projects" >
+        <input type="hidden" name="action" value="importxml" >
+
+<!-- START MODULE CONTENT -->
+    <div class="module-cont projects-import-file">
+      <!-- START LEFT COL -->
+      <div class="col-l">
+        <div class="import-file">
+          <dl>
+            <dt>{MSG_BROWSE}</dt>
+            <dd><input type="file" name="xml_file" id="xml_file" /></dd>
+            <dd class="divider">&nbsp;</dd>
+            <dt>{MSG_CLIENT}</dt>
+            <dd><select name="client" id="client" class="TaskUpdate_dd" style="width:100%">{selectClient}</select></dd>
+          </dl>
+        </div>
+        
+      </div>
+      <!-- END LEFT COL -->
+
+      <!-- START RIGHT COL -->
+      <div class="col-r">
+      </div>
+      <!-- END RIGHT COL -->
+    </div>
+    <!-- END MODULE CONTENT -->
+</form>
+  </div>
+  <!-- START MODULE CONTENT WRAPPER -->
+

@@ -1,0 +1,107 @@
+	<!-- START MODULE CONTENT WRAPPER -->
+	<div class="module-cont-wrapper">
+
+		<!-- START MODULE HEADER -->
+		<div class="module-cont-header">
+			<h2>{MSG_APPEARANCE}</h2>
+			<ul class="horiz-nav">
+				<li><a href="#" onclick="document.appearance.submit(); return false;">{MSG_SAVE_CHANGES}</a></li>
+			</ul>
+		</div>
+		<!-- END MODULE HEADER -->
+		<form name="appearance" method="post" action="index.php" enctype="multipart/form-data">
+		<input type="hidden" name="module" value="administration">
+		<input type="hidden" name="action" value="saveappearance">
+
+		<!-- START MODULE CONTENT -->
+		<div class="module-cont admin-appearance">
+			<!-- START LEFT COL -->
+			<div class="col-l">
+			
+				<!--<h4 class="toggler"><a class="max" href="#appearance" onclick="toggleComponent(this,'appearance'); return false;">Appearance</a></h4>-->
+				<div class="appearance">
+					<dl>
+						<dt>{MSG_LOGO_FILE} (136x41px GIF)</dt>
+
+							<input type="file" name="logo" />
+							<?php if ($logo): ?>
+								<img width='40px' height='40px' src='<?php EF::val(Upload::get_url($logo)); ?>'/>
+							<?php endif; ?>
+						</dd>
+						<dd class="divider">&nbsp;</dd>
+						
+						<dt>{MSG_HEADER_FILE} (950x60px GIF)</dt>
+
+						<dd>
+							<input type="file" name="header" />
+							<?php if ($header): ?>
+								<img width='40px' height='40px' src='<?php EF::val(Upload::get_url($header)); ?>'/>
+							<?php endif; ?>
+						</dd>
+						<dd class="divider">&nbsp;</dd>
+		
+						<dt>{MSG_HOME_FILE} (950x590px GIF)</dt>
+
+						<dd>
+							<input type="file" name="home" />
+							<?php if ($home): ?>
+								<img width='40px' height='40px' src='<?php EF::val(Upload::get_url($home)); ?>'/>
+							<?php endif; ?>
+						</dd>
+						<dd class="divider">&nbsp;</dd>
+					
+						<dt>{MSG_INVOICE_TEMPLATE} (PDF) 
+							<?php if ($invoice): ?>
+								<a href="<?php EF::val(Upload::get_url($invoice)); ?>">({MSG_DOWNLOAD})</a>
+							<?php endif; ?>
+						</dt>
+							
+						<dd><input type="file" name="invoice" /></dd>
+
+						<dd class="divider">&nbsp;</dd>
+
+						<dt>{MSG_INVOICE_TEMPLATE_NOTAX} (PDF) 
+							<?php if ($invoice_notax): ?>
+								<a href="<?php EF::val(Upload::get_url($invoice_notax)); ?>">({MSG_DOWNLOAD})</a>
+							<?php endif; ?>
+						</dt>
+							
+						<dd><input type="file" name="invoice_notax" /></dd>
+
+						<dd class="divider">&nbsp;</dd>
+						
+						<dt>{MSG_QUOTE_TEMPLATE} (PDF)
+							<?php if ($quote): ?>
+								<a href="<?php EF::val(Upload::get_url($quote)); ?>">({MSG_DOWNLOAD})</a>
+							<?php endif; ?>
+						</dt>
+						
+						<dd><input type="file" name="quote"/></dd>
+
+						<dd class="divider">&nbsp;</dd>
+
+						<dt>{MSG_QUOTE_TEMPLATE_NOTAX} (PDF)
+							<?php if ($quote_notax): ?>
+								<a href="<?php EF::val(Upload::get_url($quote_notax)); ?>">({MSG_DOWNLOAD})</a>
+							<?php endif; ?>
+						</dt>
+						
+						<dd><input type="file" name="quote_notax"/></dd>
+
+						<dd class="divider">&nbsp;</dd>
+					</dl>
+				</div>
+				
+			</div>
+			<!-- END LEFT COL -->
+
+			<!-- START RIGHT COL -->
+			<div class="col-r">
+			</div>
+			<!-- END RIGHT COL -->
+		</div>
+		<!-- END MODULE CONTENT -->
+</form>
+	</div>
+	<!-- START MODULE CONTENT WRAPPER -->
+

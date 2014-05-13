@@ -1,0 +1,21 @@
+                            <ul class="files">
+                                <!-- START FOLDER -->
+                                <li class="sortable droppable collapsed">
+                                    <div class="sortableMeta">
+								                    		<!-- for some reason, had style="background-color: rgb(0, 204, 255);" -->                                    
+                                        <div class="cell cellFirst cell-name"><a class="min" style="" onclick="toggleClientFolders(this, {txtClientID}, {txtFolderID}, '{txtSortOrder}', '{txtSortDirection}'); return false;" href="#" id="toggler_{txtClientID}_{txtFolderID}"></a><span class="handle">{txtFolderName}</span></div>
+                                        <div class="cell cell-lastup"></div>
+                                        <div class="cell cell-size">{txtSize}</div>
+                                        <div class="cell cellLast cell-type">{MSG_FOLDER}</div>
+                                    </div>
+                                    <!-- START FILE LIST -->
+                                    <div class="expandWrap" style="display:none;">
+                                        <div class="expand">
+                                            <ul class="files" id="folderlist_{txtClientID}_{txtFolderID}">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- END FILE LIST -->
+                                </li>
+                                <!-- END FOLDER -->
+                            </ul>

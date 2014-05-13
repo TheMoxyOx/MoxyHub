@@ -1,0 +1,81 @@
+    </div>
+</div>
+<!-- END NEW MODULE CONTENT -->
+
+<script type="text/javascript">
+function saveUser(userID, isCopy)
+{
+  frm    = $('edituser'+userID);
+  user   = frm.username.value.replace(/(^\s+|\s+$)/g, '');
+  fname  = frm.firstname.value.replace(/(^\s+|\s+$)/g, '');
+  lname  = frm.lastname.value.replace(/(^\s+|\s+$)/g, '');
+  pass1  = frm.pass1.value;
+  pass2  = frm.pass2.value;
+  cost   = frm.costrate.value.replace(/(^\s+|\s+$)/g, '').replace(/,/g, '');
+  charge = frm.chargerate.value.replace(/(^\s+|\s+$)/g, '').replace(/,/g, '');
+  olduser = frm.hiddenusername.value.replace(/(^\s+|\s+$)/g, '');
+
+  if (pass1.length > 0)
+  {
+    if (pass1 != pass2)
+    {
+      alert('{MSG_PASSWORDS_NOT_MATCH}');
+      return;
+    }
+  }
+
+  if (user.length == 0)
+  {
+    alert('{MSG_ERR_USERNAME}');
+    return;
+  }
+
+  if (fname.length == 0)
+  {
+    alert('{MSG_ENTER_FIRST_NAME}');
+    return;
+  }
+
+  if (lname.length == 0)
+  {
+    alert('{MSG_ENTER_LAST_NAME}');
+    return;
+  }
+
+  if (isNaN(cost))
+  {
+    alert('{MSG_ERR_COST_RATE}');
+    return;
+  }
+
+  if (isNaN(charge))
+  {
+    alert('{MSG_ERR_CHARGE_RATE}');
+    return;
+  }
+
+    // Ensure user has not been renamed to an already existing username.
+    var items = {{Userlist}};
+    var taken = 0;
+    for (var word in items) {
+    if (word == user)
+        taken = 1;
+    }
+
+    // Ensure current username is ok - otherwise the "already existing user" test will fail when you edit and save a user without changing the username.
+    if (taken > 0 && user != olduser) {
+        alert('{MSG_PLEASE_TRY_ANOTHER_USERNAME}');
+    } else {
+        if ((userID == 0) || (isCopy)) {
+          frm.submit();
+        } else {
+          var params = frm.serialize(true);
+          var responseHandler = function(response){
+              cu.ajaxUpdate("index.php?module=administration&action=ajaxuserview&id="+userID, "userholder-"+userID);
+          }
+          cu.ajaxPost("index.php?module=administration&action=usersave",params,responseHandler);
+        }
+    }
+    return false;
+}
+</script>

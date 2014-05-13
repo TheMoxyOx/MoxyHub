@@ -1,0 +1,27 @@
+/* header styles */
+
+.col-lg-2 {
+	border:1px solid black;
+	background:#e7e7e7;
+	color: #E11f28;
+}
+
+#logo {
+	margin:20px;
+}
+
+.nav {
+	margin-top:10px;
+}
+
+#quote {
+	margin-top:20px;
+}
+
+#hideme {
+	display:none!important;
+}
+
+#jcart-paypal-checkout {
+	display:none;
+}

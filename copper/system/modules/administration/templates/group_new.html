@@ -1,0 +1,42 @@
+                    <div class="sortableMeta">
+                        <div class="cell cellFirst cell-realname"><a id="group-opener-{txtID}" class="min" style="background-color: rgb(0, 204, 255);" onclick="toggleGroup(this, {txtID}); return false;" href="#"></a><span class="handle"></span></div>
+                    </div>
+                    <div class="expandWrap" style="display:none;" id="groupholder-{txtID}">
+                        <div class="cell cellLast cell-expanded-nav">
+                            <ul class="horiz-nav">
+                                <li></li>{actions}
+                            </ul>
+                        </div>
+                        <div class="expand">
+                            <!-- START MODULE CONTENT -->
+                            <div class="module-cont-compact admin-user">
+<form id="editgroup{txtID}" name="editgroup{txtID}" action="index.php" method="post">
+<input type="hidden" name="module" value="administration" />
+<input type="hidden" name="caller" value="ajax" />
+<input type="hidden" name="action" value="groupsave" />
+<input type="hidden" name="id" value="{txtID}" />
+                                <!-- START LEFT COL -->
+                                <div class="col-l">
+                                    <h4 class="toggler"><a class="max" href="#details" onclick="toggleComponent(this,'details'); return false;">{MSG_DETAILS}</a></h4>
+
+                                    <div class="details">
+                                        <dl id="memberlist">
+                                            <dt>{MSG_NAME}</dt>
+                                            <dd><input class="edit" name="groupname" value="{txtGroupName}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                        </dl>
+                                    </div>
+</form>
+                                </div>
+                                <!-- END LEFT COL -->
+                                <!-- START RIGHT COL -->
+                                <div class="col-r">
+                                </div>
+
+                                <!-- END RIGHT COL -->
+                            </div>
+                            <!-- END MODULE CONTENT -->
+                        </div>
+                    </div>
+                    

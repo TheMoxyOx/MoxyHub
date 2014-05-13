@@ -1,0 +1,73 @@
+                <form name="contactForm" method="post" action="index.php">
+                <input type="hidden" name="module" value="contacts">
+                <input type="hidden" name="action" value="save">
+                <input type="hidden" name="id" value="{ID}">
+                <input type="hidden" name="clientid" value="{ClientID}">
+                <input type="hidden" name="ajax" value="1">
+                    <div class="sortableMeta">
+                        <div class="cell cellFirst cell-contacts"><a class="max" href="index.php?module=contacts&r={r}"></a><span class="handle"><input class="edit short" name="firstname" value="{FirstName}" /> &nbsp; <input class="edit short" name="lastname" value="{LastName}"></span></div>
+                        <div class="cell cell-company">{ClientName}</div>
+                        <div class="cell cell-title">{Title}</div>
+                        <div class="cell cell-phone">{Phone1}</div>
+                        <div class="cell cell-mobile">{Phone3}</div>
+                        <div class="cell cell-email">{EmailAddress1}</div>
+                        <div class="cell cellLast cell-contact">{LastContact}</div>
+                    </div>
+                    <div class="expandWrap" style="">
+                        <div class="cell cell-expanded-nav">
+                            <ul class="horiz-nav">
+                                <li class="first"><a href="#" onclick="document.forms.contactForm.submit(); return false;">{MSG_SAVE_CHANGES}</a></li>
+                                <li>|<a href="index.php?module=contacts&action=view&id={ID}">{MSG_CANCEL}</a></li>
+                            </ul>
+                        </div>
+                        <div class="expand">
+                            <!-- START MODULE CONTENT -->
+                            <div class="module-cont-compact">
+                                <!-- START LEFT COL -->
+                                <div class="col-l">
+                                    <textarea class="edit" rows="15" cols="10" name="notes">{Notes}</textarea>
+                                </div>
+                                <!-- END LEFT COL -->
+                                <!-- START RIGHT COL -->
+                                <div class="col-r">
+                                
+                                    <h4 class="toggler"><a class="max" href="#contact-details" onclick="toggleComponent(this,'contact-details'); return false;">{MSG_DETAILS}</a></h4>
+                                    <div class="contact-details">
+                                        <dl>
+
+                                            <dt>{MSG_CLIENT}</dt>
+                                            <dd><select class="edit" name="clientid">{ClientList}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>                                    
+                                        
+                                            <dt>{MSG_TITLE}</dt>
+                                            <dd><input class="edit" name="title" value="{Title}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                                                                        
+                                            <dt>{MSG_PHONE}</dt>
+                                            <dd><input class="edit" name="phone1" value="{Phone1}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                                                                        
+                                            <dt>{MSG_MOBILE}</dt>
+                                            <dd><input class="edit" name="phone3" value="{Phone3}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_EMAIL}</dt>
+                                            <dd><input class="edit" name="emailaddress1" value="{EmailAddress1}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_IM_SKYPE}</dt>
+                                            <dd><input class="edit" name="emailaddress2" value="{EmailAddress2}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                        </dl>
+                                        <div class="clear">&nbsp;</div>
+                                    </div>
+                                        
+                                </div>
+                                <!-- END RIGHT COL -->
+                            </div>
+                        </div>
+                        <!-- END MODULE CONTENT -->
+                    </div>
+                    
+                </form>

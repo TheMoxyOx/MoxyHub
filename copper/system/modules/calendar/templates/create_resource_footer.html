@@ -1,0 +1,50 @@
+
+                    <tr align="left" valign="top">
+                        <td height="20" colspan="3"><img src="images/common/s.gif" width="100%" height="20"></td>
+                    </tr>
+                </table>
+    
+</form>
+<script language="javascript">
+
+    function SubmitForm() {
+        var f = document.resourcesetsave;
+
+        var startDate = f.startingFromDate.value.split(/-/);
+        if (startDate.length != 3) {
+            alert('Invalid "Starting From" date.');
+            return false;
+        }
+        mapDate('availability[from]', startDate);
+
+        var untilDate = f.untilDate.value.split(/-/);
+        if (untilDate.length != 3) {
+            alert('Invalid "Until" date.');
+            return false;
+        }
+        mapDate('availability[to]', untilDate);
+
+        f.submit();
+    }
+
+    function mapDate(baseName, date) {
+        var f = document.resourcesetsave;
+        var dateFormat = f.dateFormat.value.split(/-/);
+        for (var i = 0; i < date.length; i++) {
+            var name = false;
+            switch (dateFormat[i]) {
+                case 'yyyy':
+                    name = baseName + '[year]';
+                    break;
+                case 'mm':
+                    name = baseName + '[month]';
+                    break;
+                case 'dd':
+                    name = baseName + '[day]';
+                    break;
+            }
+            f[name].value = date[i] * 1;
+        }
+    }
+
+</script>

@@ -1,0 +1,24 @@
+<li class="clients <?php EF::t($active); ?>">
+  <a class="top" href="?module=clients">{MSG_CLIENTS}</a>
+  <p>
+  	<span class="m">
+      <a href="index.php?module=clients&amp;action=new">{MSG_NEW_CLIENT}</a>
+			<a href="index.php?module=clients&amp;archived=1">{MSG_VIEW_ARCHIVED}</a>
+			<a href="http://www.copperproject.com/help/clients">{MSG_HELP}</a>
+  	</span>
+  	<span class="d">
+  		<span class="desc">
+	  		{MSG_M1_DESC_CLIENTS}
+  		</span>
+
+			<span class="recent_items">
+				<span class="recent_items_title">{MSG_RECENT_ITEMS}</span>
+				<?php foreach($recent_items as $item): ?>
+					<a href="<?php EF::val($item->Url); ?>"><?php EF::t($item->Detail); ?></a>
+				<?php endforeach; ?>
+			</span>
+  	</span>	          	
+  <span class="clearPlz"></span>
+  <span class="bottom"></span>
+ </p>
+</li>

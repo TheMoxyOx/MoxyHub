@@ -1,0 +1,62 @@
+/* Springboard > To Do
+----------------------------------------------*/
+.module-cont.tasks {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+/* Header */
+.sortableHead .cell-task {width:196px;}
+
+/* Task cols */
+.cell-task {width:176px; font-weight:bold;}
+.cell-client {width:99px;}
+.cell-perc {width:51px;}
+.cell-priority {width:62px;}
+.cell-project {width:155px;}
+.cell-start {width:64px;}
+.cell-latest {width:64px;}
+.cell-end {width:79px;}
+
+/* Task details */
+.task-details dl {margin:0;}
+.task-details dt, .task-resources dd, .task-description{padding: 5px;}
+.task-details dt {width:193px;}
+.task-details dd {width:232px;}
+
+/* Task resources */
+.task-resources-chart {border:5px solid #f7f7f7;}
+
+/* Task dependencies  */
+.task-dependencies p {margin:0.5em 0; padding:0 5px;}
+
+
+/* Forms
+----------------------------------------------*/
+/* project title editing */
+input.project-title, input.project-id {font-size:14px; font-weight:bold; font-family:Helvetica,Tahoma,Verdana,sans-serif;}
+input.project-title {width:165px;}
+input.project-id {width:60px;}
+
+/* project task editing */
+.task-details select.edit, .project-details select.edit,  .project-resources select.edit  {width:100%}
+.project-resources .add-minus-list select {margin:0 0 5px 0; width:210px; float:left;}
+.cell-task input {width:165px; font-weight:bold; margin-top: -1px;}
+
+
+/* related projects editing */
+.project-related dl {margin:0;}
+.project-related dd {width:100%;}
+.project-related .add-minus-list select {width:50%}
+.project-related .add-minus-list .add-minus-btn {margin-right:5px;}
+
+/* Task dependencies editing */
+.task-dependencies dl {margin:0;}
+.task-dependencies dd {width:100%; font-weight:normal;}
+.task-dependencies .add-minus-list select {width:413px}
+.task-dependencies .add-minus-list .add-minus-btn {margin-right:5px;}
+.task-dependencies .add-minus-list p {margin-top:0; margin-bottom:0; width:auto;}
+
+
+/* Springboard > Activity
+----------------------------------------------*/
+.springboard-activity dt { width:193px; }
+.springboard-activity dd { width:232px; }
+.springboard-activity dt, .springboard-activity dd { padding:5px; }

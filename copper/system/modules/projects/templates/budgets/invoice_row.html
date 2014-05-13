@@ -1,0 +1,31 @@
+
+<!-- START INVOICE -->
+<li class="sortable droppable collapsed" id="invoiceBlock<?php EF::val($invoice->ID); ?>">
+	<div class="sortableMeta">
+		<div class="cell cellFirst cell-invoice">
+			<a class="min" onclick="javascript:toggleInvoicesQuotes(this, <?php EF::val($invoice->ID) ?>, <?php EF::val($project->ID) ?>); return false;" href="#"></a>
+			<span class="handle">
+				<span class="readOnlyDisplay"><?php EF::t($invoice->Title) ?></span>
+				<input class="writeDisplay" name="invoiceName" type="text" value="<?php EF::t($invoice->Title) ?>" style="display:none" />
+			</span>
+		</div>
+		<div class="cell cell-type">
+			<span class="readOnlyDisplay"><?php EF::raw(($invoice->Quote) ? "Quote" : "Invoice"); ?></span>
+			<select class="edit writeDisplay" style="display:none" name="invoiceQuote">
+				<option value='0'>Invoice</option><option value='1'>Quote</option>
+			</select>
+		</div>
+		<div class="cell cell-duedate">
+			<span class="readOnlyDisplay"><?php EF::val($invoice->Due); ?></span>
+			<span class="writeDisplay" style="display:none">
+				<input class="edit" type="text" value="<?php EF::val($invoice->Due); ?>" id="date_display_<?php EF::val($invoice->ID); ?>" name="invoiceDue"/>
+				<img class="date-selector" onclick="popUpCalendar(this, $('date_display_<?php EF::val($invoice->ID); ?>'), Copper.date_format, 'date_due_<?php EF::val($invoice->ID); ?>');" src="assets/images/calendar_icon_comments.gif" width="17" height="17" alt="{lblDateSelect}"/>
+			</span>
+		</div>
+		<div class="cell cellLast cell-amount">
+			<?php EF::money($invoice->total); ?>
+		</div>
+	</div>
+	<div class="expandWrap" style="display:none;" id="invoiceholder-<?php EF::val($invoice->ID); ?>"></div>
+
+</li>

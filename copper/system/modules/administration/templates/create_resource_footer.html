@@ -1,0 +1,65 @@
+                                            <tr align="left" valign="top">
+                        <td height="20" colspan="3"><img src="images/common/s.gif" width="100%" height="20"></td>
+                      </tr>
+                      <tr align="left" valign="top" bgcolor="#CCCCCC">
+                        <td height="15" colspan="3"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                      </tr>
+                      <tr align="left" valign="top">
+                        <td height="18" colspan="3"> <table height="18" border="0" cellpadding="0" cellspacing="0" >
+                            <tr>
+                              <td width="105" align="left" valign="top" height="18" bgcolor="#E7E7E7"><a href="#" onclick="return SubmitForm()"><img src="images/icons/but_save.gif" border="0" /></a></td>
+                              <td width="20" height="18" align="left" valign="top"><img src="images/common/s.gif" width="20" height="18" border="0"></td>
+                              <td width="105" height="18" align="left" valign="top">&nbsp;</td>
+                            </tr>
+                          </table></td>
+                      </tr>
+                    </table>
+                  </form>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+<script language="javascript">
+
+function SubmitForm() {
+    var f = document.resourcesetsave;
+
+    var startDate = f.startingFromDate.value.split(/-/);
+    if (startDate.length != 3) {
+        alert('Invalid "Starting From" date.');
+        return false;
+    }
+    mapDate('availability[from]', startDate);
+
+    var untilDate = f.untilDate.value.split(/-/);
+    if (untilDate.length != 3) {
+        alert('Invalid "Until" date.');
+        return false;
+    }
+    mapDate('availability[to]', untilDate);
+
+    f.submit();
+}
+
+function mapDate(baseName, date) {
+    var f = document.resourcesetsave;
+    var dateFormat = f.dateFormat.value.split(/-/);
+    for (var i = 0; i < date.length; i++) {
+        var name = false;
+        switch (dateFormat[i]) {
+            case 'yyyy':
+                name = baseName + '[year]';
+                break;
+            case 'mm':
+                name = baseName + '[month]';
+                break;
+            case 'dd':
+                name = baseName + '[day]';
+                break;
+         }
+         f[name].value = date[i] * 1;
+    }
+}
+
+</script>

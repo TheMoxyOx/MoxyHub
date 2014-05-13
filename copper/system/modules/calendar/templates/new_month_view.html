@@ -1,0 +1,61 @@
+
+<!-- START MODULE CONTENT WRAPPER -->
+<div class="module-cont-wrapper">
+    <!-- START MODULE HEADER -->
+    <div class="module-cont-header">
+        <h2>{monthName} {year} <span class="subhead">for {name}</span></h2>
+        <ul class="horiz-nav">
+            <li></li>{actions}
+        </ul>
+    </div>
+
+    <div id='availability'>
+        
+    </div>
+    <!-- END MODULE HEADER -->
+    <div class="module-cont">
+        <form name="resourceupdatesave" id="availabilityform" action="index.php" method="post" >
+            <input type="hidden" name="module" value="calendar" >
+            <input type="hidden" name="action" value="resourceupdatesave" >
+            <input type="hidden" name="resourceID" value="{resourceID}" >
+            <input type="hidden" name="month" value="{month}" >
+            <input type="hidden" name="year" value="{year}" >
+            <script type="text/javascript">
+                // loader.load("calendar.js");
+                var calendar = cu.calendar;
+                var tooltip = cu.tooltip;
+                cu.addOnLoad(calendar.init, calendar);
+            </script>
+            <!-- START CALENDAR -->
+
+            <table id="calendar" cellpadding="0" cellspacing="0">
+                <!-- TABLE HEADER -->
+                <tr>
+                    <th class="heading">{dayName0}</th><th class="heading">{dayName1}</th><th class="heading">{dayName2}</th><th class="heading">{dayName3}</th><th class="heading">{dayName4}</th><th class="heading">{dayName5}</th><th class="heading">{dayName6}</th>
+                </tr>
+                {calendar}
+            </table>
+            <!-- END CALENDAR -->
+
+        </form>
+    </div>
+
+</div>
+<!-- END MODULE CONTENT WRAPPER -->
+<!-- START EVENT TOOLTIP -->
+<div id="calendar-tooltip" style="display:none;" onclick='tooltipTrap=true'>
+    <div id="calendar-tooltip-header">
+        <h3 id="tooltip-title"></h3>
+        <p class="time" id="tooltip-time"></p>
+    </div>
+    <div id="calendar-tooltip-content-wrap">
+        <div id="calendar-tooltip-content">
+            <p id="tooltip-description"></p>
+            <ul class="horiz-nav">
+                <li><a href="#" onclick="tooltip.edit()" id="tooltip-url">{MSG_VIEW}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END EVENT TOOLTIP -->
+

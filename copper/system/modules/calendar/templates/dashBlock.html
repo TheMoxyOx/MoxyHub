@@ -1,0 +1,18 @@
+<a href="#" id="closeDashX" class="dash-toggler showTheDash">{MSG_SHOW_DASH}</a>
+<div id="dash-content" style="display:none;">
+    <div class="col-l">
+        <form action="#">
+            {txtAdminOnly}
+            <label>{MSG_SHOW_CLIENT}</label>
+            <select id="swapClientId" onchange="calendar.{period}.updateClient({month}, {year}, {user})">
+                {clients}
+            </select>
+            <label>{MSG_SHOW_THESE_PROJECTS}</label>
+            <select id="swapProjectId" onchange="calendar.{period}.updateProject({month}, {year}, {user})">
+                {projects}
+            </select>
+        </form>
+    </div>
+    <br class="clearPlz" />
+    <div class="dash-btm"></div>
+</div>

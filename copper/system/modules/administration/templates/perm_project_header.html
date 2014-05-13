@@ -1,0 +1,17 @@
+<form action="index.php" method="post" name="addproj">
+<input type="hidden" name="module" value="administration">
+<input type="hidden" name="action" value="{PROJECTACTION}">
+<input type="hidden" name="id" value="{USERID}">
+<input type="hidden" name="objectid" value="projects">
+                                            <dt>{MSG_PROJECTS}</dt>
+                                            <dd class="sub-definition">
+                                                <select class="edit" name="itemid">
+                                                    {PROJECTITEMLIST}
+                                                </select>
+                                            </dd>
+                                            <dd>
+                                                <select class="edit" name="accessid" onchange="if (this.selectedIndex > 0) document.forms.addproj.submit();">
+                                                    {ACCESSLIST}
+                                                </select>
+                                            </dd>
+</form>

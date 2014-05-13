@@ -1,0 +1,113 @@
+.header .profile{position: absolute; top:0; right: 0; width: 612px;}
+
+.header .profile a{text-decoration: none;}
+
+.header .profile .avatar{background:transparent url(../images/menu/avatar-holder.png) no-repeat 0 0; width:48px; height:45px; position: absolute; top:9px; left: -35px;}
+.header .profile_active .name:hover .avatar {background-position: -48px 0;}
+.header .profile_inactive .avatar {background-position: 0 -46px;}
+.header .profile_inactive .name:hover .avatar {background-position: -48px -46px;}
+
+.header .profile_active span.name{width: 430px; height:16px; overflow: hidden; display: block; position: relative;}
+.header .profile_active span.name .fader_grad{display: block; position: absolute; top:0; right: 0; width: 40px; height: 16px; background:url(../images/timer_sexy/fader_grad.png) repeat-y;}
+.header .profile_active .avatar{margin-left: -12px}
+
+.header .profile .avatar span{display: block; position: absolute; top:5px; left: 8px; width: 34px; height: 34px; background: no-repeat center; overflow: hidden;}
+.header .profile_inactive .name .avatar span{left: 4px;}
+
+/* active */
+.header .profile_active .bar{position: absolute; top:0; right: 0; background: url(../images/timer_sexy/top_bar.png); width: 612px; height: 62px;}
+
+.header .profile .bar h3, .header .profile .bar h3 a{position: absolute; top:0; right: 0; width: 562px;}
+.header .profile .bar h3 a{padding: 24px; font-size: 16px; color: #333;}
+.header .profile .bar h3 a:hover{color: #09c;}
+
+.header .profile .bar .menu{display: block; position: absolute; top:0; right: 0; width: 160px; padding: 20px;}
+.header .profile .bar .menu a{display: block; float: right; padding: 6px 7px 5px; font-size: 10px; font-weight: bold; color: #999; text-transform: uppercase; line-height: 100%; position: relative;}
+
+.header .profile .bar .menu a.logout{padding-left: 18px;}
+.header .profile .bar .menu a.logout span{color: #999; font-weight: normal; position: absolute; top:6px; left: 5px;}
+.header .profile .bar .menu a.logout:hover span{display: none;}
+.header .profile .bar .menu a.logout:hover{background: #09f url(../images/timer_sexy/angle_arrow_topright.gif) no-repeat 7px 7px;}
+.header .profile .bar .menu a:hover{background-color: #09f; color: #fff; -moz-border-radius: 3px; border-radius:3px;}
+
+.header .profile .drop{position: absolute; top:10px; right: 0; background: url(../images/timer_sexy/dropdown_rep.png) repeat-y; width: 612px;}
+.header .profile .drop_bottom, .header .profile .drop_draggy{position: absolute; top:100%; left: 0; height: 29px; background: url(../images/timer_sexy/dropdown_bottom.png); width: 100%;}
+.header .profile .drop .drop_draggy{background: url(../images/timer_sexy/up-draggy.jpg) no-repeat 50% 0; height: 20px;cursor:n-resize; margin-top: -10px;}
+.header .profile .drop .drop_draggy:hover{background-position: 50% -34px;}
+
+.header .profile .drop .drop_content{position: relative; padding: 52px 30px 20px; min-height: 50px;}
+.header .profile .drop .drop_content h4,
+.header .profile .drop .recent_items a{display: block; text-align: right; font-size: 12px; border-bottom: none; position: relative; padding: 3px 70px 3px 0; margin: 0; border-bottom: 3px solid #fff;}
+.header .profile .drop .recent_items a strong{font-weight: bold; width: 50px; position: absolute; top:0; right: 4px; padding: 3px 5px 3px 0; background: #f9f9f9; color: #666; font-size: 11px; -moz-border-radius: 0 3px 3px 0; border-radius:0 3px 3px 0;}
+.header .profile .drop .recent_items a:hover strong{color: #fff; background: #09f url(../images/timer_sexy/blue-arrow-left.gif) no-repeat left;}
+
+.header .profile .drop .drop_content h4{text-transform: uppercase; padding: 10px 6px;}
+
+
+/* now we sort the neutral state */
+.header .profile_inactive .bar h3, .header .profile_inactive .bar h3 a{text-align: right; position: relative; top:auto; right: auto; width: auto; color: #fff;}
+.header .profile_inactive .bar h3 a .name{color: #fff; padding: 0; line-height: 62px;}
+
+.header .profile .bar h3 a .hours_logged{font-size: 11px; display: none; color: #555; position: absolute; top:90px; left: 50px;}
+.header .profile_inactive .bar h3 a .hours_logged{display: none;}
+/*
+will ben want this at all?
+ .header .profile_active .bar h3 a .hours_logged{display: block;}
+ */
+
+
+.header .profile_inactive .bar .menu{display: none;}
+.header .profile_inactive .drop{display: none;}
+
+
+/* and now the timer mode */
+.profile_timer{}
+
+.header .profile_inactive.profile_timer .avatar {background-position: 0 -91px; width: 56px; margin-left: -10px;}
+.header .profile_inactive.profile_timer .avatar span{left: 14px;}
+.header .profile_inactive.profile_timer .name:hover .avatar {background-position: -57px -136px; width: 57px; margin-left: -4px;}
+.header .profile_inactive.profile_timer .name:hover .avatar span {left: 8px;}
+
+.header .profile_active.profile_timer .avatar {background-position: 1px -136px; margin-left: -20px; width: 58px;}
+.header .profile_active.profile_timer .avatar span{left: 9px;}
+.header .profile_active.profile_timer .name:hover .avatar {background-position: -58px -91px; width: 58px; margin-left: -25px;}
+.header .profile_active.profile_timer .name:hover .avatar span{left: 14px;}
+
+
+.header .profile .timer_count{font-weight: bold; border-left: 2px solid #555; padding-left: 5px; display: none;}
+.header .profile:hover .timer_count{color: #fff;}
+.header .profile_timer .timer_count{display: inline;}
+/*.header .profile_active.profile_timer .timer_count{position: absolute; top:64px; left: 30px; height: 17px; width: 43px; border-left:none; background: url(../images/timer_sexy/clock.gif); padding: 5px 0 0 25px; line-height: 100%; display: block; color: #fff; font-size: 14px; text-align: left;}
+*/
+.header .profile_active.profile_timer .timer_count{position: absolute; top:64px; left: 30px; height: 17px; width: 63px; border-left:none; background: #ccc; line-height: 100%; display: block; color: #fff; font-size: 14px; text-align: left;}
+
+/* active, and timer! */
+.header .profile_active.profile_timer .drop .recent_items{display: none;}
+
+/* active form */
+.header .profile .timer_form{display: none;}
+.header .profile_active.profile_timer .timer_form{display: block;}
+
+.header .profile .timer_form .name{font-size: 14px; color: #333; padding: 7px 0 10px 80px;}
+.header .profile .timer_form .name strong{font-weight: bold;}
+
+.header .profile .timer_form .actions{height: 20px; padding: 5px 0;}
+.header .profile .timer_form .actions a{display: block; float: left; font-size: 10px; color: #000; border-right: 1px solid #ccc; padding: 0 8px; text-transform: uppercase; font-weight: bold;}
+.header .profile .timer_form .actions a:last-child{border-right: none;}
+.header .profile .timer_form .actions a:hover{color: #09f}
+
+.header .profile .timer_form .comments{height: 95px; padding: 5px;border: 1px solid #ccc;}
+.header .profile .timer_form .comments textarea{height: 90px; width: 537px; border: 1px solid #fff; text-align: left; color: #777;}
+.header .profile .timer_form .comments textarea:focus{color: #000;}
+
+.header .profile .timer_form .progress {padding: 15px 5px 0;}
+.header .profile .timer_form .progress label,
+.header .profile .timer_form .progress select,
+.header .profile .timer_form .progress input{float: left; display: block; padding: 0 5px; color: #333; font-size: 11px;}
+.header .profile .timer_form .progress input{width: 20px;}
+.header .profile .timer_form .progress label{padding-top: 2px;}
+
+
+/* get rid of these lines for draggable action */
+.header .profile .drop .drop_draggy{display: none;}
+.header .profile .drop .drop_content{padding-bottom: 0;}

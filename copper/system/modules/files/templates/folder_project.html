@@ -1,0 +1,19 @@
+                                <!-- START FOLDER -->
+                                <li class="sortable droppable collapsed" id="folder_{txtFolderID}">
+                                    <div class="sortableMeta folderName">
+                                        <div class="cell cellFirst cell-name">
+										                    		<!-- for some reason, had style="background-color: rgb(0, 204, 255);" -->                                        
+                                            <a class="min" style="" onclick="cancelEditFolder({txtProjectID}, {txtFolderID}); toggleProjectFolders(this, {txtProjectID}, {txtFolderID}, '{txtSortOrder}', '{txtSortDirection}'); return false;" href="#" id="toggler_{txtProjectID}_{txtFolderID}"></a>
+                                            <span class="handle" id="span_{txtFolderID}">{txtFolderName}</span>
+                                            <span id="inputwrapper_{txtFolderID}" style="display:none"><input type="text" id="input_{txtFolderID}" value="{txtFolderName}"/></span> 
+                                        </div>
+                                        <div class="cell cell-lastup"></div>
+                                        <div class="cell cell-size">{txtSize}</div>
+                                        <div class="cell cellLast cell-type">{MSG_FOLDER}</div>
+                                    </div>
+                                    <!-- START FILE LIST -->
+                                    <ul class="expandWrap folder-contents" id="folderlist_{txtProjectID}_{txtFolderID}" style="display:none;">
+                                    </ul>
+                                    <!-- END FILE LIST -->
+                                </li>
+                                <!-- END FOLDER -->

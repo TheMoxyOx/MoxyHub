@@ -1,0 +1,229 @@
+<form name="file-form-{txtFileID}" id="file-form-{txtFileID}" method="post" action="index.php" enctype="multipart/form-data">
+    <input type="hidden" name="module" value="files"/>
+    <input type="hidden" name="action" value="filesave"/>
+    <input type="hidden" id="input_fileid" name="fileid" value="{txtFileID}"/>
+    <input type="hidden" name="owner" value="{txtOwner}"/>
+    <input type="hidden" id="version{txtFileID}" name="version" value="{txtVersion}"/>
+    <input type="hidden" name="folder" value="{txtFolder}"/>
+    <input type="hidden" name="actual_folder" value=""/>
+    <input type="hidden" name="linked_file" value=""/>
+    <input type="hidden" name="projectid" value="{txtProjectID}"/>
+    <input type="hidden" name="taskid" value="{txtTaskID}"/>
+    <div class="cell cell-expanded-nav">
+        <ul class="horiz-nav">
+            <li></li>{actions}
+            {actionsCancelOnly}
+        </ul>
+    </div>
+    <div class="expand edit_file_kapow">
+
+				<div class="col-l">
+					<p>
+						<textarea name="description" id="description{txtFileID}" class="edit" cols="10" rows="4">{txtDescription}</textarea>
+					</p>
+          {filedetails}
+				</div>
+        <div class="col-r">
+            <h4 class="toggler"><a class="max" href="#task-files" onclick="toggleComponent(this,'task-files'); return false;">{MSG_FILE_HISTORY}</a></h4>
+            <div class="task-files">
+                <dl class="files">
+                    <dd class="file-upload" style="background-position:-445px 0px;">
+                        <div class="upload-details">
+                            {MSG_UPLOAD_A_NEW_FILE}: 
+                            <span class="file-details">&nbsp;</span>
+                        </div>
+                        <div class="linklist">
+                            <div id="uploaderOverlay{txtFileState}{txtFileID}" style="position:absolute; z-index:2; width:43px; height:16px; left:46px;"></div> 
+                            <a href="#" id="selectLink{txtFileID}">{MSG_SELECT}</a>
+                        </div>
+                    </dd>
+                    <dd class="divider">&nbsp;</dd>
+                    <dd class="file-upload" style="background-position:-445px 0px; display:none;" id="uploader-progressbar{txtFileID}">
+                        <input type="hidden" id="hidden-filename{txtFileID}" name="hidden-filename{txtFileID}" value="">
+                        <input type="hidden" id="hidden-filesize{txtFileID}" name="hidden-filesize{txtFileID}" value="">
+                        <div class="upload-details {txtClass}">
+                            {MSG_UPLOADING} <span id="uploader-filename{txtFileID}"></span>
+                            <span class="file-details" id="uploader-progress{txtFileID}"></span>
+                        </div>
+                        <div class="linklist"><a href="#" onclick="uploaders['{txtFileID}'].cancel(fileIDs['{txtFileID}']); $('uploader-progressbar{txtFileID}').hide(); $('uploader-divider{txtFileID}').hide(); uploaders['{txtFileID}'].enable(); return false;">{MSG_CANCEL}</a></div>
+                    </dd>
+                    <dd class="divider" style="display:none;" id="uploader-divider{txtFileID}">&nbsp;</dd>
+                    <div id="fileversions-{txtFileID}">
+                        {fileversions}
+                    </div>
+                </dl>
+            </div> <!-- end tasks-files -->
+        </div> <!-- end col-r -->
+        <div class="clear"></div>
+    </div>
+</form>
+<script type="text/javascript">
+if (typeof(uploaderCallbacks) == 'undefined') { var uploaderCallbacks = {}; }
+if (typeof(uploaders) == 'undefined') { var uploaders = {}; }
+if (typeof(fileIDs) == 'undefined') { var fileIDs = {}; }
+
+    uploaderCallbacks.handleClearFiles = function() {
+        uploaders["{txtFileID}"].enable();
+        fileIDs['{txtFileID}'] = null;
+        
+        $('uploader-progressbar{txtFileID}').hide();
+    }
+        
+    // When contentReady event is fired, you can call methods on the uploaders["{txtFileID}"].
+    uploaderCallbacks.handleContentReady = function() {
+        // Allows the uploader to send log messages to trace, as well as to YAHOO.log
+        uploaders["{txtFileID}"].setAllowLogging(false);
+        
+        // Restrict selection to a single file (that's what it is by default,
+        // just demonstrating how).
+        uploaders["{txtFileID}"].setAllowMultipleFiles(false);
+    }
+
+    // Initiate the file upload. Since there's only one file, 
+    // we can use either upload() or uploadAll() call. fileList 
+    // needs to have been populated by the user.
+		uploaderCallbacks.upload = function() {
+			if (fileIDs['{txtFileID}'] != null) {
+				uploaders["{txtFileID}"].upload(
+					fileIDs['{txtFileID}'], 
+					"{txtUrl}", 
+					"POST", 
+					{
+						module:'files', 
+						action:'swffilesave', 
+						fileid:$('input_fileid').value, 
+						projectid:{txtProjectID}, 
+						taskid:{txtTaskID}, 
+						userid:{txtUserID}, 
+						version:$('version{txtFileID}').value,
+						post_cookie: document.cookie
+					}
+				);
+
+				fileIDs['{txtFileID}'] = null;
+			}
+		}
+    
+    // Fired when the user selects files in the "Browse" dialog
+    // and clicks "Ok".
+    uploaderCallbacks.onFileSelect = function(event) {
+        for (var item in event.fileList) {
+            if(YAHOO.lang.hasOwnProperty(event.fileList, item)) {
+                YAHOO.log(event.fileList[item].id);
+                fileIDs['{txtFileID}'] = event.fileList[item].id;
+            }
+        }
+        uploaders["{txtFileID}"].disable();
+        
+        $('uploader-filename{txtFileID}').update(event.fileList[fileIDs['{txtFileID}']].name);
+        $('hidden-filename{txtFileID}').value = event.fileList[fileIDs['{txtFileID}']].name;
+        $('hidden-filesize{txtFileID}').value = event.fileList[fileIDs['{txtFileID}']].size;
+        
+        var size = Math.round(parseInt( event.fileList[fileIDs['{txtFileID}']].size ) / 1024);
+        $('uploader-progress{txtFileID}').update("0Kb {MSG_OF} " + size + 'Kb (0%)');
+
+        $('uploader-progressbar{txtFileID}').setStyle({backgroundPosition:'-445px 0px'});
+        $('uploader-progressbar{txtFileID}').show();
+        $('uploader-divider{txtFileID}').show();
+        uploaderCallbacks.upload();
+    }
+
+    // Do something on each file's upload start.
+    uploaderCallbacks.onUploadStart = function(event) {
+    }
+    
+    // Do something on each file's upload progress event.
+    uploaderCallbacks.onUploadProgress = function(event) {
+        var progressBarWidth = parseInt(445); // Progress bar width in pixels, this may change
+        progress = progressBarWidth - Math.round(progressBarWidth*(event["bytesLoaded"]/event["bytesTotal"]));
+        $('uploader-progressbar{txtFileID}').setStyle({backgroundPosition:'-'+progress+'px 0px'});
+
+        var loaded = Math.round(parseInt( event["bytesLoaded"] ) / 1024);
+        var total = Math.round(parseInt( event["bytesTotal"] ) / 1024);
+        var percent = Math.round(100*event["bytesLoaded"]/event["bytesTotal"]);
+        $('uploader-progress{txtFileID}').update(loaded + "Kb {MSG_OF} " + total + 'Kb ('+percent+'%)');
+    }
+    
+    // Do something when each file's upload is complete.
+    uploaderCallbacks.onUploadComplete = function(event) {
+        $('filename{txtFileID}').update($('hidden-filename{txtFileID}').value);
+				if ($('fileicon{txtFileID}'))
+				{
+	        $('fileicon{txtFileID}').src = 'assets/images/file/' + getIconFromFilename($('hidden-filename{txtFileID}').value);
+				}
+				
+        var size = Math.round(parseInt($('hidden-filesize{txtFileID}').value) / 1024);
+        $('filesize{txtFileID}').update(size + 'Kb');
+        var filename = $('hidden-filename{txtFileID}').value;
+        var dot = filename.lastIndexOf("."); 
+        if ( dot == -1 ) { 
+        } else {
+            var extension = filename.substr(dot+1, filename.length); 
+            $('filetype{txtFileID}').update(extension.toUpperCase());
+        } 
+
+        if ($('actionsCancelOnly')) {
+            $('actionsCancelOnly').hide();
+        }
+
+        if ($('actions')) {
+            $('actions').show();
+        }
+
+        $('uploader-progressbar{txtFileID}').hide(); 
+        $('uploader-divider{txtFileID}').hide(); 
+        uploaders["{txtFileID}"].enable();
+    }
+    
+    // Do something if a file upload throws an error.
+    // (When uploadAll() is used, the Uploader will
+    // attempt to continue uploading.
+    uploaderCallbacks.onUploadError = function(event) {
+    }
+
+    // Do something if an upload is cancelled.
+    // For some reason this event doesn't fire when cancel is called
+    uploaderCallbacks.onUploadCancel = function(event) {
+    }
+    
+    // Do something when data is received back from the server.
+    uploaderCallbacks.onUploadResponse = function(event) {
+        var obj = eval('('+event.data+')');
+        $('filetime{txtFileID}').update(obj.now);
+        $('input_fileid').value = obj.fileid;
+        var descriptionID = ($('description0')) ? 'description0' : 'description'+obj.fileid;
+        $(descriptionID).focus();
+        var versionID = ($('version0')) ? 'version0' : 'version'+obj.fileid;
+        $(versionID).value = obj.version;
+
+        var url = 'index.php?module=files&action=ajaxfileversion&fileid=' + obj.fileid;
+        var targetID = ($('fileversions-0')) ? 'fileversions-0' : 'fileversions-'+obj.fileid;
+        cu.ajaxUpdate(url, targetID);
+    }
+
+    uploaderCallbacks.handleRollOver = function() {
+        YAHOO.util.Dom.setStyle(YAHOO.util.Dom.get('selectLink{txtFileID}'), 'color', "#0198FD");
+    }
+
+    uploaderCallbacks.handleRollOut = function() {
+        YAHOO.util.Dom.setStyle(YAHOO.util.Dom.get('selectLink{txtFileID}'), 'color', "#333333");
+    }
+
+    // Instantiate the uploader and write it to its placeholder div.
+    YAHOO.widget.Uploader.SWFURL = "assets/flash/uploader.swf";
+    uploaders["{txtFileID}"] = new YAHOO.widget.Uploader( "uploaderOverlay{txtFileState}{txtFileID}" );
+
+    // Add event listeners to various events on the uploader.
+    // Methods on the uploader should only be called once the 
+    // contentReady event has fired.
+    uploaders["{txtFileID}"].addListener('contentReady', uploaderCallbacks.handleContentReady);
+    uploaders["{txtFileID}"].addListener('fileSelect', uploaderCallbacks.onFileSelect)
+    uploaders["{txtFileID}"].addListener('uploadStart', uploaderCallbacks.onUploadStart);
+    uploaders["{txtFileID}"].addListener('uploadProgress', uploaderCallbacks.onUploadProgress);
+    uploaders["{txtFileID}"].addListener('uploadCancel', uploaderCallbacks.onUploadCancel);
+    uploaders["{txtFileID}"].addListener('uploadComplete', uploaderCallbacks.onUploadComplete);
+    uploaders["{txtFileID}"].addListener('uploadCompleteData', uploaderCallbacks.onUploadResponse);
+    uploaders["{txtFileID}"].addListener('uploadError', uploaderCallbacks.onUploadError);
+    uploaders["{txtFileID}"].addListener('rollOver', uploaderCallbacks.handleRollOver);
+    uploaders["{txtFileID}"].addListener('rollOut', uploaderCallbacks.handleRollOut);
+</script>

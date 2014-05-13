@@ -1,0 +1,66 @@
+<!-- profile_active makes it activate! -->
+
+<div class="profile profile_inactive js_profile <?php EF::v($timer->exists ? 'profile_timer' : '') ?>">
+
+	<div class="bar">
+		<h3>
+			<a class="name js_profile_name" href="#">
+				<span class="name"><?php EF::v(CopperUser::current()->full_name) ?></span>
+				<span class="hours_logged">Hours Logged Today: <strong>4.01</strong>, This Week: <strong>30.25</strong> </span>
+				<span class="js_timer_count timer_count"><?php EF::t($timer->elapsed_format) ?></span>
+				<span class="avatar js_profile_avatar" href="#">
+					<span><img width="38" height="38" alt="avatar" src="<?php EF::v(CopperUser::current()->get_avatar()); ?>"></span>
+				</span>
+				
+			</a>
+		</h3>
+		<div class="menu">
+			<a href="index.php?module=authorisation&amp;action=logout" class="logout"><span>|</span>Logout</a>
+			<a href="index.php?module=profile&amp;action=edit">my profile</a>
+		</div>
+	</div><!--bar-->
+	
+	<div class="drop">
+		<div class="drop_bottom"></div>
+		<div class="drop_draggy js_drop_draggy"></div>
+		<div class="drop_content js_profile_drop_content">
+		
+			<div class="recent_items">
+				<h4>Recent Items</h4>
+				<?php foreach(CopperUser::current()->get_activity(10) as $a): ?>
+					<a href="<?php EF::v($a->permalink) ?>"><?php EF::t($a->Detail) ?><strong><?php EF::t(ActivityLog::map_context_to_lang($a->Context)); ?></strong></a>
+				<?php endforeach; ?>
+			</div>
+			
+			<form class="timer_form">
+			
+				<div class="name js_timer_description">
+					<strong>Todo:</strong>
+					<a class="js_timer_currenttasklink" href="<?php EF::v($timer->task->permalink); ?>"><?php EF::t($timer->task->Name) ?></a>
+				</div>
+
+				<div class="actions">
+					<a class='js_timer_save' href="#">Save progress + Close</a>
+					<a class="js_timer_pause" href="#"><?php EF::t($timer->Paused ? MSG_RESUME : MSG_PAUSE) ?></a>
+					<a class="js_timer_cancel" href="#">Cancel Timer</a>
+				</div>
+			
+				<div class="comments">
+					<textarea name="comment" class="js_comment">Enter comments about this todo...</textarea>
+				</div>
+
+				<div class="progress">
+					<select name="completeness" class="js_complete">
+						<?php EF::options(array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100), $timer->task->PercentComplete, Format::USEOPTION); ?>
+					</select>
+					<label for="completeness">% complete,</label>
+					<input type="text" name="hrs" class="js_hours">
+					<label for="hrs">hours work<span> (as calculated by the timer).</span></label>
+				</div>
+				
+			</form>
+				
+		</div><!--/drop_content-->
+	</div><!--/drop-->
+	
+</div><!--/profile_box-->

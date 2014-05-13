@@ -1,0 +1,60 @@
+COPPER PROJECT MANAGEMENT SOFTWARE
+INSTALLATION GUIDE
+
+Copper Online Help is available at http://www.copperproject.com/help/
+For installation support email support@copperproject.com
+
+Installing Copper on your web server requires that you have PHP 5.x installed (www.php.net) and MySQL 5.1 or later instaled (www.mysql.com). 
+
+***New Installation***
+1.  Extract all files to your copper web root directory (e.g. www.mysite.com/copper/) 
+2.  Create a MySQL database (including mysql user with full access to that database) and have those details ready (server, dbname, username, password)  
+3.  Create a new directory outside of your copper root directory for project related files (eg: /copper_files/).  
+    Set the permissions of that directory: 
+    On Mac OS X: Right Click a file/directory, choose Get Info, Permissions, and make all users Read&Write.
+    On Unix: chmod 777 /copper_files/  , chmod 777 config.php
+    On Windows: Right click on the directory, in the security tab add the IUSR account to the ACL list, and give  it 'full control of the directory  
+4.  In a browser, go to the install directory of your Copper. (e.g. www.mysite.com/copper/install/) and enter the required details.  
+5.  Delete your /install directory.  
+
+Now open a web browser and go to your copper root directory.
+(e.g.  www.mysite.com/copper/).
+At this page, login and change your password.  
+The username: admin
+The password: admin 
+
+***Upgrading***
+NOTE: If you have modifications to your Copper installation, the installation process will overwrite these.
+NOTE: MAKE SURE you have taken a database backup before ANY upgrade.
+
+1. Upload your new application files: 
+Backup your config_local.php file (your registration key remains valid), then upload the new application files to your server. Next, reupload your backed up config_local.php file and check that you have all of the same parameters as the included config.php
+
+IF UPGRADING FROM VERSION 4.0 or later
+2. Go to the /install/ directory using a browser, and click the UPGRADE button.
+
+IF UPGRADING FROM EARLIER VERSIONS OF COPPER
+3. Contact support@copperproject.com and send us your database, current config file, and notify us of your current Copper version. We will provide you with an updated database which you can simply upload to your mysql database, install the files above, and edit your config_local.php.
+
+***Troubleshooting File Uploads***
+This is a common issue with installation, and is usually attributed to the following:
+
+Diagnosis: Avatars or Copper Appearance settings don't save
+Resolution: You will need to create a directory in your copper_files folder called asset_uploads, and create a symlink between it and the /assets/uploads folder in your copper installation. Command: ln -s /pathto/copperfiles/asset_uploads/ /pathto/httpdocs/assets/uploads
+
+Diagnosis: Safe mode is on. 
+Resolution: This can be set to off in php.ini (php_admin_flag safe_mode off). Some hosts may not allow safe mode to be turned off. 
+
+Diagnosis: Incorrect permissions. 
+Resolution: Ensure your copper_files directory is set to CHMOD 777 (allow all to read/write)
+
+Diagnosis: Incorrect path. 
+Resolution: You need to first establish the correct path to your files directory, as this may not always be what you see in your FTP client. To review this, upload a php file containing the phpInfo() tag (search Google for the correct syntax) and look for the script_path setting. Set your files path to this path in config.php. Remember the final '/' and remember that best practice is to actually have copper_files one level above your web root directory.
+
+Diagnosis: Larger files dont upload. 
+Resolution: The PHP RPM adds a "php.conf" to /etc/httpd/conf.d/ where it sets a directive:  LimitRequestBody 524288 Comment out this line. Also check that our php.ini file has appropriate size values for Post_Max and Max_Upload_Size fields
+
+***Troubleshooting Email notification***
+Resolution: php.ini does not contain correct path to smtp server. Ensure your php.ini file has the correct setting for your smtp server.
+
+If your have any questions of feedback email support@copperproject.com

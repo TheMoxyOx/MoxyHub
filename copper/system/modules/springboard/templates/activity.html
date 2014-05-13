@@ -1,0 +1,52 @@
+    <!-- START MODULE CONTENT WRAPPER -->
+    <div class="module-cont-wrapper">
+        <!-- START MODULE HEADER -->
+        <div class="module-cont-header">
+            <h2>{txtUsername}</h2>
+            <p>{MSG_TODAY}: {txtDayComments} {MSG_COMMENTS}, {txtDayHours} {MSG_HOURS}, {MSG_THIS_WEEK}: {txtWeekComments} {MSG_COMMENTS}, {txtWeekHours} {MSG_HOURS}, {MSG_THIS_MONTH}: {txtMonthComments} {MSG_COMMENTS}, {txtMonthHours} {MSG_HOURS}</p>
+        </div>
+        <!-- END MODULE HEADER -->
+        <!-- START MODULE CONTENT -->
+        <div class="module-cont springboard-activity">
+            <!-- START LEFT COL -->
+            <div class="col-l">
+            
+                <h4 class="toggler"><a class="max" href="#open-issues" onclick="toggleComponent(this,'open-issues'); return false;">{MSG_OPEN_ISSUES}</a></h4>
+                <div class="open-issues">
+                    <dl>
+                        {issues}
+                    </dl>
+                </div>
+                
+                <h4 class="toggler"><a class="max" href="#recent-commentary" onclick="toggleComponent(this,'recent-commentary'); return false;">{MSG_RECENT_COMMENTARY}</a></h4>
+                <div class="recent-commentary">
+                    <dl>
+                        {commentary}
+                    </dl>
+                </div>
+                
+            </div>
+            <!-- END LEFT COL -->
+            <!-- START RIGHT COL -->
+            <div class="col-r">
+            
+                <h4 class="toggler"><a class="max" href="#pages-visited" onclick="toggleComponent(this,'pages-visited'); return false;">{MSG_PAGES_VISITED}</a></h4>
+                <div class="pages-visited">
+                    <dl>
+                        {pages}
+                    </dl>
+                </div>
+                
+                <h4 class="toggler"><a class="max" href="#group-activity" onclick="toggleComponent(this,'group-activity'); return false;">{MSG_GROUP_ACTIVITY}</a></h4>
+                <div class="group-activity">
+                    <dl>
+                        {groupactivity}
+                    </dl>
+                </div>
+                
+            </div>
+            <!-- END RIGHT COL -->
+        </div>
+        <!-- END MODULE CONTENT -->
+    </div>
+    <!-- START MODULE CONTENT WRAPPER -->

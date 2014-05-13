@@ -1,0 +1,33 @@
+<!-- START COMMENT -->
+                                            <li id="task_comment_{txtCommentID}">
+                                                <form action="#" id="task_comment_form{txtCommentID}">
+                                                                                                        <input type="hidden" name="contact" value="{txtContact}" />
+                                                    <input type="hidden" name="taskid" value="{txtTaskID}" />
+                                                    <input type="hidden" name="commentid" value="{txtCommentID}"/>
+                                                    <input type="hidden" name="hours" value="{txtHours}"/>
+                                                    <input type="hidden" name="comment" value="{txtBodyValue}"/>
+                                                    <input type="hidden" name="outofscope" value="{txtBillable}"/>
+                                                    <input type="hidden" name="issue" value="{txtIsIssue}"/>
+                                                    <input type="hidden" name="date" value="{txtDayValue}"/>
+                                                    <input type="hidden" name="projectid" value="{txtProjectID}"/>
+                                                    <div class="header">
+                                                        <div class="owner">
+                                                            <strong>{txtUsername}</strong>
+                                                        </div>
+                                                        <div class="status">
+                                                            {txtHours} {txtDay}
+                                                        </div>
+                                                        <ul class="horiz-nav">
+                                                            <li><a class="txtEdit" href="#" onclick="return contacts.editTaskComment({txtCommentID});">{MSG_EDIT}</a></li>
+                                                            <li><a class="txtDelete" href="#" onclick="springboard.removeTaskComment({txtCommentID},{txtProjectID},{txtTaskID}); return false">X</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="msg">
+                                                        {txtBody}
+                                                    </div>
+                                                    <div class="meta-secondary">
+                                                        Client: {txtContactName} {txtBillable} {txtIssue}
+                                                    </div>
+                                                </form>
+                                            </li>
+                                            <!-- END COMMENT -->

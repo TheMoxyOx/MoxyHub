@@ -1,0 +1,9 @@
+                                                <div id="task-dep-{projectID}-{taskID}-{otherTaskID}-{dependency}">
+                                                    <p>{msg}</p>
+
+                                                    <a href="index.php?module=projects&action=taskdependencyremove&projectid={projectID}&taskid={taskID}&taskdependency={otherTaskID},{dependency}">
+                                                    <a href="#" onclick="dependencyRemove({projectID}, {taskID}, {otherTaskID}, {dependency}); return false;">
+                                                        <img class="add-minus-btn" height="16" border="0" width="8" src="assets/images/btn/btn_minus.gif" alt="{MSG_REMOVE}"/>
+                                                    </a>
+                                                </div>
+

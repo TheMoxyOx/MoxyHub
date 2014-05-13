@@ -1,0 +1,16 @@
+<a class="draggy_handle" href="#">&nbsp;</a><ins></ins>
+<em class="content">
+	<span><!-- see this span? This span is because the javascript has up(2) at helpers.js:472. Once that abomination is fixed, then we can remove this superfluous html -->
+		<em class="name" id="task-opener-{txtTaskID}" onclick="toggleTask(this, {txtProjectID}, {txtTaskID}); return false;">{txtName}</em>
+	</span>
+	<em class="cell-owner">{txtOwner}</em>
+	<em class="cell-perc"><i class="perc-bar"><i id="perc-bar-highlight-{txtTaskID}" style="width:{txtPercentComplete}%; background:{txtColour};">&nbsp;</i></i></em>
+	<em class="cell-priority">{txtPriority}</em>
+	<em class="cell-latest">{txtLatestActivity}</em>
+	<em class="cell-start">{txtStartDate}</em>
+	<em class="cell-end cellLast">{txtEndDate}</em>
+</em>
+
+<div id="taskholder-{txtTaskID}" style="display:none;" class="expandWrap"></div>
+<div class="clearPlz"></div>
+

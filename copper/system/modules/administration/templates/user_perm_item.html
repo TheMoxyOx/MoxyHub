@@ -1,0 +1,5 @@
+                                            <dt>{CATEGORY}</dt>
+                                            <dd class="sub-definition">{ITEM}</dd>
+                                            <dd>
+                                                <select name="accessid" class="edit" onchange="if (this.selectedIndex > 1) { {FUNC}({SID}, this.options[this.selectedIndex].value, {ITEMID}) } else if (this.selectedIndex == 1) { window.location.href='index.php?module=administration&amp;action=userpermdel&amp;object={OBJECT}&amp;id={USERID}&amp;sid={SID}'; };">{ACCESSLIST}</select>
+                                            </dd>

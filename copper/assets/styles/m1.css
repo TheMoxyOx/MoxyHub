@@ -1,0 +1,105 @@
+#dash #search-results div{padding: 2px; width: 99%;}
+
+/* this has been added, so hide normally */
+#fld_searchX,
+.closeDashX{display: none;}
+
+/* for my first trick, we kill off existing stuff like crazies */
+body.iconstyle-v1 #dash .horiz-nav,
+body.iconstyle-v1 #head-module,
+body.iconstyle-v1 #sub-search{display: none;}
+
+
+/* and finally remove a bunch of stuff that already exists */
+body.iconstyle-v1 #dash-header{ padding: 0 0 0 10px;}
+body.iconstyle-v1 #dash-nav{min-height: 50px; width: 790px;}
+body.iconstyle-v1 #dash-nav li a{height: auto;}
+
+/* ... aaaaand put in stuff that was originally hidden */
+body.iconstyle-v1 #dash-nav li a, body.iconstyle-v1 #dash-nav span{display: block;}
+
+body.iconstyle-v1 #dash-nav p .d a{display: inline;}
+
+
+/* this is the first menu, in the dash */
+body.iconstyle-v1 #dash{background: url(../images/menu/backer.jpg) no-repeat top; position: relative; margin: 0; min-height: 50px;}
+
+body.iconstyle-v1 .m1 {min-height: 50px;display: block; margin: 0;}
+body.iconstyle-v1 .m1 li{float: left; display: block; margin: 0; padding: 2px 0 10px; list-style: none; position: relative; }
+body.iconstyle-v1 .m1 li a.top{display: block; float: left; background: no-repeat 0 0; padding: 13px 13px 10px 30px; text-decoration: none; font-size: 11px; font-weight: bold; color: #666; text-transform: uppercase;}
+body.iconstyle-v1 .m1 li a:hover, body.iconstyle-v1 .m1 li.active a{color: #000; background-position: 0 -44px; cursor: pointer;}
+
+/* items */
+body.iconstyle-v1 .m1 .todos a.top{background-image: url(../images/menu/icons/egg.jpg);}
+body.iconstyle-v1 .m1 .clients a.top{background-image: url(../images/menu/icons/clients.jpg);}
+body.iconstyle-v1 .m1 .projects a.top{background-image: url(../images/menu/icons/projects.jpg);}
+body.iconstyle-v1 .m1 .calendar a.top{background-image: url(../images/menu/icons/calendar.jpg);}
+body.iconstyle-v1 .m1 .files a.top{background-image: url(../images/menu/icons/files.jpg);}
+body.iconstyle-v1 .m1 .contacts a.top{background-image: url(../images/menu/icons/contacts.jpg);}
+body.iconstyle-v1 .m1 .reports a.top{background-image: url(../images/menu/icons/reports.jpg);}
+body.iconstyle-v1 .m1 .admin a.top{background-image: url(../images/menu/icons/admin.jpg);}
+body.iconstyle-v1 .m1 .reports p{left: -29px;}
+body.iconstyle-v1 .m1 .admin p{left: -124px;}
+
+/* dropz */
+body.iconstyle-v1 .m1 p{display: none;}
+body.iconstyle-v1 .m1 p.active{display: block;}
+
+body.iconstyle-v1 .m1 p, body.iconstyle-v1 #dash #search-results{position: absolute; top:45px; left: -30px;width: 437px;  background: url(../images/menu/dropdown/rep.png); }
+body.iconstyle-v1 .m1 p .bottom, body.iconstyle-v1 #dash #search-results .bottom{display:block; width: 437px; height: 50px; background: url(../images/menu/dropdown/bottom.png) no-repeat bottom; position: absolute; top:100%; }
+
+body.iconstyle-v1 .m1 p .m{display: block; float: left; width: 96px; margin: 10px 0 0 53px;padding:0 0 0;}
+body.iconstyle-v1 .m1 p .m a{display: block; font-size: 10px; color: #666; text-decoration: none; font-weight: bold; padding: 3px 0 3px 6px; line-height: 15px; cursor: pointer;}
+body.iconstyle-v1 .m1 p .m a:hover{color: #000; background: #eee; cursor: pointer;}
+
+body.iconstyle-v1 .m1 p .d {border-left: 3px solid #ddd;}
+body.iconstyle-v1 .m1 p .d, body.iconstyle-v1 #dash #search-results .d{display: block; float: right; width: 214px; padding: 0 0 0 20px; margin: 10px 50px 0 0;}
+body.iconstyle-v1 .m1 p .d .desc, body.iconstyle-v1 #dash #search-results .d .desc{display: block;color: #666;line-height: 18px; padding: 0 0 10px;}
+body.iconstyle-v1 .m1 p .d a:hover{text-decoration: none;}
+body.iconstyle-v1 .m1 p .d strong{color: #444; }
+
+body.iconstyle-v1 .m1 p .wideD, body.iconstyle-v1 #dash #search-results .d{width: 325px; border: none; padding-left: 0;}
+
+/* and now recent items! */
+/* body.iconstyle-v1 #dash-nav.m1 .projects p{display: block;} Just for testing! */
+body.iconstyle-v1 #dash-nav.m1 p .d .recent_items{border: 1px solid #ccc; background: #fff; -moz-border-radius: 4px; padding: 0 0 5px}
+body.iconstyle-v1 #dash-nav.m1 p .d .recent_items_title{padding: 5px 10px; font-weight: bold; color: #777;}
+body.iconstyle-v1 #dash-nav.m1 p .d .recent_items a{display: block; padding: 5px 10px; text-decoration: none; color: #999; line-height: 12px;}
+body.iconstyle-v1 #dash-nav.m1 p .d .recent_items a:hover{background: #f9f9f9; color: #000;}
+
+body.iconstyle-v1 #search{position: absolute; top:0; right: 0; margin: 0; padding: 0; display: block; float: none;}
+body.iconstyle-v1 #search{display: block;}
+body.iconstyle-v1 #search input{position: absolute; top:13px; right: 10px; width: 150px; font-size: 12px; border: 1px solid #fff; color: #999;}
+body.iconstyle-v1 #search input:focus, body.iconstyle-v1 #search input.active{color: #000;}
+body.iconstyle-v1 #search #fld_searchX.active{display: block; position: absolute; top:13px; right: 12px; background: url(../images/menu/icons/close-x.jpg) no-repeat 50% 0; width: 21px; height: 21px;}
+body.iconstyle-v1 #search #fld_searchX.active:hover{background-position: 50% -22px;}
+
+
+/* remade the old search */
+body.iconstyle-v0 #dash #search-results{position: absolute; top:120px; right: 0; background: #333; width: 330px; height: 0px; overflow: hidden;}
+body.iconstyle-v0 #dash #search-results.active{padding: 10px; height: auto; overflow: visible;}
+body.iconstyle-v0 #dash #search-results em{display: block; padding: 2px; font-style: normal; color: #fff;}
+body.iconstyle-v0 #dash #search-results em strong{font-weight: bold;}
+body.iconstyle-v0 #dash #search-results em a{color: #fff;}
+
+/* elaborate on search */
+body.iconstyle-v1 #dash #search-results{left: 535px; float: none; margin: 0; display: none;}
+body.iconstyle-v1 #dash #search-results.active{display: block;}
+body.iconstyle-v1 #dash #search-results-gohere em{display: block; padding: 2px; font-style: normal;}
+body.iconstyle-v1 #dash #search-results em strong{font-weight: bold;}
+
+
+/* dash action */
+body.iconstyle-v1 .theDash #dash-content{background: transparent url(../images/dash_bg_top.gif) left top no-repeat; margin: 0; width: 950px; position: relative;}
+body.iconstyle-v1 .dash-btm {background:transparent url(../images/dash_bg_btm.gif) bottom left no-repeat; clear:both; height:10px; width: 100%; position: absolute; bottom: 0; left: 0;}   
+body.iconstyle-v1 #dash-btm{display: none;}
+body.iconstyle-v1 ul.tabbed-nav{height: 20px; clear: both; border-top: 5px solid #fff;}
+body.iconstyle-v1 #clearTheDash.active{height: 10px;}
+
+body.iconstyle-v1 #closeDashX{display: block; position: absolute; top:51px; right: 8px; background: #fff url(../images/menu/icons/close-x.jpg) no-repeat 1px 0; width: 60px; font-size: 10px; color: #999; font-weight: bold; text-decoration: none; padding: 4px 0 5px 23px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border: 1px solid #ccc;}
+body.iconstyle-v1 #closeDashX:hover{background-position: 1px -22px;}
+
+body.iconstyle-v1 #closeDashX.showTheDash{background: #fff url(../../images/arrow_down_larger.gif) no-repeat 8px 6px; padding: 1px 0 1px 23px; margin-top: 1px;}
+body.iconstyle-v1 #closeDashX.showTheDash:hover{background-position:8px -18px;}
+
+body.iconstyle-v1 #closeDashX:hover{color: #333;}

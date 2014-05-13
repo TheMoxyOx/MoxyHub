@@ -1,0 +1,80 @@
+<!-- start task update from -->
+<form name="taskupdate" action="index.php" method="post">
+<input type="hidden" name="module" value="projects">
+<input type="hidden" name="action" value="taskcomment">
+<input type="hidden" name="projectid" value="{txtProjectID}">
+<input type="hidden" name="taskid" value="{txtTaskID}">
+<input type="hidden" name="commentid" value="{txtCommentID}">
+<input type="hidden" name="oldhours" value="{txtOldHours}">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr align="left" valign="top">
+        <td height="20" colspan="5">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr align="left" valign="middle">
+                    <td colspan="2"><strong>{lblUpdate}</strong></td>
+                </tr>
+                <tr align="left" valign="middle" bgcolor="#CCCCCC">
+                    <td height="15" colspan="2" bgcolor="{txtColour}"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td class="innercell">
+                    <table border="0" cellspacing="0" cellpadding="5" class="innercell" background="images/form_bg.gif">
+                        <tr>
+                            <td align="left" valign="top"><textarea name="comment" wrap="VIRTUAL" style="font-family: Tahoma, Verdana, Arial; font-size: 11px; height:140; width:210;">{txtComment}</textarea></td>
+                            <td valign="top"><table border="0" cellpadding="0" cellspacing="3">
+                                <tr>
+                                  <td align="right" width="50%"><strong>{lblCompleted}</strong>&nbsp;</td>
+                                  <td align="right" width="50%"><select name="percentage" style="width:105">{selectPercentage}</select></td></tr>
+                                <tr>
+                                  <td align="right"><strong>{lblHoursWorked}</strong>&nbsp;</td>
+                                  <td align="right"><input type="text" name="hours" class="TaskEdit_tf" style="width:105" value="{txtOldHours}"></td>
+                                </tr>
+                                <tr>
+                                  <td align="right"><strong>{MSG_CONTACT_RELATED}</strong>&nbsp;</td>
+                                  <td align="right" nowrap="nowrap"><select name="contact" style="width:105" class="TaskUpdate_dd">
+                                    {selectContact}
+                                    </select>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="right"><strong>{MSG_COMMENT_DATE}</strong>&nbsp;</td><td align="right" nowrap="nowrap"><input type="text" name="date" value="{txtCommentDate}" style="width:80" class="TaskEdit_tf">&nbsp;<img src="images/date_selector.gif" width="20" height="20" border="0" onClick="popUpCalendar(this, taskupdate.date, '{date_format}');"></td></tr>
+                                <tr>
+                                  <td align="right"><strong>{lblIssue}</strong>&nbsp;</td>
+                                  <td align="left"><input type="checkbox" name="issue" {txtIsIssue} value="1"></td></tr>
+                                <tr>
+                                  <td align="right"><strong>{MSG_OUT_OF_SCOPE}</strong>&nbsp;</td>
+                                  <td align="left"><input type="checkbox" name="outofscope" {txtIsOutOfScope} value="1"></td>
+                                </tr>
+                            </table></td>
+                        </tr>
+                        <tr align="right" valign="top">
+                        <td height="18" colspan="5"><table width="105" height="18" border="0" cellpadding="0" cellspacing="0" bgcolor="{txtColour}">
+                            <tr>
+                              <td width="105" height="18" align="left" valign="top"><a href="javascript:submitForm('taskupdate');"><img src="images/icons/but_save_update.gif" border="0"></a></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                    </table></td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        <tr align="left" valign="top">
+            <td height="20" colspan="5"><img src="images/common/s.gif" width="100%" height="20"></td>
+        </tr>
+        <tr align="left" valign="top">
+            <td><table width="100%" border="0" cellpadding="5" cellspacing="0" background="images/form_bg.gif"><tr><td>{txtComments}</td></tr></table></td>
+        </tr>
+</table>
+</form>
+<script>
+function submitForm(formName) {
+        if (formName == 'taskupdate') {
+            var form = document[formName];
+            form.submit();
+        }
+        else if (formName == 'assignuser') {
+            document[formName].submit();
+        }
+    }
+</script>

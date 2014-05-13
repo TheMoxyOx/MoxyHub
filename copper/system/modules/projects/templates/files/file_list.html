@@ -1,0 +1,59 @@
+
+    <!-- START MODULE CONTENT -->
+    <div class="module-cont-wrapper">
+
+			<div class="module-cont-header">
+				<ul class="horiz-nav">
+					<li><a href="#" onclick="newFile(); return false;">{MSG_NEW_FILE}</a></li> | 
+					<li><a href="#" onclick="newFolder(); return false;">{MSG_NEW_FOLDER}</a></li>
+				</ul>            			
+			</div>
+            
+
+    
+        <div class="module-cont files-list files-in-project tree_parent">
+            <div id="sortableHead" class="sortableHead">
+
+            <div class="cellTH cellFirst cell-name">
+                <p>{MSG_NAME}</p>
+                <div class="table-sort">
+                    <a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}&amp;order=name&amp;direction=up" class="up"></a>
+                    <a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}&amp;order=name&amp;direction=down" class="down"></a>
+                </div>
+            </div>
+
+            <div class="cellTH cell-lastup">
+                <p>{MSG_LAST_MODIFIED}</p>
+                <div class="table-sort">
+                    <a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}&amp;order=date&amp;direction=up" class="up"></a>
+                    <a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}&amp;order=date&amp;direction=down" class="down"></a>
+                </div>
+            </div>
+            <div class="cellTH cell-size">
+                <p>{MSG_SIZE}</p>
+                <div class="table-sort">
+                    <a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}&amp;order=size&amp;direction=up" class="up"></a>
+                    <a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}&amp;order=size&amp;direction=down" class="down"></a>
+                </div>
+            </div>
+            <div class="cellTH cellLast cell-type">
+                <p>{MSG_TYPE}</p>
+
+                <div class="table-sort">
+                    <a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}&amp;order=type&amp;direction=up" class="up"></a>
+                    <a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}&amp;order=type&amp;direction=down" class="down"></a>
+                </div>
+            </div>
+                
+                
+            </div>
+                    
+ 						<div class='project_files_tree'>
+            <ul>
+							{file_list}
+            </ul>
+</div>
+
+        </div>
+    </div>
+

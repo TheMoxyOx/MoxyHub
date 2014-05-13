@@ -1,0 +1,85 @@
+/* Sortables
+----------------------------------------------*/
+.sortableMeta span {cursor: move;}
+
+/* Module header
+----------------------------------------------*/
+.module-cont-header {background:#f7f7f7; padding:10px 10px 14px 10px;}
+.module-cont-header h2 {font-family:Arial,Helvetica,Tahoma,sans-serif; font-size:18px; color:#303030; margin:0 0 5px 0; width:90%; float:left;}
+.module-cont-header h2 .subhead {font-size:14px;}
+.module-cont-header .perc-complete {font-family:Arial,Helvetica,Tahoma,sans-serif; font-size:28px; font-weight:bold; width:10%;float:right; text-align:right; letter-spacing:-1px;}
+.project-edit-header {height:30px; font-weight:bold; font-size:14px; font-family:Helvetica,Tahoma,Verdana,sans-serif;}
+.project-edit-header p {width:1.5em; padding:2px 0 0 0; margin-bottom:0;}
+.project-edit-header p, .project-edit-header input, .project-edit-header select {float:left; margin-right:5px;}
+
+/* Projects > Tasks
+----------------------------------------------*/
+.module-cont.tasks {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+#tasks li {min-width:0;} /* min-width is to fix IE7 peekaboo bug */
+
+/* Header */
+.sortableHead .cell-task {width:372px;} /* was 292 for cell-eff*/
+
+/* Task cols */
+.cell-task {width:352px;}
+.cell-owner {width:109px;}
+.cell-perc {width:51px;}
+.cell-priority {width:62px; }
+.cell-eff {width:105px; display: none !important; /* killed for the mo */}
+.cell-latest {width:64px; }
+.cell-start {width:64px; }
+.cell-end {width:63px;}
+
+/* Indenting - Added 100 to these for eff removal*/
+.projectlistInProjects ul .cell-task {width:352px; padding-left:20px;}
+.projectlistInProjects ul ul .cell-task {width:332px; padding-left:40px;}
+.projectlistInProjects ul ul ul .cell-task {width:312px; padding-left:60px;}
+.projectlistInProjects ul ul ul ul .cell-task {width:292px; padding-left:80px;}
+
+.projectlistInProjects ul .cell-expanded-nav {padding-left:20px; width: 870px;}
+.projectlistInProjects ul ul .cell-expanded-nav {padding-left:40px; width: 850px;}
+.projectlistInProjects ul ul ul .cell-expanded-nav {padding-left:60px; width: 830px;}
+.projectlistInProjects ul ul ul ul .cell-expanded-nav {padding-left:80px; width: 810px;}
+
+.projectlistInProjects ul .sortableHead .cell-task{padding-left: 0; width: 372px;}
+
+/* Task details */
+.task-details dl {margin:0;}
+.task-details dt, .task-resources dd, .task-description {padding: 5px;}
+.task-details dt {width:193px;}
+.task-details dd {width:232px;}
+
+/* Task resources */
+.task-resources-chart {border:5px solid #f7f7f7;}
+
+/* Forms
+----------------------------------------------*/
+/* project title editing */
+input.project-title, input.project-id {font-size:14px; font-weight:bold; font-family:Helvetica,Tahoma,Verdana,sans-serif;}
+input.project-title {width:165px;}
+input.project-id {width:60px;}
+
+/* project task editing */
+.task-details select.edit, .project-details select.edit,  .project-resources select.edit  {width:100%}
+.project-resources .add-minus-list select {margin:0 0 5px 0; width:210px; float:left;}
+.cell-task input {width:235px; font-weight:bold; margin-top: -1px;}
+#tasks ul .cell-task input {width:235px;}
+#tasks ul ul .cell-task input {width:225px;}
+#tasks ul ul ul .cell-task input {width:215px;}
+#tasks ul ul ul ul .cell-task input {width:205px;}
+
+/* related projects editing */
+.project-related dl {margin:0;}
+.project-related dd {width:100%;}
+.project-related .add-minus-list select {width:423px}
+.project-related .add-minus-list .add-minus-btn {margin-right:5px;}
+.project-related .add-minus-list p {margin-top:0; margin-bottom:0;}
+
+/* Task dependencies editing */
+.task-dependencies dl {margin:0;}
+.task-dependencies dd {width:100%; font-weight:normal;}
+.task-dependencies .add-minus-list select {width:413px}
+.task-dependencies .add-minus-list .add-minus-btn {margin-right:5px;}
+.task-dependencies .add-minus-list p {margin-top:0; margin-bottom:0; width:auto;}
+
+.task-description p{padding: 0; overflow:hidden;}

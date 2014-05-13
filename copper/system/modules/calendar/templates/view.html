@@ -1,0 +1,65 @@
+<div class="module-cont-wrapper">
+
+	<div class="module-cont-header">
+		<div class="calendar-edit-header">
+			<h2>{Name}</h2>
+		</div>
+		
+		<ul class="horiz-nav">
+		  <li class="first"><a href="{EditActionUrl}">Edit</a></li>
+		  {DeleteAction}
+		</ul>
+
+
+	</div><!--/module-cont-header-->
+	
+		<div class="module-cont dtFix">
+			<div class="col-l">
+				<p>{Description}</p>
+				
+				<h4 class="toggler"><a class="max" href="#" onclick="toggleComponent(this,'event-details'); return false;">Details</a></h4>
+				<div class="event-details">
+					<dl>
+						<dt>{MSG_NAME}</dt>
+						<dd>{Name}</dd>
+						<dd class="divider"></dd>
+
+						<dt>{MSG_DATE}</dt>
+						<dd>{Date}</dd>
+						<dd class="divider"></dd>
+						
+						<dt>{MSG_STARTS}</dt>
+						<dd>{StartTime}
+						</dd>
+						<dd class="divider"></dd>
+												
+						<dt>{MSG_ENDS}</dt>
+						<dd>{EndTime}</dd>
+						<dd class="divider"></dd>
+												
+						<dt>{MSG_HOLIDAY}</dt>
+						<dd>{Holiday}</dd>
+						<dd class="divider"></dd>
+					</dl>
+				
+				</div><!--/#event-details-->
+				
+			</div> <!--/col-l-->
+			
+			<div class="col-r">
+				<h4 class="toggler"><a class="max" href="#" onclick="toggleComponent(this,'event-users'); return false;">Details</a></h4>
+				<div class="event-users">
+					<dl>
+						<dt>{MSG_USERS}</dt>
+						<dd>{Assigned}</dd>
+						<dd class="divider"></dd>
+					</dl>
+				</div>			
+
+			</div> <!--/col-r-->
+
+		
+		</div><!--/module-cont-->
+
+	<div class="clearPlz"></div>
+</div><!--module-cont-wrapper-->

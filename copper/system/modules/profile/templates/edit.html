@@ -1,0 +1,133 @@
+<form name="editprofile" action="index.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="module" value="profile">
+    <input type="hidden" name="action" value="save">
+
+    <div class="module-cont-wrapper">
+    
+			<div class="module-cont-header">
+				<h2>{USER_USERNAME}</h2>
+				<ul class="horiz-nav">
+					<li class="first"><a href="javascript:SubmitForm();">Save</a></li>
+		    </ul>
+
+			</div>    
+
+        <div class='module-cont'>
+            <div class='col-l'>
+                <h4 class="toggler"><a class="max" href="#client-details" onclick="toggleComponent(this,'client-details'); return false;">{HEADER_PERSONAL}</a></h4>
+                <div class="client-details">
+                    <dl>
+                        <dt>{FORM_USERNAME}</dt>
+                        <dd>
+                            <strong>{USER_USERNAME}</strong>
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_FIRSTNAME}</dt>
+                        <dd>
+                            <input name="first_name" type="text" class="edit" value="{USER_FIRSTNAME}">
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_LASTNAME}</dt>
+                        <dd>
+                            <input name="last_name" type="text" class="edit" value="{USER_LASTNAME}">
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_PASSWORD}</dt>
+                        <dd>
+                            <input name="pass1" type="password" class="edit" value="">
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_PASSCONF}</dt>
+                        <dd>
+                            <input name="pass2" type="password" class="edit" id="Password1" value="">
+                        </dd>
+                        <dd class="divider"> </dd>
+                    </dl>
+                </div>
+
+                <h4 class="toggler">
+                    <a class="max" href="#client-details2" onclick="toggleComponent(this,'client-details2'); return false;">
+                        {HEADER_SETTINGS}
+                    </a>
+                </h4>
+                <div class="client-details2">
+                    <dl>
+                      <dt>{FORM_NOTIFY}</dt>
+                      <dd>
+                          <input type="checkbox" name="notify" value="1" {USER_NOTIFY}></input>
+                      </dd>
+                      <dd class="divider"> </dd>
+
+                      <dt>{FORM_AVATAR}</dt>
+                      <dd>
+                          <input type="file" name="avatar"></input>
+                      </dd>
+                      <dd class="divider"> </dd>
+
+                        <dt>{FORM_MODULE}</dt>
+                        <dd>
+                            <select name="default_module">{USER_MODULES}</select>
+                        </dd>
+                        <dd class="divider"> </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class='col-r'>
+                <h4 class="toggler">
+                    <a class="max" href="#client-details3" onclick="toggleComponent(this,'client-details3'); return false;">
+                        {HEADER_CONTACT}
+                    </a>
+                </h4>
+                <div class="client-details3">
+                    <dl>
+                        <dt>{FORM_EMAIL}</dt>
+                        <dd>
+                            <input name="email" type="text" class="edit" id="email" value="{USER_EMAIL}">
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_PHONE1}</dt>
+                        <dd>
+                            <input name="phone1" type="text" class="edit" id="phone1" value="{USER_PHONE1}">
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_PHONE2}</dt>
+                        <dd>
+                            <input name="phone2" type="text" class="edit" id="phone2" value="{USER_PHONE2}">
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                        <dt>{FORM_PHONE3}</dt>
+                        <dd>
+                            <input name="phone3" type="text" class="edit" id="phone3" value="{USER_PHONE3}">
+                        </dd>
+                        <dd class="divider"> </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script language="javascript">
+    function SubmitForm()
+    {
+        frm   = document.editprofile;
+        pass1 = frm.pass1.value;
+        pass2 = frm.pass2.value;
+        if (pass1.length > 0)
+        {
+            if (pass1 != pass2)
+            {
+                alert('{txtPassError}');
+                return;
+            }
+        }
+        frm.submit();
+    }
+</script>

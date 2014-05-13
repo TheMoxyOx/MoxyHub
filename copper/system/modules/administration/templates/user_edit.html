@@ -1,0 +1,206 @@
+                        <div class="cell cellFirst cellLast cell-expanded-nav">
+                            <ul class="horiz-nav">
+                                <li></li>{actions}
+                            </ul>
+                        </div>
+                        <div class="expand">
+                            <!-- START MODULE CONTENT -->
+                            <div class="module-cont-compact admin-user">
+<form id="edituser{txtID}" name="edituser{txtID}" action="index.php" method="post">
+<input type="hidden" name="module" value="administration" />
+<input type="hidden" name="caller" value="ajax" />
+<input type="hidden" name="action" value="usersave" />
+<input type="hidden" name="id" value="{txtID}" />
+<input type="hidden" name="hiddenusername" value="{txtUsername}"/>
+                                <!-- START LEFT COL -->
+                                <div class="col-l">
+                                    <h4 class="toggler"><a class="max" href="#details" onclick="toggleComponent(this,'details'); return false;">{MSG_DETAILS}</a></h4>
+
+                                    <div class="details">
+                                        <dl>
+                                            <dt>{MSG_USERNAME}</dt>
+                                            <dd><input class="edit" name="username" value="{txtUsername}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_EMAIL}</dt>
+                                            <dd><input class="edit" name="email" value="{txtEmail}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            
+                                            <dt>{MSG_PASSWORD}</dt>
+                                            <dd><input class="edit" type="password" value="" name="pass1"/></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_CONFIRM_PASSWORD}</dt>
+                                            <dd><input class="edit" type="password" value="" name="pass2"/></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_TITLE}</dt>
+                                            <dd><input class="edit" value="{txtTitle}" name="title" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_FIRST_NAME}</dt>
+                                            <dd><input class="edit" name="firstname" value="{txtFirstName}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_LAST_NAME}</dt>
+                                            <dd><input class="edit" name="lastname" value="{txtLastName}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{MSG_ADDRESS_1}</dt>
+                                            <dd><input class="edit" name="address1" value="{txtAddress1}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_ADDRESS_2}</dt>
+                                            <dd><input class="edit" name="address2" value="{txtAddress2}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_CITY}</dt>
+
+                                            <dd><input class="edit" name="city" value="{txtCity}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_STATE}</dt>
+                                            <dd><input class="edit" name="state" value="{txtState}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_POSTCODE}</dt>
+                                            <dd><input class="edit" name="postcode" value="{txtPostcode}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            
+                                            <dt>{MSG_COUNTRY}</dt>
+                                            <dd><input class="edit" name="country" value="{txtCountry}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_PHONE} ({MSG_HOME})</dt>
+                                            <dd><input class="edit" name="phone1" value="{txtPhone1}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_PHONE} ({MSG_BUSINESS})</dt>
+                                            <dd><input class="edit" name="phone2" value="{txtPhone2}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            
+                                            <dt>{MSG_PHONE} ({MSG_CELL})</dt>
+                                            <dd><input class="edit" name="phone3" value="{txtPhone3}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_IM_TYPE}</dt>
+                                            <dd><select name="imtype">{imOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{MSG_IM_ACCOUNT}</dt>
+                                            <dd><input class="edit" name="imaccount" value="{txtIMAccount}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                        </dl>
+                                    </div>
+                                    <h4 class="toggler"><a class="max" href="#availability" onclick="toggleComponent(this,'availability'); return false;">{MSG_AVAILABILITY}</a></h4>
+
+                                    <div class="availability">
+                                        <dl>
+                                            
+                                            <dt>{MSG_USER_IS_AVAILABLE}</dt>
+                                            <dd><select name="availabilitytype" onchange="$('days').toggle();">{availabilityOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                      
+                      <div id="days" style="display:none;"> 
+                                            <dt>{MSG_MONDAY}</dt>
+                                            <dd><select name="monday">{mondayOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                      <dt>{MSG_TUESDAY}</dt>
+                                            <dd><select name="tuesday">{tuesdayOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+        
+                                            <dt>{MSG_WEDNESDAY}</dt>
+                                            <dd><select name="wednesday">{wednesdayOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+        
+                                            <dt>{MSG_THURSDAY}</dt>
+                                            <dd><select name="thursday">{thursdayOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+        
+                                            <dt>{MSG_FRIDAY}</dt>
+                                            <dd><select name="friday">{fridayOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+        
+                                            <dt>{MSG_SATURDAY}</dt>
+                                            <dd><select name="saturday">{saturdayOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+        
+                                            <dt>{MSG_SUNDAY}</dt>
+                                            <dd><select name="sunday">{sundayOptions}</select></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                      </div>
+
+                                        </dl>
+                                    </div>
+
+                                </div>
+                {togglescript}
+                                <!-- END LEFT COL -->
+                                <!-- START RIGHT COL -->
+                                <div class="col-r">
+                                    <h4 class="toggler"><a class="max" href="#settings" onclick="toggleComponent(this,'settings'); return false;">{MSG_SETTINGS}</a></h4>
+                                    <div class="settings">
+                                        <dl>
+                                            <dt>{MSG_COST_RATE} ({txtCurrencySymbol}/{MSG_HOUR})</dt>
+
+                                            <dd><input class="edit short" name="costrate" value="{txtCostRate}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_CHARGE_RATE} ({txtCurrencySymbol}/{MSG_HOUR})</dt>
+                                            <dd><input class="edit short" name="chargerate" value="{txtChargeRate}" /></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                            
+                                            <dt>{MSG_EMAIL_NOTIFICATION}</dt>
+                                            <dd><input class="checkbox" type="checkbox" name="emailNotification" value="1" {txtEmailNotification}/></dd>
+                                            <dd class="divider">&nbsp;</dd>
+
+                                            <dt>{MSG_USER_IS_RESOURCE}</dt>
+                                            <dd><input class="checkbox" type="checkbox" name="isResource" value="1" {txtIsResource}/></dd>
+                                            <dd class="divider">&nbsp;</dd>
+                                        </dl>
+                                    </div>
+</form>
+                                    <div class="col-r stacked">
+                                        <h4 class="toggler"><a class="max" href="#access-control" onclick="toggleComponent(this,'access-control'); return false;">{MSG_ACCESS_CONTROL}</a></h4>
+                                        <div class="access-control">
+                                            <!-- START DEFINITION LIST GROUP -->
+                                            <dl class="group">
+<form action="index.php" method="post" name="addmodule" id="addmodule">
+<input type="hidden" name="module" value="administration">
+<input type="hidden" name="action" value="usermodadd">
+<input type="hidden" name="id" value="{txtID}">
+<input type="hidden" name="objectid" id="objectid" value="">
+<input type="hidden" name="accessid" id="accessid" value="">
+</form>
+                                                {modules}
+                                                <dd class="divider">&nbsp;</dd>
+                                                
+                                            </dl>
+                                            <!-- END DEFINITION LIST GROUP -->
+                                            <!-- START DEFINITION LIST GROUP -->
+                                            <dl class="group">
+                                                {clients}
+                                                <dd class="divider">&nbsp;</dd>
+                                                
+                                            </dl>
+                                            <!-- END DEFINITION LIST GROUP -->
+                                            <!-- START DEFINITION LIST GROUP -->
+                                            <dl class="group">
+                                                {projects}
+                                                <dd class="divider">&nbsp;</dd>
+                                                
+                                            </dl>
+                                            <!-- END DEFINITION LIST GROUP -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- END RIGHT COL -->
+                            </div>
+                            <!-- END MODULE CONTENT -->
+                        </div>

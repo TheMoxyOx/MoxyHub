@@ -1,0 +1,30 @@
+<li rel="draggy_folder" class="draggy_node" id="folder_<?php echo $folder->ID ?>">
+
+	<a class="draggy_handle" href="#">&nbsp;</a><ins></ins>
+	<em class="content">
+		<span><!-- see this span? This span is because the javascript has up(2) at helpers.js:472. Once that abomination is fixed, then we can remove this superfluous html -->
+			<em title="{MSG_CLICK_TO_VIEW_TASK_DETAILS_AND_COMMENTS}" class="name" id="folder-opener-<?php echo $folder->ID ?>" ><?php echo $folder->Folder; ?></em>
+		</span>
+	</em>
+
+	<div id="folderholder-<?php echo $folder->ID ?>" class="expandWrap js_hidden">
+
+		<ul class="horiz-nav folderNav">
+			<li><a class="js_project_files_edit" rel="<?php EF::val($folder->ID) ?>" href="#">Edit</a> | </li>
+			<li class="js_hidden"><input class="js_project_files_input" name="folder_name_<?php EF::val($folder->ID) ?>" value="<?php EF::val($folder->Folder); ?>"> | </li>
+			<li class="js_hidden"><a class="js_project_files_save" rel="<?php echo $folder->ID ?>" href="#">Save</a> | </li>
+			<!-- no form here, it"s all ajaxy -->
+			<li class="js_hidden"><a class="js_project_files_cancel" rel="<?php echo $folder->ID ?>" href="#">Cancel</a></li>
+			
+			<li><a msgBody="Are you sure you want to delete the folder? This action will delete the folder and all files and folders under it." msgTitle="Confirm folder deletion" rel="confirmLightBox" class="lbOn" href="index.php?module=files&amp;action=deletefolder&amp;id=<?php echo $folder->ID ?>" >Delete</a></li>
+			
+		</ul>
+
+	</div>
+	<div class="clearPlz"></div>
+
+	<?php if ($folder->has_files): ?>
+	<ul class="files_container">
+	<?php endif; ?>
+	
+		

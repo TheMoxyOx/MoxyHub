@@ -1,0 +1,33 @@
+<div class="cell cell-expanded-nav">
+	<ul class="horiz-nav" id="standardInvoiceRow_{txtInvoiceID}">
+		<li><a href="index.php?module=projects&action=invoicepdf&quote={txtQuote}&billid={txtInvoiceID}">{MSG_PRINT}</a></li>
+		<li>|<a href="#" onclick="Copper.billing.deleteInvoice({txtInvoiceID}); return false;">{MSG_DELETE}</a></li>
+	</ul>
+	<ul class="horiz-nav" id="updateInvoiceRow_{txtInvoiceID}" style="display:none">
+		<li><a href="#" onclick="Copper.billing.updateInvoice({txtInvoiceID}); return false;">{MSG_SAVE}</a></li>
+		<li>|<a href="#" onclick="Copper.billing.cancelEditInvoice({txtInvoiceID}); return false;">{MSG_CANCEL}</a></li>
+	</ul>
+</div>
+
+<div class="expand">
+	<ul class="invoicetasklist">
+		<li class="sortableHead">
+			<div class="cellTH cellFirst cell-task">
+		  	<p>Tasks</p>
+		  </div>
+		  <div class="cellTH cell-desc">
+		  	<p>Description</p>
+		  </div>
+		  <div class="cellTH cell-subtotal">
+		  	<p>Subtotal</p>
+		  </div>
+		  <div class="cellTH cell-tax">
+		  	<p>Tax</p>
+		  </div>
+		  <div class="cellTH cell-total cellLast">
+		  	<p>Total</p>
+		  </div>
+		</li>
+		{invoiceTaskList}
+	</ul>
+</div>

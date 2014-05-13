@@ -1,0 +1,10 @@
+<div class="work_report">
+	<div class="sortableMeta other_item">
+		<div class="cell cell-budget"><?php EF::money($item->Budget) ?></div>
+		<div class="cell cell-cost"><?php EF::money($item->Cost) ?></div>
+		<div class="cell cell-client"><a href="index.php?module=clients&amp;action=view&amp;id=<?php EF::val($item->project->ClientID); ?>"><?php EF::t($item->project->client->Name) ?></a></div>
+		<div class="cell cell-project"><a href="index.php?module=projects&amp;action=view&amp;projectid=<?php EF::val($item->ProjectID); ?>"><?php EF::t($item->project->Name) ?></a></div>
+		<div class="cell cell-task"><a href="index.php?module=projects&amp;action=view&amp;projectid=<?php EF::val($item->ProjectID); ?>"><?php EF::t($item->TaskName) ?></a></div>
+		<div class="cell cell-charge cellLast"><?php EF::money($item->Charge) ?></div>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+/* Projects > List
+----------------------------------------------*/
+
+/* Sortables */
+.sortableMeta span {cursor: move;}
+
+.module-cont.projectlist {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+/* Header */
+.sortableHead .cell-task {width:245px;}
+
+/* Project cols */
+.cell-task {width:225px;}
+.cell-client {width:99px; }
+.cell-perc {width:51px; }
+.cell-status {width:62px; }
+.cell-targetbudget{width:52px; }
+.cell-actualbudget {width:52px; }
+.cell-priority {width:62px; }
+.cell-start {width:64px; }
+.cell-end {width:63px;}
+
+/* Collapsable task list */
+.tasklist {padding:0;}
+.tasklistMeta span {cursor: move;}
+.tasklist .cell-task {width:225px; float:left; padding-left:0; font-weight:normal;}

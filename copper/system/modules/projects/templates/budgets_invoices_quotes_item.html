@@ -1,0 +1,40 @@
+                <!-- START INVOICE -->
+                <li class="sortable droppable collapsed" id="invoiceBlock{txtID}">
+                    <div class="sortableMeta">
+                        <div class="cell cellFirst cell-invoice">
+                            <a class="min" onclick="javascript:toggleInvoicesQuotes(this, {txtID}, {txtProjectID}); return false;" href="#"></a>
+                            <span class="handle">
+                                <span class="readOnlyDisplay">{txtInvoiceName}</span>
+                                <input class="writeDisplay" name="invoiceName" type="text" value="{txtInvoiceName}" style="display:none" />
+                            </span>
+                        </div>
+                        <div class="cell cell-desc">
+                            {txtDescription}
+                        </div>
+                        <div class="cell cell-status">
+                            <span class="readOnlyDisplay">{txtStatus}</span>
+                            <select class="edit writeDisplay" style="display:none" name="invoiceStatus">
+                                {txtStatusOptions}
+                            </select>
+                        </div>
+                        <div class="cell cell-duedate">
+                            <span class="readOnlyDisplay">{txtDueDate}</span>
+                            <span class="writeDisplay" style="display:none">
+                                <input class="edit" type="text" value="{txtDueDate}" id="date_display_{txtID}" name="invoiceDue"/>
+                                <img class="date-selector" onclick="popUpCalendar(this, $('date_display_{txtID}'), '{date_format}', 'date_display_{txtID}');" src="assets/images/calendar_icon_comments.gif" width="17" height="17" alt="{lblDateSelect}"/>
+                            </span>
+                        </div>
+                        <div class="cell cell-subtotal">
+                            {txtSubtotal}
+                        </div>
+                        <div class="cell cell-tax">
+                            {txtTax}
+                        </div>
+                        <div class="cell cellLast cell-amount">
+                            {txtAmount}
+                        </div>
+                    </div>
+                    <div class="expandWrap" style="display:none;" id="invoiceholder-{txtID}"></div>
+                    
+                </li>
+                <!-- END INVOICE -->

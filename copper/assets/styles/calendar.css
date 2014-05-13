@@ -1,0 +1,43 @@
+.module-cont {overflow:visible;}
+table#calendar {width:100%; margin:0; padding:0;}
+table#calendar tr {}
+table#calendar th {width:14%; border-bottom:1px solid #999; padding:3px 1px; background:#e7e7e7;}
+table#calendar td.day {width:14%; padding:3px; border-bottom:1px solid #e7e7e7; height:122px; vertical-align:top;}
+table#calendar td.droppable-hover {background:#f7f7f7;}
+table#calendar td.other {background:#e7e7e7;}
+table#calendar td.other.droppable-hover {background:#f7f7f7;}
+table#calendar td.current {background:#ffffcc;}
+table#calendar td.current.droppable-hover {background:#f7f7f7;}
+table#calendar h3 {margin:0; color:#666; font-size:13px; width:40px; float:right; text-align:right;}
+table#calendar .availability {width:67px; float:left; padding:2px 0 0 13px; background:transparent url(../images/cal/cal_icon_person.png) 0 2px no-repeat;}
+table#calendar .availability {width:35px; font-size:10px; visibility:hidden;}
+
+/* events */
+table#calendar ul {padding:5px 0; clear:both; margin:0;}
+table#calendar li {list-style:none; padding: 0 0 0 16px; font-size:10px; line-height:1.3; width:108px;}
+table#calendar li.task {background:transparent url(../images/cal/cal_icon_task.png) 0 1px no-repeat;}
+table#calendar li.event {background:transparent url(../images/cal/cal_icon_event.png) 0 -1px no-repeat;}
+table#calendar li.proj {background:transparent url(../images/cal/cal_icon_proj.png) 0 0 no-repeat;}
+table#calendar li.commitment {background:transparent url(../images/cal/cal_icon_person.png) 0 0 no-repeat;}
+table#calendar li a {color:#000; text-decoration:none;}
+table#calendar li a:hover {color:#0198fd;}
+
+/* tooltips */
+#calendar-tooltip {position:absolute; z-index:998; width:414px; text-align:left;}
+#calendar-tooltip-header {background:transparent url(../images/cal/cal_tooltip_top.gif) left top no-repeat; padding:4px 6px; border-bottom:1px solid #ccc; overflow:auto;}
+#calendar-tooltip-header h3 {margin:0; width:230px; float:left; color:#666; font-size:11px;}
+#calendar-tooltip-header .time {margin:0; width:150px; float:right; color:#666; font-weight:bold;}
+#calendar-tooltip-content-wrap {background:transparent url(../images/cal/cal_tooltip_btm.gif) left bottom no-repeat; padding:4px 6px;}
+#calendar-tooltip-content {background:#fff;}
+#calendar-tooltip-content p {margin:0 0 3px 0;}
+#calendar-tooltip-content .horiz-nav {text-align:right;}
+
+
+
+/* these are to make the new calendar thing like the old ones: */
+.module-cont-header .calendar-edit-header{height:30px; font-weight:bold; font-size:14px;}
+.module-cont-header .calendar-title{width:165px; font-size:14px; font-weight:bold; font-family:Helvetica,Tahoma,Verdana,sans-serif;}
+
+.userAssign{width: 100%;}
+.userAssign select{width: 45%; margin: 0 10px 0 0; border: 1px solid #ccc;}
+.dtFix dt, .dtFix p{padding: 5px; width: 193px;}

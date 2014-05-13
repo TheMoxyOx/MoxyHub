@@ -1,0 +1,15 @@
+                <!-- START USER -->
+                <li class="sortable droppable collapsed">
+                    <div class="sortableMeta">
+                        <div class="cell cellFirst cell-realname"><a id="user-opener-{USERID}" class="min" style="background-color: rgb(0, 204, 255);" onclick="toggleUser(this, {USERID}); return false;" href="#"></a><span class="handle">{FULLNAME}</span></div>
+                        <div class="cell cell-username">{USERNAME}</div>
+                        <div class="cell cell-title">{TITLE}</div>
+
+                        <div class="cell cell-email"><a href="mailto:{EMAIL}">{EMAIL}</a></div>
+                        <div class="cell cellLast cell-groups">{GROUPS}</div>
+                    </div>
+                    <div class="expandWrap" style="display:none;" id="userholder-{USERID}">
+                    </div>
+                    
+                </li>
+                <!-- END USER -->

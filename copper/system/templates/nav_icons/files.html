@@ -1,0 +1,24 @@
+<li class="files <?php EF::t($active); ?>">
+  <a class="top" href="?module=files">{MSG_FILES}</a>
+  <p>
+  	<span class="m">
+			<a href="?module=files#newFile" id="m1NewFile">{MSG_NEW_FILE}</a>
+			<a href="?module=files#newFolder" id="m1NewFolder">{MSG_NEW_FOLDER}</a>
+			<a href="http://www.copperproject.com/help/files">{MSG_HELP}</a>
+  	</span>
+  	<span class="d">
+  		<span class="desc">
+	  		{MSG_M1_DESC_FILES}
+  		</span>
+
+			<!-- <span class="recent_items">
+				<span class="recent_items_title">{MSG_RECENT_ITEMS}</span>
+				<?php foreach($recent_items as $item): ?>
+					<a href="<?php EF::val($item->Url); ?>"><?php EF::t($item->Detail); ?></a>
+				<?php endforeach; ?>
+			</span> -->
+  	</span>	           	
+  <span class="clearPlz"></span>
+  <span class="bottom"></span>
+ </p>
+</li>

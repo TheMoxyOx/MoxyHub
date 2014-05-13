@@ -1,0 +1,70 @@
+<td class="innercell" valign="top" colspan="15"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td height="15" valign="top" colspan="3"><img src="images/common/s.gif" width="20" height="10"></td>
+    </tr>
+    <tr>
+      <td class="innercell" valign="top"><table class="innercell" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><form name="quickedit{taskID}" method="POST" action="index.php" style="padding:0;margin:0;">
+                <input type="hidden" name="module" value="springboard" />
+                <input type="hidden" name="action" value="comment" />
+                <input type="hidden" name="listing" value="" />
+                <input type="hidden" name="id" value="{taskID}" />
+                <input type="hidden" name="projectid" value="{projectID}" />
+                <input type="hidden" name="userid" value="{userID}" />
+                <table class="innercell" border="0" cellpadding="5" cellspacing="0" background="images/form_bg.gif">
+                  <tr>
+                    <td align="left" valign="top"><textarea name="comment" wrap="VIRTUAL" cols="4" rows="12" style="font-family: Tahoma, Verdana, Arial; font-size: 11px; height:135px; width:240px;"></textarea>
+                    </td>
+                    <td valign="top"><table border="0" cellpadding="0" cellspacing="3">
+                        <tr>
+                          <td align="right" width="50%"><img src="images/date_selector.gif" width="20" height="20" border="0" align="absbottom" onClick="popUpCalendar(this, quickedit{taskID}.date, '{date_format}');">&nbsp;</td>
+                          <td align="left" width="50%" nowrap="nowrap"><input type="text" name="date" value="{txtCommentDate}" style="width:80px">
+                            &nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="right">{lblHours}&nbsp;</td>
+                          <td align="left"><input type="text" name="hours" class="TaskEdit_tf" style="width:80px"></td>
+                        </tr>
+                        <tr>
+                          <td align="right">{lblPercentage}&nbsp;</td>
+                          <td align="left"><select name="percentage" style="width:80px">
+                              {selectPercentage}
+                            </select></td>
+                        </tr>
+                        <tr>
+                          <td align="right">{MSG_CONTACT_RELATED}&nbsp;</td>
+                          <td align="left" nowrap="nowrap"><select name="contact" style="width:80px" class="TaskUpdate_dd">
+                          {selectContact}
+                          </select>
+                          </td>
+                        </tr>                        
+                        <tr>
+                          <td align="right" colspan="2">{MSG_FLAG_AS_ISSUE}&nbsp;
+                            <input type="checkbox" name="issue" value="1"></td>
+                        </tr>
+                        <tr>
+                          <td align="right" colspan="2">{MSG_OUT_OF_SCOPE}&nbsp;
+                            <input type="checkbox" name="outofscope" value="1"></td>
+                        </tr>
+                        <tr align="right" valign="top">
+                          <td colspan="2" height="18"><table width="105" border="0" cellpadding="0" cellspacing="0" bgcolor="#999999">
+                              <tr>
+                                <td width="105" height="18" align="left" valign="top"><a href="javascript:document.forms.quickedit{taskID}.submit();"><img src="images/icons/but_save_update.gif" border="0"></a></td>
+                              </tr>
+                            </table></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+              </form></td>
+          </tr>
+        </table></td>
+      <td valign="top" class="innersplit"><img src="images/common/s.gif" class="innersplit"></td>
+      <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="5" background="images/form_bg.gif">
+          <tr>
+            <td>{COMMENTS}</td>
+          </tr>
+        </table></td>
+    </tr>
+  </table></td>

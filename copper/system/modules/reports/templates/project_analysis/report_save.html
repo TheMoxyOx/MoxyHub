@@ -1,0 +1,66 @@
+<form name="projectreport" id="projectreport" method="post" action="index.php" onsubmit="javascript:SaveReport();">
+	<input type="hidden" name="module" value="reports">
+	<input type="hidden" name="action" value="saveprojectreport">
+	<input type="hidden" name="period" value="{period}">
+	<input type="hidden" name="startdate" value="{startDate}">
+	<input type="hidden" name="enddate" value="{endDate}">
+	<input type="hidden" name="clients" value="{clients}">
+	<input type="hidden" name="projects" value="{projects}">
+	<input type="hidden" name="budget" value="{budget}">
+	<input type="hidden" name="details" value="{details}">
+	<input type="hidden" name="report" value="{reportID}">
+	<div class="general">
+		<dl>
+			<dt>{MSG_REPORT_NAME}</dt>
+			<dd><input type="text" style="width:100%" name="reportname" value="{reportName}" class="TaskEdit_tf"></dd>
+			<dt>{MSG_EMAIL_THIS_REPORT_TO_ME}</dt>
+			<dd><select name="frequency" style="width:100%" >{frequencyOptions}</select></dd>
+		</dl>
+	</div>
+</form>
+		
+
+<script type="text/javascript">
+// please won'bt somebody think of the children1
+    function SaveReport()
+    {
+        var p = document.forms.project;
+        var r = document.forms.projectreport;
+
+        if ( r.reportname.value == '' )
+        {
+            alert('{MSG_REPORTS_MUST_HAVE_A_NAME}');
+            return;
+        }
+
+        // Copy the form values from the visible form to the hidden form.
+        var el = document.getElementById( 'periodSelect' );
+        r.period.value = el.options[el.selectedIndex].value;
+        r.startdate.value = p.startdate.value;
+        r.enddate.value = p.enddate.value;
+        r.budget.value = ( p.budget.checked ) ? 1 : 0;
+        r.details.value = ( p.details.checked ) ? 1 : 0;
+
+        // Copy all the IDs of the selected clients into the hidden field as a comma-separated string.
+        var el = document.getElementById( 'clientids' );
+        var a = new Array();
+        for ( i=0; i<el.options.length; i++ )
+        {
+            if ( el.options[i].selected )
+                a.push( el.options[i].value );
+        }
+        r.clients.value = a.join( ',' );
+
+        // Copy all the IDs of the selected projects into the hidden field as a comma-separated string.
+        var el = document.getElementById( 'projectids' );
+        var a = new Array();
+        for ( i=0; i<el.options.length; i++ )
+        {
+            if ( el.options[i].selected )
+                a.push( el.options[i].value );
+        }
+        r.projects.value = a.join( ',' );
+
+        r.submit();
+    }
+</script>

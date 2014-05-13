@@ -1,0 +1,31 @@
+<!-- START INVOICE -->
+<li class="sortable droppable expanded" id="invoiceBlock<?php EF::val($invoice->ID); ?>">
+	<div class="sortableMeta">
+		<div class="cell cellFirst cell-invoice cell-creatingnewinput">
+			<a class="min check_me_out_im_a_freakin_edit"></a>
+			<span class="handle">
+				<input name="invoiceName" type="text" id="invoice_title_<?php EF::val($invoice->ID) ?>" value="<?php EF::t($invoice->Title) ?>"/>
+			</span>
+		</div>
+	
+		<div class="cell cell-type">&nbsp;</div>
+		<div class="cell cell-status">&nbsp;</div>	
+
+		<div class="cell cell-duedate">
+			<input type="hidden" name="invoiceStatus" value="0" id="invoice_status_<?php EF::val($invoice->ID) ?>">
+			<span>
+				<input class="edit" type="text" value="<?php EF::val($invoice->Due); ?>" id="invoice_due_<?php EF::val($invoice->ID); ?>" name="invoiceDue"/>
+				<img class="date-selector" onclick="popUpCalendar(this, $('invoice_due_<?php EF::val($invoice->ID); ?>'), 'yyyy-mm-dd', 'invoice_due_<?php EF::val($invoice->ID); ?>');" src="assets/images/calendar_icon_comments.gif" width="17" height="17" alt="<?php EF::val($invoice->Due) ?>"/>
+			</span>
+		</div>
+	
+		<div class="cell cell-expanded-nav">
+			<ul class="horiz-nav">
+				<li><a onclick="Copper.billing.newInvoice(<?php EF::val($invoice->ID); ?>); return false;" href="#">{MSG_SAVE}</a> |</li>
+				<li><a href="#" onclick="Copper.billing.deleteInvoice(<?php EF::val($invoice->ID); ?>); return false;">{MSG_CANCEL}</a></li>	
+			</ul>
+		</div>
+	
+	</div>
+
+	<div class="expandWrap" style="display:none;" id="invoiceholder-<?php EF::val($invoice->ID); ?>"></div>

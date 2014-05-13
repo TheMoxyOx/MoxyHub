@@ -1,0 +1,16 @@
+						<div class="cell cell-expanded-nav">
+							<ul class="horiz-nav">
+								<li class="first"><a href="index.php?module=projects&amp;action=edit&amp;projectid={txtProjectID}">{lblBreakdown}</a></li>
+								<li>|<a href="index.php?module=projects&amp;action=delete&amp;id={txtProjectID}" class="lbOn" msgtitle='{MSG_CONFIRM_TASK_DELETE_TITLE}' msgbody='{MSG_CONFIRM_TASK_DELETE_BODY}' rel="confirmLightBox">{MSG_DELETE}</a></li> 
+								<li>|<a href="index.php?module=projects&amp;action=gantt&amp;projectid={txtProjectID}">{lblTimeline}</a></li>
+								<li>|<a href="index.php?module=projects&amp;action=filelist&amp;projectid={txtProjectID}">{lblFiles}</a></li>
+								<li>|<a href="index.php?module=projects&amp;action=contactlist&amp;projectid={txtProjectID}">{lblContacts}</a></li>
+								<li>|<a href="index.php?module=projects&amp;action=budgets&amp;projectid={txtProjectID}">{lblBudgets}</a></li>
+						<!--		<li>|<a href="index.php?module=projects&amp;action=emaillist&amp;projectid={txtProjectID}">{lblEmails}</a></li> -->
+							</ul>
+						</div>
+						<div class="expand">
+							<ul class="tasklist">
+								{tasklist}
+							</ul>
+						</div>

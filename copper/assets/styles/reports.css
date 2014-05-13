@@ -1,0 +1,56 @@
+.work_analysis dd{width: 700px;}
+.work_analysis dd select[multiple="multiple"]{height: 150px;}
+
+.work_report .cell-username{width: 120px;}
+.work_report .cell-date{width: 80px;}
+.work_report .cell-client{width: 100px;}
+.work_report .cell-project{width: 120px;}
+.work_report .cell-task{width: 300px;}
+.work_report .cell-hours, .other_item .cell-charge{width: 80px;text-align: right; padding-right: 10px;}
+
+.work_report .subtotals .cell-task{text-align: right;}
+.work_report .subtotals .cell-hours{font-weight: bold;}
+.work_report .subtotals{background: #f9f9f9;}
+
+
+.sortableHead.other_item{padding-top: 10px;}
+.other_item .cell-budget{width:120px;}
+.other_item .cell-cost{width:80px;}
+.other_item .cell-task{width:230px;}
+.other_item .cell-charge{width:150px;}
+
+/* widths */
+.project_analysis .cell-name{width: 280px;}
+.project_analysis .cell-clientname{width: 150px;}
+.project_analysis .cell-projectid{width: 80px;}
+.project_analysis .cell-status{width: 50px;}
+.project_analysis .cell-estimated, .project_analysis .cell-duration{width: 70px;}
+.project_analysis .cell-commited{width: 80px;}
+.project_analysis .cell-completed{width: 80px;}
+
+.project_analysis_budget .cell-name{width: 190px;}
+.project_analysis_budget .cell-clientname{width: 100px;}
+.project_analysis_budget .cell-projectid{width: 70px;}
+.project_analysis_budget .cell-status{width: 60px;}
+.project_analysis_budget .cell-estimated, .project_analysis_budget .cell-duration{width: 60px;}
+.project_analysis_budget .cell-commited{width: 60px;}
+.project_analysis_budget .cell-completed{width: 60px;}
+.project_analysis_budget .cell-targetbudget{width: 50px;}
+
+.project_analysis_detail_budget .cell-name{width: 470px; padding-left: 10px;}
+.project_analysis_detail_budget .cell-estimated, .project_analysis_detail_budget .cell-duration{width: 60px;}
+.project_analysis_detail_budget .cell-commited{width: 60px;}
+.project_analysis_detail_budget .cell-completed{width: 60px;}
+.project_analysis_detail_budget .cell-targetbudget{width: 50px;}
+
+.project_analysis_detail .cell-name{width: 610px; padding-left: 10px;}
+.project_analysis_detail .cell-estimated, .project_analysis_detail .cell-duration{width: 70px;}
+.project_analysis_detail .cell-commited{width: 80px;}
+.project_analysis_detail .cell-completed{width: 80px;}
+
+
+
+/* linkies */
+.project_analysis .cell-projectname a,
+.project_analysis_budget .cell-projectname a
+{font-weight: bold; display: block;}

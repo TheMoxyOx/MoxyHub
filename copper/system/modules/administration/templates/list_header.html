@@ -1,0 +1,50 @@
+    <!-- START MODULE CONTENT WRAPPER -->
+    <div class="module-cont-wrapper">
+			<div class="module-cont-header">
+				<ul class="horiz-nav">
+					<li><a href="#" onclick="newUser(); return false;">{MSG_NEW_USER}</a></li>
+				</ul>            			
+			</div>
+
+        <div class="module-cont userlist">
+        
+            <ul id="userlist">
+            
+                <!-- START USERLIST HEADER ROW -->
+                <li class="sortableHead">
+                    <div class="cellTH cellFirst cell-realname">
+                        <p>{MSG_USERS}</p>
+                        <div class="table-sort">
+                            <a href="index.php?module=administration&amp;order=fullname&amp;direction=up&start={start}" class="up"></a>
+                            <a href="index.php?module=administration&amp;order=fullname&amp;direction=down&start={start}" class="down"></a>
+                        </div>
+                    </div>
+                    <div class="cellTH cell-username">
+                        <p>{MSG_USERNAME}</p>
+                        <div class="table-sort">
+                            <a href="index.php?module=administration&amp;order=username&amp;direction=up&start={start}" class="up"></a>
+                            <a href="index.php?module=administration&amp;order=username&amp;direction=down&start={start}" class="down"></a>
+                        </div>
+                    </div>
+                    <div class="cellTH cell-title">
+                        <p>{MSG_TITLE}</p>
+                        <div class="table-sort">
+                            <a href="index.php?module=administration&amp;order=title&amp;direction=up&start={start}" class="up"></a>
+                            <a href="index.php?module=administration&amp;order=title&amp;direction=down&start={start}" class="down"></a>
+                        </div>
+                    </div>
+                    <div class="cellTH cell-email">
+                        <p>{MSG_EMAIL}</p>
+                        <div class="table-sort">
+                            <a href="index.php?module=administration&amp;order=email&amp;direction=up&start={start}" class="up"></a>
+                            <a href="index.php?module=administration&amp;order=email&amp;direction=down&start={start}" class="down"></a>
+                        </div>
+                    </div>
+                    <div class="cellTH cellLast cell-groups">
+                        <p>{MSG_GROUPS}</p>
+                    </div>
+                </li>
+
+                <!-- END USERLIST HEADER ROW -->
+
+

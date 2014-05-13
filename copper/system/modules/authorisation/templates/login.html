@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+	<title>Copper</title>
+	<style type="text/css" title="copper" media="screen">
+		@import "assets/styles/global.css?v={TIMESTAMP}";
+		@import "assets/styles/login.css?v={TIMESTAMP}";	   
+	</style>
+
+	<script type="text/javascript" src="assets/js/lib/prototype.js?v={TIMESTAMP}"></script>
+	<script type="text/javascript" src="assets/js/scriptaculous/scriptaculous.js?load=effects,dragdrop&amp;v={TIMESTAMP}"></script>
+	<script type="text/javascript" src="assets/js/cu.js?v={TIMESTAMP}"></script>
+	<script type="text/javascript" src="assets/js/common.js?v={TIMESTAMP}"></script>
+	<script type="text/javascript" src="assets/js/helpers.js?v={TIMESTAMP}"></script>
+	<script type="text/javascript" src="assets/js/lib/modal.js?v={TIMESTAMP}"></script>
+	<script type="text/javascript" src="assets/js/lib/loader.js?v={TIMESTAMP}"></script>
+	<script type="text/javascript" src="assets/js/selectors/selector.lib.js?v={TIMESTAMP}"></script>
+
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/global/favicon.ico" />
+
+</head>
+<body>
+	<!-- warn those silly ie6 users. seriously. 10 years old now -->
+	<!--[if lte IE 6]>
+		<script src="assets/js/lib/ie6warning/warning.js"></script>
+		<script>window.onload=function(){e("assets/js/lib/ie6warning/")}</script>
+	<![endif]-->
+			
+	<div class="spinner" id="ajaxSpinner"><span class="spinIn" id="ajaxSpinnerInner"></span></div>
+	<div id="preload1"></div>
+	<div id="wrapper">
+		<!-- START HEADER -->
+		<div id="header" style="background: url('{HEADER_BG}') left top no-repeat;">
+			<!-- START LOGO -->
+	<h1><a href="http://www.copperproject.com/" title="{MSG_ABOUT_COPPER}" onfocus="if(this.blur)this.blur()"><img src="{LOGO}" width="136" height="41" alt="{MSG_ABOUT_COPPER}" /></a></h1>
+	<!-- END LOGO -->
+		</div>
+		<!-- END HEADER -->
+	<!-- START LOGIN WRAPPER -->
+		<div id="login-wrapper">
+			<div id="login-img-top"></div>
+			<img src="{HOME_IMAGE}" width="950" height="590" alt="" />
+			<div id="login-island">
+				<div id="login-island-content">
+					<form action="index.php" method="post" name="loginform" id="loginform">
+						<input type="hidden" name="module" value="authorisation">
+						<input type="hidden" name="action" value="login">
+						<input type="hidden" name="redirect" value="{REDIRECT}">
+						<h2 class="handle">{DESC}</h2>
+						<p class="message"><span>{MESSAGE}</span></p>
+						<dl>
+							<dt>{USERNAME}</dt>
+							<dd><input class="edit" value="" tabindex="1" id="username" name="username"/></dd>
+							<dd class="divider"> </dd>
+							<dt>{PASSWORD}</dt>
+							<dd><input class="edit" type="password" tabindex="2" name="password" /></dd>
+							<dd class="divider"> </dd>
+							<dd><input class="submit" type="submit" tabindex="3" value="{MSG_LOGIN}"></dd>
+						</dl>
+						<p class="forgot_pass"><a href="#" tabindex="4" onclick="forgottenPassword();return false;">{MSG_FORGOT_USERNAME_OR_PASSWORD}</a></p>
+					</form>
+					<form action="index.php" method="post" name="request" id="passwordform" style="display:none">
+						<input type="hidden" name="module" value="authorisation">
+						<input type="hidden" name="action" value="password">
+						<input type="hidden" name="sub" value="exec">
+						<h2 class="handle">{PASS}</h2>
+						<dl>
+							<dt>{EMAIL}</dt>
+							<dd><input class="edit" value="" id="emailaddress" name="emailaddress"/></dd>
+							<dd class="divider"> </dd>
+							<dd><a class="submit" href="#" onclick="$('passwordform').submit(); return false">{MSG_SUBMIT}</a></dd>
+						</dl>
+						<p class="message"><a href="#" onclick="forgottenPassword();return false;">{MSG_CANCEL}</a></p>
+						<input type="submit" style="display:none" />
+					</form>
+				</div>
+				<div id="login-island-btm"></div>
+			</div>
+			<div id="login-img-btm"></div>
+		</div>
+		<!-- END LOGIN WRAPPER -->
+		<script type="text/javascript" language="javascript">
+			// <![CDATA[
+			// note: draggable is contrained so it can't be dragged outside parent element
+			new Draggable('login-island',{
+				handle:'handle',
+				snap: function(x,y,draggable) {
+					function constrain(n, lower, upper) {
+						if (n > upper) return upper;
+						else if (n < lower) return lower;
+						else return n;
+					}
+
+					element_dimensions = Element.getDimensions(draggable.element);
+					parent_dimensions = Element.getDimensions(draggable.element.parentNode);
+					return[
+						constrain(x, 0, parent_dimensions.width - element_dimensions.width),
+						constrain(y, 0, parent_dimensions.height - element_dimensions.height)];
+				}
+			});
+
+			Droppables.add($('login-wrapper'),{onDrop:function(droppable, container, event){
+					var left = droppable.style.left;
+					var top = droppable.style.top;
+					var posStr = left+"|"+top;
+					cu.cookie.create("loginpos",posStr, 7);
+				}})
+
+			cu.addOnLoad(function(){
+				var pos = cu.cookie.getValue("loginpos");
+				if(pos){
+					var parts = pos.split("|");
+					var elem = $('login-island');
+					elem.style.left = parts[0];
+					elem.style.top = parts[1];
+					cu.cookie.create("loginpos",pos, 7);
+				}
+				$('username').focus();
+			})
+
+			var forgot = false;
+			var forgottenPassword = function(){
+				if(!forgot){
+					$('loginform').hide();
+					$('passwordform').show();
+					$('emailaddress').focus();
+				} else {
+					$('loginform').show();
+					$('passwordform').hide();
+					$('username').focus();
+				}
+				forgot = !forgot;
+			}
+
+			//]]>
+		</script>
+		<!-- END WRAPPER -->
+	</div>
+	<!-- END WRAPPER -->
+
+</body>
+</html>
+

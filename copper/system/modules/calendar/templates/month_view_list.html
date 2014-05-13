@@ -1,0 +1,29 @@
+<tr>
+  <td><table class="innercell" border="0" cellspacing="0" cellpadding="0">
+      <tr align="left" valign="top">
+        <td colspan="2" nowrap><strong>{MSG_FILTERS}</strong></td>
+      </tr>
+      <tr align="left" valign="top">
+        <td height="15" colspan="2" nowrap bgcolor="#CCCCCC"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+      </tr>
+      
+      <tr align="left" valign="top">
+        <td>{MSG_CLIENTS}</td>
+        <td width="50%"><select name="ClientID" onchange="location = '{url}&clientID=' + this.options[selectedIndex].value;" class="TaskUpdate_dd" id="ClientID" style="width:100%">{clients}</select></td>
+      </tr>
+      <tr align="left" valign="top">
+        <td>{MSG_PROJECTS}</td>
+        <td width="50%"><select name="ProjectID" onchange="location = '{url}&clientID={clientID}&projectID=' + this.options[selectedIndex].value;" class="TaskUpdate_dd" id="select" style="width:100%">{projects}</select></td>
+      </tr>
+      <tr align="left" valign="top">
+        <td>{MSG_USER}</td>
+        <td width="50%">{users}</td>
+      </tr>      
+      <tr align="left" valign="bottom">
+        <td colspan="2" height="20" nowrap><img src="images/common/s.gif" width="20" height="20"></td>
+      </tr>
+  </table></td>
+</tr>
+<tr>
+  <td id="mainCalendar" valign="top"> {lblMainCalendar} </td>
+</tr>

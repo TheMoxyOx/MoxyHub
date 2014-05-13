@@ -1,0 +1,19 @@
+                <h4 class="toggler"><a class="max" href="#project-related" onclick="toggleComponent(this,'project-related'); return false;">{lblRelatedProjects}</a></h4>
+                <div class="project-related">
+                    <dl>
+                        <dd class="add-minus-list">
+                            <div id="related-projects-list">
+                                {txtRelatedProjectsList}
+                            </div>
+                            <div class="add-new">
+                                <select class="edit" name="relatedProjectID" id="relatedProjectID">
+                                    {txtAddThisProject}
+                                </select>
+                                <a href="#" onclick="AddRelatedProject()">
+                                <img class="add-minus-btn" height="16" border="0" width="8" alt="Add" src="assets/images/btn/btn_add.gif"/>
+                                </a>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+

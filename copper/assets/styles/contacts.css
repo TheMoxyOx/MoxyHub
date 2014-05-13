@@ -1,0 +1,27 @@
+/* Springboard > Tasks
+----------------------------------------------*/
+.module-cont.contacts {overflow:visible;} /* overwrites float clearing, which messes up drag/drop */
+
+/* Header */
+.sortableHead .cell-contacts {width:213px;}
+.cell-contacts {width:193px;}
+.cell-company {width:96px;}
+.cell-title {width:124px;}
+.cell-phone {width:85px;}
+.cell-mobile {width:75px;}
+.cell-email {width:131px; overflow: hidden;}
+.cell-contact {width:66px;}
+
+
+/* Contact details */
+.contact-details dl {margin:0;}
+.contact-details dt {padding: 5px;}
+.contact-details dt {width:193px;}
+.contact-details dd {width:232px;overflow: hidden;}
+
+
+#contacts .cellFirst strong{font-weight:bold;}
+
+/* Forms
+----------------------------------------------*/
+.cell-contacts input {font-weight:bold; margin-top:-1px; width:233px;}

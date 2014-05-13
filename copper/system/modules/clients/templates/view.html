@@ -1,0 +1,99 @@
+    <!-- START MODULE CONTENT WRAPPER -->
+    <div class="module-cont-wrapper">
+        <!-- START MODULE HEADER -->
+        <div class="module-cont-header">
+            <h2>{CLIENT_NAME}</h2>
+            <ul class="horiz-nav">
+                <li></li>{actions}
+            </ul>
+        </div>
+        <!-- END MODULE HEADER -->
+        <!-- START MODULE CONTENT -->
+        <div class="module-cont">
+            <!-- START LEFT COL -->
+            <div class="col-l">
+        <p>{CLIENT_DESCRIPTION}</p>
+      <h4 class="toggler"><a class="max" href="#client-details" onclick="toggleComponent(this,'client-details'); return false;">{MSG_DETAILS}</a></h4>
+                <div class="client-details">
+                    <dl>
+	                      <dt>{MSG_ACTIVE}</dt>
+												<dd>{CLIENT_ARCHIVED}</dd>
+	                      <dd class="divider">&nbsp;</dd>
+
+	                      <dt>{MSG_ACCOUNT_MANAGER}</dt>
+	                      <dd>{CLIENT_MANAGER}</dd>
+	                      <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_EMAIL}</dt>
+                        <dd><a href="mailto:{CLIENT_EMAIL}">{CLIENT_EMAIL}</a></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_WEBSITE}</dt>
+                        <dd><a href="{CLIENT_URL}">{CLIENT_URL}</a></dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_ADDRESS_1}</dt>
+                        <dd>{CLIENT_ADDRESS1}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_ADDRESS_2}</dt>
+                        <dd>{CLIENT_ADDRESS2}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_CITY}</dt>
+                        <dd>{CLIENT_CITY}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_STATE}</dt>
+                        <dd>{CLIENT_STATE}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_COUNTRY}</dt>
+                        <dd>{CLIENT_COUNTRY}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_POSTCODE}</dt>
+                        <dd>{CLIENT_POSTCODE}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_PHONE_1}</dt>
+                        <dd>{CLIENT_PHONE1}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_PHONE_2}</dt>
+                        <dd>{CLIENT_PHONE2}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_PHONE_3}</dt>
+                        <dd>{CLIENT_PHONE3}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_FAX_NUMBER}</dt>
+                        <dd>{CLIENT_FAX}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                    </dl>
+                </div>
+            </div>
+            <!-- END LEFT COL -->
+            <!-- START RIGHT COL -->
+            <div class="col-r">
+                <h4 class="toggler"><a class="max" href="#client-resources" onclick="toggleComponent(this,'client-resources'); return false;">{MSG_RESOURCES}</a></h4>
+                <div class="client-resources">
+                    <dl>
+                        <dt>{MSG_READ_ACCESS}</dt>
+                        <dd>{readaccesslist}</dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{MSG_WRITE_ACCESS}</dt>
+                        <dd>{writeaccesslist}</dd>
+                        <dd class="divider">&nbsp;</dd>
+                    </dl>
+                </div>
+            </div>
+            <!-- END RIGHT COL -->
+        </div>
+        <!-- END MODULE CONTENT -->
+    </div>
+    <!-- END MODULE CONTENT WRAPPER -->
+    {projectlist}

@@ -1,0 +1,17 @@
+<form action="index.php" method="post" name="addclient">
+<input type="hidden" name="module" value="administration">
+<input type="hidden" name="action" value="{CLIENTACTION}">
+<input type="hidden" name="id" value="{USERID}">
+<input type="hidden" name="objectid" value="clients">
+                                            <dt>{MSG_CLIENTS}</dt>
+                                            <dd class="sub-definition">
+                                                <select class="edit" name="itemid">
+                                                    {CLIENTITEMLIST}
+                                                </select>
+                                            </dd>
+                                            <dd>
+                                                <select class="edit" name="accessid" onchange="if (this.selectedIndex > 0) document.forms.addclient.submit();">
+                                                    {ACCESSLIST}
+                                                </select>
+                                            </dd>
+</form>

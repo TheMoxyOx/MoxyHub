@@ -1,0 +1,19 @@
+
+            </ul>
+            
+        </div>
+    </div>
+    <script type="text/javascript" language="javascript">
+        Sortable.create("tasks", {
+            only:['droppable','dropzone'], constraint:'vertical', dropOnEmpty:true, 
+            handle:'handle', hoverclass: 'task-drag-hover', scroll:window, tree:true, treetag:'ul', 
+            onUpdate:function() {  
+                new Ajax.Request("index.php?module=projects&action=ajaxsavetaskorder", {
+                    method:"post",
+                    parameters: { data: Sortable.serialize("tasks") }
+                });
+            } 
+        });
+    </script>
+    <!-- END NEW MODULE CONTENT -->
+

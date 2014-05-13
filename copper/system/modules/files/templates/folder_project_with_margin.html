@@ -1,0 +1,22 @@
+<li rel="draggy_folder" class="draggy_node" id="folder_{txtFolderID}">
+
+	<a class="draggy_handle" href="#">&nbsp;</a><ins></ins>
+	<em class="content">
+		<span class='draggy_folder'><!-- see this span? This span is because the javascript has up(2) at helpers.js:472. Once that abomination is fixed, then we can remove this superfluous html -->
+			<em title="{MSG_CLICK_TO_VIEW_TASK_DETAILS_AND_COMMENTS}" class="name" id="folder-opener-{txtFolderID}" >{txtFolderName}</em>
+		</span>
+	</em>
+
+	<div id="folderholder-{txtFolderID}" class="expandWrap js_hidden">
+		<!-- this over-the-shoulder folder holder isn't like normal ones. It's already populated -->
+		<ul class="horiz-nav folderNav">
+			<!-- <li class="first"><a onclick="editFolder({txtProjectID}, {txtFolderID}); return false;" href="#">Edit</a></li> -->
+			<li>|<a msgbody="Are you sure you want to delete the folder? This action will delete the folder and all files and folders under it." msgtitle="Confirm folder deletion" rel="confirmLightBox" class="lbOn" href="http://localhost/element/copper/trunk/htdocs/index.php?module=files&amp;action=deletefolder&amp;id={txtFolderID}" marked="true">MSG_DELETE</a></li>
+			<li style="display: none;" class="first"><a onclick="saveFolderName({txtProjectID}, {txtFolderID}); return false;" href="#">MSG_SAVE</a></li>
+			<li style="display: none;">|<a onclick="cancelEditFolder({txtProjectID}, {txtFolderID}); return false;" href="#">MSG_CANCEL</a></li>
+		</ul>
+
+	</div>
+	<div class="clearPlz"></div>
+
+</li>

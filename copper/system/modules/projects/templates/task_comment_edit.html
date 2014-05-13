@@ -1,0 +1,29 @@
+                                                <form action="index.php" method="post" id="form-taskcomment-{txtTaskID}" name="form_taskcomment_{txtTaskID}">
+                                                    <input type="hidden" name="module" value="projects" />
+                                                    <input type="hidden" name="action" value="taskcomment" />
+                                                    <input type="hidden" name="projectid" value="{txtProjectID}" />
+                                                    <input type="hidden" name="taskid" value="{txtTaskID}" />
+                                                    <input type="hidden" name="date" value="{txtCommentDate}"/>
+                                                    <input type="hidden" name="oldhours" value="{txtOldHours}">
+                                                    <input type="hidden" name="commentid" value="{txtCommentID}">
+                                                    <input type="hidden" name="caller" value="{caller}">
+                                                    <div class="header">
+                                                        <div class="owner">
+                                                            <strong>{txtUsername}, </strong><input class="comment-hrs" value="{txtHours}" name="hours" /> <strong>{lblHrs}</strong>
+                                                        </div>
+                                                        <div class="status">
+                                                            <img class="date-selector" onclick="popUpCalendar(this, form_taskcomment_{txtTaskID}.date, '{date_format}', 'date_display_{txtTaskID}');" src="assets/images/calendar_icon_comments.gif" width="17" height="17" alt="{lblDateSelect}"/>&nbsp;<strong id="date_display_{txtTaskID}">{lblNow}</strong>
+                                                        </div>
+                                                        <div class="meta-secondary editable">
+                                                            {lblContact}: <input class="comment-contact" value="Johnny Wilkinson" />,
+                                                            <input class="checkbox" type="checkbox" checked="{txtIsOutOfScope}" name="billable" value="1" />{lblNotBillable},
+                                                            <input class="checkbox" type="checkbox" checked="{txtIsIssue}" name="issue" value="1" />{lblIssue}
+                                                        </div>
+                                                    </div>
+                                                    <div class="msg">
+                                                        <textarea cols="50" rows="4" name="comment">{txtComment}</textarea>
+                                                    </div>
+                                                    <div class="actions linklist">
+                                                        <a href="#" onclick="sb_saveTaskComment({txtTaskID});return false">{lblSave}</a>
+                                                    </div>
+                                                </form>

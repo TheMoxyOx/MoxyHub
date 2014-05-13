@@ -1,0 +1,278 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+function SubmitForm()
+{
+  frm    = document.edituser;
+  user   = frm.username.value.replace(/(^\s+|\s+$)/g, '');
+  fname  = frm.firstname.value.replace(/(^\s+|\s+$)/g, '');
+  lname  = frm.lastname.value.replace(/(^\s+|\s+$)/g, '');
+  pass1  = frm.pass1.value;
+  pass2  = frm.pass2.value;
+  cost   = frm.costrate.value.replace(/(^\s+|\s+$)/g, '').replace(/,/g, '');
+  charge = frm.chargerate.value.replace(/(^\s+|\s+$)/g, '').replace(/,/g, '');
+
+  if (pass1.length > 0)
+  {
+    if (pass1 != pass2)
+    {
+      alert('{txtPassError}');
+      return;
+    }
+  }
+
+  if (user.length == 0)
+  {
+    alert('{txtUserError}');
+    return;
+  }
+
+  if (fname.length == 0)
+  {
+    alert('{txtFNameError}');
+    return;
+  }
+
+  if (lname.length == 0)
+  {
+    alert('{txtLNameError}');
+    return;
+  }
+
+  if (isNaN(cost))
+  {
+    alert('{txtCostRateError}');
+    return;
+  }
+
+  if (isNaN(charge))
+  {
+    alert('{txtChargeRateError}');
+    return;
+  }
+
+    var items = {{Userlist}};
+    var taken = 0;
+      for (var word in items) {
+    if (word == frm.username.value)
+        taken = 1;
+    }
+
+    if (taken > 0)
+        alert('{MSG_PLEASE_TRY_ANOTHER_USERNAME}');
+    else
+          frm.submit();
+}
+-->
+</script>
+
+<tr>
+  <td align="center" valign="top"><table class="outer" border="0" cellpadding="10" cellspacing="0" bgcolor="#E7E7E7" >
+      <tr>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td align="left" valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr align="left" valign="top"><form name="edituser" action="index.php" method="post" >
+                    <td class="innercell">
+                        <table class="innercell" width="100%" border="0" cellspacing="0" cellpadding="0">
+                          {Copy}
+                          <tr align="left" valign="middle">
+                            <td colspan="2"><span class="header">{txtFirstName}&nbsp;{txtLastName}</span></td>
+                          </tr>
+                          <tr align="left" valign="middle" bgcolor="#CCCCCC">
+                            <td height="15" colspan="2"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td width="50%">{lblUsername}</td>
+                            <td width="50%"><input type="hidden" name="module" value="administration">
+                              <input type="hidden" name="action" value="usersave">
+                              <input type="hidden" name="id" value="{txtID}">
+                              <input type="text" name="username" value="{txtUsername}" style="width:100%" class="TaskEdit_tf" >
+                            </td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblEmail}</td>
+                            <td><input name="email" style="width:100%" type="text" class="TaskEdit_tf" value="{txtEmail}"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblPassword}</td>
+                            <td><input type="password" style="width:100%" class="TaskEdit_tf" name="pass1" ></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblPassConf}</td>
+                            <td><input type="password" style="width:100%" class="TaskEdit_tf" name="pass2" ></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblTitle}</td>
+                            <td><input name="title" type="text" style="width:100%" class="TaskEdit_tf" value="{txtTitle}" ></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblFirstName}</td>
+                            <td><input name="firstname" type="text" style="width:100%" class="TaskEdit_tf" value="{txtFirstName}" ></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblLastName}</td>
+                            <td><input type="text" style="width:100%" class="TaskEdit_tf" name="lastname" value="{txtLastName}" ></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblAddress1}</td>
+                            <td><input name="address1" type="text" class="TaskEdit_tf" style="width:100%" value="{txtAddress1}" ></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblAddress2}</td>
+                            <td><input name="address2" type="text" class="TaskEdit_tf" style="width:100%" value="{txtAddress2}" ></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblCity}</td>
+                            <td><input name="city" type="text" style="width:100%" class="TaskEdit_tf" value="{txtCity}"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblState}</td>
+                            <td><input name="state" type="text" style="width:100%" class="TaskEdit_tf"  value="{txtState}"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblPostcode}</td>
+                            <td><input name="postcode" type="text" style="width:100%" class="TaskEdit_tf" value="{txtPostcode}"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblCountry}</td>
+                            <td><input name="country" type="text" style="width:100%" class="TaskEdit_tf" value="{txtCountry}" ></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblPhone1}</td>
+                            <td><input name="phone1" type="text" style="width:100%" class="TaskEdit_tf" value="{txtPhone1}"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblPhone2}</td>
+                            <td><input name="phone2" type="text" style="width:100%" class="TaskEdit_tf" value="{txtPhone2}"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblPhone3}</td>
+                            <td><input name="phone3" type="text" style="width:100%" class="TaskEdit_tf" value="{txtPhone3}"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblIMType}</td>
+                            <td><select name="imtype" class="TaskEdit_tf">{imOptions}</td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                          </tr>
+                          <tr align="left" valign="middle">
+                            <td>{lblIMAccount}</td>
+                            <td><input name="imaccount" type="text" style="width:100%" class="TaskEdit_tf" value="{txtIMAccount}"></td>
+                          </tr>
+                          <tr align="left" valign="top">
+                            <td height="20" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="20"></td>
+                          </tr>
+                        </table>
+                          </td>
+                    <td class="innersplit"><img src="images/common/s.gif" class="innersplit"></td>
+                    <td class="innercell"><table class="innercell" border="0" cellspacing="0" cellpadding="0">
+                        <tr align="left" valign="middle">
+                          <td colspan="2"><strong>{MSG_USER_SETTINGS}</strong></td>
+                        </tr>
+                        <tr align="left" valign="middle" bgcolor="#CCCCCC">
+                          <td height="15" colspan="2"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                        </tr>
+                        <tr align="left" valign="middle">
+                          <td width="50%">{lblCostRate}&nbsp;({lblCostRateUnits})</td>
+                          <td width="50%" nowrap><input type="text" style="width:50px" class="TaskEdit_tf" name="costrate" value="{txtCostRate}"></td>
+                        </tr>
+                        <tr align="left" valign="middle">
+                          <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                        </tr>
+                        <tr align="left" valign="middle">
+                          <td>{lblChargeRate}&nbsp;({lblChargeRateUnits})</td>
+                          <td nowrap><input type="text" style="width:50px" class="TaskEdit_tf" name="chargerate" value="{txtChargeRate}"></td>
+                        </tr>
+                        <tr align="left" valign="middle">
+                          <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                        </tr>
+                        <tr align="left" valign="middle">
+                          <td>{MSG_EMAIL_NOTIFICATION}</td>
+                          <td><input name="emailNotification" type="checkbox" class="TaskEdit_tf" value="1" {txtEmailNotification}></td>
+                        </tr>
+                        <tr align="left" valign="middle">
+                          <td height="10" colspan="2"><img src="images/common/s.gif" width="100%" height="10"></td>
+                        </tr>
+                        <tr align="left" valign="middle">
+                          <td>{lblIsResource}</td>
+                          <td><input name="isResource" type="checkbox" class="TaskEdit_tf" value="1" {txtIsResource}></td>
+                        </tr>
+                        <tr align="left" valign="middle">
+                          <td height="20" colspan="2" nowrap><img src="images/common/s.gif" width="100%" height="20"></td>
+                        </tr>
+                        {perms}
+                      </table>
+                      <br>
+                      {lblUserMessage}</td>
+                  </form>    
+                  </tr>
+                  <tr align="left" valign="top">
+                    <td height="20" colspan="3"><img src="images/common/s.gif" width="100%" height="20"></td>
+                  </tr>
+                  <tr align="left" valign="top" bgcolor="#CCCCCC">
+                    <td height="15" colspan="3"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                  </tr>
+                  <tr align="left" valign="top">
+                    <td height="18" colspan="3"><table border="0" cellpadding="0" cellspacing="0" >
+                        <tr>
+                          <td width="105" align="left" valign="top" height="18" bgcolor="#E7E7E7"><a href="javascript:SubmitForm(edituser);"><img src="images/icons/but_save.gif" border="0"></a></td>
+                          <td width="20" height="18" align="left" valign="top"><img src="images/common/s.gif" width="20" height="18" border="0"></td>
+                          <td width="105" height="18" align="left" valign="top">&nbsp;</td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+            </tr>
+          </table></td>
+      </tr>
+    </table></td>
+</tr>

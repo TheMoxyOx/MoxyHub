@@ -1,0 +1,221 @@
+    <!-- START MODULE CONTENT -->
+    <div class="module-cont-wrapper">
+        <form name="project" action="index.php" method="post">
+        <input type="hidden" name="module" value="projects">
+        <input type="hidden" name="action" value="save">
+        <input type="hidden" name="projectid" id="projectid" value="{txtID}">
+        {copy}
+        <!-- START MODULE HEADER -->
+        <div class="module-cont-header">
+            <div class="project-edit-header">
+                <input class="project-title edit" value="{txtName}" name="name" id="name" />
+                <input class="project-id edit" value="{txtProjectID}" name="userprojectid" />
+                <div class="perc-complete" style="color:{txtColour};">{txtPercentComplete}%</div>
+            </div>
+
+            <ul class="horiz-nav">
+                <li class="first"><a href="#" onclick="SaveProject(); return false;">{lblSaveChanges}</a></li>
+                <li>|<a href="index.php?module=projects">{lblCancel}</a></li>
+            </ul>
+        </div>
+        <!-- END MODULE HEADER -->
+        <!-- START MODULE CONTENT -->
+        <div class="module-cont">
+            <!-- START LEFT COL -->
+            <div class="col-l">
+                <textarea class="edit" rows="15" cols="10" name="description">{txtDescription}</textarea>
+
+                {relatedprojects}
+            </div>
+            <!-- END LEFT COL -->
+            <!-- START RIGHT COL -->
+            <div class="col-r">
+
+                <h4 class="toggler"><a class="max" href="#project-details" onclick="toggleComponent(this,'project-details'); return false;">{lblDetails}</a></h4>
+                <div class="project-details">
+                    <dl>
+
+                        <dt>{lblClient}</dt>
+                        <dd>
+                            <select class="edit" name="clientid">
+                                {txtClientList}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblProjectColour}</dt>
+                        <dd>
+                            <a class="color-swatch" style="background-color:{txtColour};" href="#"  onclick="SelectorShow(this, document.project.colour);"></a>&nbsp;
+                            <input class="edit short" name="colour" value="{txtColour}"/>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblStatus}</dt>
+                        <dd>
+                            <select class="edit" name="status">
+                                {txtStatus}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblPriority}</dt>
+                        <dd>
+                            <select class="edit" name="priority">
+                                {txtPriority}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                        <dt>{lblStartsEnds}</dt>
+                        <dd>
+                            <input class="edit short-date" value="{txtStartDate}" name="startdate" />
+                            <img class="date-selector" height="17" width="17" alt="{lblSelectDate}" src="assets/images/calendar_icon.gif" onclick="popUpCalendar(this, project.startdate, '{date_format}');"/> / <input class="edit short-date" value="{txtEndDate}" name="enddate" />
+                            <img class="date-selector" height="17" width="17" alt="{lblSelectDate}" src="assets/images/calendar_icon.gif" onclick="popUpCalendar(this, project.enddate, '{date_format}');"/>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+
+
+                        {budget}
+                    </dl>
+                </div>
+
+                <h4 class="toggler"><a class="max" href="#project-resources" onclick="toggleComponent(this,'project-resources'); return false;">{lblResources}</a></h4>
+                <div class="project-resources">
+                    <dl>
+                        <dt>{lblProjectOwner}</dt>
+                        <dd>
+                            <select class="edit" name="owner">
+                                {txtOwner}
+                            </select>
+                        </dd>
+                        <dd class="divider">&nbsp;</dd>
+
+                    </dl>
+                </div>
+            </div>
+            <!-- END RIGHT COL -->
+        </div>
+        <!-- END MODULE CONTENT -->
+    </div>
+    <!-- END MODULE CONTENT -->
+
+    <script type="text/javascript" language="javascript">
+    <!--
+        // Creates option element and inserts it into the select element,
+        // maintaining alphabetical order of options.
+        function addOption(elementID, name, value)
+        {
+            var sel = $(elementID);
+            var len = sel.options.length;
+            for (i = 0; i < len; i++)
+            {
+                if (name < sel.options[i].text)
+                {
+                    opt = document.createElement('option');
+                    opt.setAttribute('value', value);
+                    opt.appendChild(document.createTextNode(name));
+                    sel.insertBefore(opt, sel.options[i]);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function AddRelatedProject()
+        {
+            // Get the selected project before we delete it.
+            var relatedProjectID = $F('relatedProjectID');
+
+            var sel = $('relatedProjectID');
+            sel.removeChild(sel.options[sel.selectedIndex]);
+
+            var url = 'index.php?module=projects&action=ajaxaddrelatedproject&projectid='+$F('projectid')+'&relatedprojectid='+relatedProjectID;
+            new Ajax.Updater('related-projects-list', url, {
+                method: 'get',
+                insertion: Insertion.Bottom
+            });
+            return false;
+        }
+
+        function RemoveRelatedProject(relatedProjectID)
+        {
+            var url = 'index.php?module=projects&action=ajaxremoverelatedproject&projectid='+$F('projectid')+'&relatedprojectid='+relatedProjectID;
+            new Ajax.Request(url, {
+                method: 'get',
+                onSuccess: function(transport) {
+                    addOption('relatedProjectID', transport.responseText, relatedProjectID);
+                    $('related-project-'+relatedProjectID).remove();
+                }
+            });
+            return false;
+        }
+
+        function AddAccess(mode)
+        {
+            // Get the selected permission item before we delete it.
+            var id = $F(mode+'AccessID');
+
+            var sel = $(mode+'AccessID');
+            sel.removeChild(sel.options[sel.selectedIndex]);
+
+            // Remove the user from the other drop down - can't simultaneously have read and write perms.
+            var otherMode = (mode == 'write') ? 'read' : 'write';
+            var otherSel = $(otherMode+'AccessID');
+            for (i = 0; i < otherSel.options.length; i++)
+            {
+                if (id == otherSel.options[i].value)
+                {
+                    otherSel.removeChild(otherSel.options[i]);
+                }
+            }
+
+            var url = 'index.php?module=projects&action=ajaxaddaccess&projectid='+$F('projectid')+'&mode='+mode+'&id='+id;
+            new Ajax.Updater(mode+'-access-list', url, {
+                method: 'get',
+                insertion: Insertion.Bottom
+            });
+            return false;
+        }
+
+        function RemoveAccess(mode, id)
+        {
+            var url = 'index.php?module=projects&action=ajaxremoveaccess&projectid='+$F('projectid')+'&mode='+mode+'&id='+id;
+            new Ajax.Request(url, {
+                method: 'get',
+                onSuccess: function(transport) {
+                    addOption(mode+'AccessID', transport.responseText, id);
+                    var otherMode = (mode == 'write') ? 'read' : 'write';
+                    addOption(otherMode+'AccessID', transport.responseText, id);
+                    $('permission-item-'+id).remove();
+                }
+            });
+            return false;
+        }
+
+        function SaveProject()
+        {
+            var form = document.project;
+
+            if (form.name.value.length == 0)
+            {
+                alert('{msgFormError}');
+                form.name.focus();
+            }
+            else
+            {
+                form.submit();
+            }
+        }
+
+        function DeleteProject(id)
+        {
+            if (confirm('{msgConfirmDelete}'))
+            {
+                window.location = "index.php?module=projects&action=delete&projectid=" + id;
+            }
+        }
+
+        document.observe("dom:loaded", function() { $('name').focus(); } );
+    //-->
+    </script>

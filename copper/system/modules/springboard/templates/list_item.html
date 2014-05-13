@@ -1,0 +1,22 @@
+                <!-- START TASK -->
+                <li class="sortable droppable collapsed" id="task_{txtID}">
+                    <div class="sortableMeta">
+                        <div class="cell cellFirst cell-task">
+													<a class="min" id="task-opener-{txtID}" onclick="toggleTask(this, {txtProjectID}, {txtID}, 0, '{caller}', {userid}); return false;" href="#" style="background-color:{txtColour};"></a>
+													<span class="handle">
+														<a href="#" onclick="toggleTask($('task-opener-{txtID}'), {txtProjectID}, {txtID}, 0, '{caller}', {userid}); return false;">{txtName}</a>
+													</span>
+												</div>
+                        <div class="cell cell-client">{txtClientName}</div>
+                        <div class="cell cell-project">{txtProjectName}</div>
+                        <div class="cell cell-perc"><div class="perc-bar"><div style="width:{txtComplete}%; background:{txtColour};">&nbsp;</div></div></div>
+                        <div class="cell cell-priority">{txtPriority}</div>
+                        <div class="cell cell-latest">{txtLatestActivity}</div>
+                        <div class="cell cell-start">{txtStarts}</div>
+                        <div class="cell cellLast cell-end">{txtDue}</div>
+                    </div>
+                    <div class="expandWrap" style="display:none;" id="taskholder-{txtID}">
+                    </div>
+                    
+                </li>
+                <!-- END TASK -->

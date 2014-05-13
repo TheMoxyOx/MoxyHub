@@ -1,0 +1,25 @@
+
+<!-- START CLIENT -->
+<li class="sortable droppable collapsed" id="client_{CLIENTID}">
+	<div class="sortableMeta">
+		<div class="cell cellFirst cell-client">
+			<a class="min" title="{MSG_CLICK_FOR_QUICKVIEW} {MSG_PROJECTS}" id="client-opener-{CLIENTID}" onclick="toggleClientProjects(this, {CLIENTID}); return false;" href="#" style="background-color:{Colour};"></a>
+			<span class="handle">
+				<a href="index.php?module=clients&amp;action=view&id={CLIENTID}">{CLIENTNAME}</a>
+			</span>
+		</div>
+		<div class="cell cell-owner">{CLIENTMANAGER}</div>
+		<div class="cell cell-perc"></div>
+		<div class="cell cell-status"></div>
+		<div class="cell cell-active">{CLIENT_ACTIVE}</div>
+		<div class="cell cell-budget"></div>
+		<div class="cell cell-priority"></div>
+		<div class="cell cell-latest"></div>
+		<div class="cell cell-start"></div>
+		<div class="cell cellLast cell-end"></div>
+	</div>
+	<div class="expandWrap" style="display:none;" id="clientholder-{CLIENTID}">
+	</div>
+	
+</li>
+<!-- END CLIENT -->

@@ -1,0 +1,14 @@
+<!-- START OTHER ITEM -->
+<li class="" id="block_<?php EF::val($item->ID) ?>">
+	<input type="hidden" value="<?php EF::val($item->ID) ?>" />
+	<div class="sortableMeta">
+		<div class="cell cell-task"><?php EF::t($item->TaskName) ?></div>
+		<div class="cell cell-budget"><?php EF::t($item->Budget) ?></div>
+		<div class="cell cell-cost"><?php EF::t($item->Cost) ?></div>
+		<div class="cell cell-charge"><?php EF::t($item->Charge) ?></div>		
+		<div class="cellLast cell-addnewother"><a href="#" class='js_project_budgets_removeotheritem' rel='<?php EF::val($item->ID) ?>'>-</a></div>
+	</div>
+
+</li>
+<!-- END OTHER ITEM -->
+

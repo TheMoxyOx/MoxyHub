@@ -1,0 +1,128 @@
+<form name="taskForm" id="taskForm_{txtTaskID}" method="post" action="index.php">
+<input type="hidden" name="module" value="projects">
+<input type="hidden" name="action" value="tasksave">
+<input type="hidden" id="taskid" name="taskid" value="{txtTaskID}">
+<input type="hidden" name="projectid" value="{txtProjectID}">
+<input type="hidden" name="sequence" value="{txtSequence}">
+<input type="hidden" name="ajax" value="1">
+<input type="hidden" name="saveandnew" id="saveandnew" value="0">
+
+		<a class="draggy_handle tree_expanded edit_mode" href="#">&nbsp;</a>
+
+		<em class="content edit_mode">
+			<span><!-- see this span? This span is because the javascript has up(2) at helpers.js:472. Once that abomination is fixed, then we can remove this superfluous html -->
+				<em class="name edit_mode">
+	       	<input class="edit" value="{txtName}" name="taskname" id="taskname"/>				
+				</em>
+			</span>
+			<em class="cell-owner">{txtOwner}</em>
+			<em class="cell-perc"><i class="perc-bar"><i id="perc-bar-highlight-{txtTaskID}" style="width:{txtPercentComplete}%; background:{txtColour};">&nbsp;</i></i></em>
+			<em class="cell-priority">{txtPriority}</em>
+			<em class="cell-latest">{txtLatestActivity}</em>
+			<em class="cell-start">{txtStartDate}</em>
+			<em class="cell-end cellLast">{txtEndDate}</em>
+		</em>
+    
+    <!-- START TASK COLLAPSABLE -->
+    <div class="expandWrap" style="">
+        <div class="cell cell-expanded-nav">
+            <ul class="horiz-nav">
+                <li class="first"><a href="#" onclick="SubmitTaskForm({txtProjectID}, '{txtTaskID}', 0, false, {txtNewTaskFormId}); return false;">{MSG_SAVE_CHANGES}</a></li>
+                <li>|<a href="#" onclick="SubmitTaskForm({txtProjectID}, '{txtTaskID}', 0, true, {txtNewTaskFormId}); return false;">{MSG_SAVE_AND_NEW}</a></li>
+                <li>|<a href="#" onclick="UneditTask({txtProjectID},'{txtTaskID}', 1, false, {txtNewTaskFormId});return false;">{MSG_CANCEL}</a></li>
+            </ul>
+        </div>
+        <div class="expand">
+            <!-- START MODULE CONTENT -->
+            <div class="module-cont-compact">
+                <!-- START LEFT COL -->
+                <div class="col-l">
+                    <textarea class="edit" rows="15" cols="10" name="description">{txtDescription}</textarea>
+                    <h4 class="toggler"><a class="max" href="#task-dependencies" onclick="toggleComponent(this,'task-dependencies'); return false;">{MSG_TASK_DEPENDENCIES}</a></h4>
+
+                    <!-- START DEPENDENCIES -->
+                    <div class="task-dependencies">
+                        <dl>
+                            <dd class="add-minus-list" id="add-minus-list">
+                                {taskDependenciesCurrent}
+                                <div class="add-new">
+                                    <select class="edit" id="dependencyAddSelect">
+                                        {taskDependenciesSelect}
+                                    </select>
+
+                                    <a href="#" onclick="dependencyAdd({txtProjectID}, '{txtTaskID}'); return false;">
+                                        <img class="add-minus-btn" height="16" border="0" width="8" src="assets/images/btn/btn_add.gif" alt="{MSG_ADD}"/>
+                                    </a>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- END DEPENDENCIES -->
+                </div>
+                <!-- END LEFT COL -->
+                <!-- START RIGHT COL -->
+                <div class="col-r">
+                    <h4 class="toggler"><a class="max" href="#task-details" onclick="toggleComponent(this,'task-details'); return false;">{MSG_DETAILS}</a></h4>
+                    <div class="task-details">
+                        <dl>
+                            <dt>{MSG_OWNER}</dt>
+                            <dd>
+                                <select class="edit" name="owner">
+                                    {ownerOptions}
+                                </select>
+                            </dd>
+                            <dd class="divider">&nbsp;</dd>
+
+                            <dt>{MSG_PRIORITY}</dt>
+                            <dd>
+                                <select class="edit" name="priority">
+                                    {priorityOptions}
+                                </select>
+                            </dd>
+                            <dd class="divider">&nbsp;</dd>
+
+                            <dt>{MSG_HOURS_UPPERCASE}: {MSG_ESTIMATED}</dt>
+                            <dd><input class="edit short" name="duration" value="{txtDuration}" /></dd>
+                            <dd class="divider">&nbsp;</dd>
+
+                            <dt>{MSG_STARTS}</dt>
+                            <dd>
+                                <input class="edit short" name="startdate" value="{startDate}" />
+                                <img class="date-selector" height="17" width="17" alt="{MSG_DATE_SELECTOR}" src="assets/images/calendar_icon.gif"/>
+                            </dd>
+                            <dd class="divider">&nbsp;</dd>
+
+                            <dt>{MSG_ENDS}</dt>
+                            <dd>
+                                <input class="edit short" name="enddate" value="{endDate}" />
+                                <img class="date-selector" height="17" width="17" alt="{MSG_DATE_SELECTOR}" src="assets/images/calendar_icon.gif"/>
+                            </dd>
+                            <dd class="divider">&nbsp;</dd>
+
+                            {txtBudgetTarget}
+
+                        </dl>
+
+                    </div>
+                    {Resources}
+                </div>
+                <!-- END RIGHT COL -->
+            </div>
+        </div>
+        <!-- END MODULE CONTENT -->
+    </div>
+    <!-- END TASK COLLAPSABLE -->
+<script>
+    //onclick="popUpCalendar(this, this.up().getElementsBySelector('input')[0], '{date_format}');"
+    (function(){
+    $$(".date-selector").each(function(item){
+        if(!item.hasAttribute("calendarFix")){
+        item.setAttribute("calendarFix",1);
+        var i = item;
+        item.observe("click",function(){
+            popUpCalendar(i, i.up().getElementsBySelector('input')[0], '{date_format}');
+        });
+        }
+    });
+    })();
+</script>

@@ -1,0 +1,65 @@
+                                    <tr align="left" valign="top" bgcolor="#CCCCCC">
+                                        <td height="15" colspan="3"><img src="images/common/keyline_mask.gif" width="100%" height="15"></td>
+                                    </tr>
+                                    <tr align="left" valign="top">
+                                        <td height="18" colspan="3">
+                                            <table height="18" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td width="105" align="left" valign="top" height="18" bgcolor="#E7E7E7"><a href="javascript:SubmitForm();"><img src="images/icons/but_save.gif" border="0" /></a></td>
+                                                    <td width="20" height="18" align="left" valign="top"><img src="images/common/s.gif" width="20" height="18" border="0"></td>
+                                                    <td width="105" height="18" align="left" valign="top">&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table></form>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+    </div>
+</div>
+<!-- END NEW MODULE CONTENT -->
+<script language="javascript">
+<!--
+function SubmitForm()
+{
+  frm   = document.resourceupdatesave;
+    frm.submit();
+}
+function prepareDroppable()
+{
+    tds = document.getElementsByClassName('droppable');
+    for (i=0; i<tds.length; i++)
+    {
+        Droppables.add(tds[i].id, 
+        {
+            accept: 'draggable',
+            hoverclass: 'droppable-hover',
+            onDrop: function(draggedElement, droppedElement, e) { cancelClick(draggedElement); changeDate(draggedElement.id, droppedElement.id); }
+        });
+    }
+}
+function prepareDraggable()
+{
+    spans = document.getElementsByClassName('draggable');
+    for (i=0; i<spans.length; i++)
+        new Draggable(spans[i].id);
+}
+function cancelClick(element)
+{
+    var list = $$('#'+element.id+' a');
+    debugger;
+}
+function changeDate(item, newDate)
+{
+    alert('changeDate');
+    
+    window.location = 'index.php?module=calendar&action=changedate&item=' + item + '&newdate=' + newDate;
+}
+prepareDroppable();
+prepareDraggable();
+-->
+</script>

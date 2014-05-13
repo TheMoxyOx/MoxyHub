@@ -1,0 +1,55 @@
+<!-- START NEW MODULE CONTENT -->
+<div class="module-cont-wrapper">
+	
+	<div class="module-cont-header">
+		<h2>{MSG_PROJECT_ANALYSIS}</h2>
+		<ul class="horiz-nav">
+			<li><a href="#" class="js_reports_form_submit" rel='project'>
+				{MSG_CREATE} {MSG_PROJECT_ANALYSIS}
+			</a></li>
+		</ul>
+	</div>
+
+	<div class="module-cont">
+
+		<div class="general work_analysis">
+
+
+      <form name="project" action="index.php" method="post">
+				<input type="hidden" name="module" value="reports">
+				<input type="hidden" name="action" value="analysis">
+				<dl>
+
+					<dt>{MSG_SELECT_A_PERIOD}</dt>
+					<dd><select id="periodSelect" name="periodSelect" class='js_reports_period_select'>{periodOptions}</select></dd>
+
+					<dt>{MSG_OR_SELECT_A_RANGE}</dt>
+					<dd>
+						<input type="text" name="startdate" id="startdate"  value="{startDate}" class="TaskEdit_tf">
+						<img src="images/date_selector.gif" width="16" height="18" vspace="0" hspace="3" border="0" onClick="popUpCalendar(this, project.startdate, '{date_format}');">&nbsp;&nbsp;&nbsp;<input type="text" name="enddate" id="enddate" class="TaskEdit_tf" value="{endDate}">
+						<img src="images/date_selector.gif" width="16" height="18" vspace="0" hspace="3" border="0" onClick="popUpCalendar(this, project.enddate, '{date_format}');">					
+					</dd>
+
+					<dt>{MSG_SELECT_CLIENTS}</dt>
+					<dd><select name="clientids[]" multiple="multiple" size="5" class="TaskEdit_ta" id="clientids" style="width:100%">{optSelectClient}</select></dd>
+
+					<dt>MSG_SELECT_PROJECTS</dt>
+					<dd>
+						<select name="projectids[]" multiple="multiple" size="5" class="TaskEdit_ta" id="projectids" style="width:100%">
+						  {optSelectProject}
+						</select>					
+					</dd>
+					
+					<dt>{MSG_BUDGET}</dt>
+					<dd><input type="checkbox" name="budget" value="1" {budgetAttr}></dd>
+					
+					<dt>{MSG_DETAILS}</dt>
+					<dd><input type="checkbox" name="details" value="1" {detailsAttr}></dd>
+				</dl>
+		   </form>
+		</div>		
+	</div>
+</div>
+
+{reportHeader}
+{reportData}

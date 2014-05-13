@@ -1,0 +1,21 @@
+<!-- START BILLABLE ITEM -->
+<li class="sortable droppable collapsed">
+	<div class="sortableMeta">
+	<div class="cell cellFirst cell-task">
+		<a class="min" onclick="javascript:toggleBudgetsTasks(this,<?php EF::val($task->ID); ?>, <?php EF::val($task->ProjectID); ?>); return false;" href="#"></a>
+		<span class="handle"><?php EF::t($task->Name) ?></span>
+	</div>
+	<div class="cell cell-budget"><?php EF::money($task->TargetBudget) ?></div>
+	<div class="cell cell-esthrs"><?php EF::t($task->Duration) ?></div>
+	<div class="cell cell-logged"><?php EF::t($task->HoursWorked) ?>hrs</div>
+	<div class="cell cell-billed"><?php EF::money($task->Billable); ?> / <?php EF::money($task->Billed) ?></div>
+	<div class="cell cell-tobill">
+	  <input class="edit" type="text" value="<?php EF::val($suggested_to_bill) ?>" id="taskToBillValue_<?php EF::val($task->ID); ?>" />
+	</div>
+	<div class="cell cellLast cell-tick">
+	  <input class="checkbox payable" type="checkbox" id="taskToBill_<?php EF::val($task->ID); ?>" isTask="true"/>
+	</div>
+	</div>
+	<div class="expandWrap" style="display:none;" id="taskholder-<?php EF::val($task->ID); ?>"></div>
+</li>
+<!-- END BILLABLE ITEM -->

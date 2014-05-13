@@ -1,0 +1,14 @@
+                <!-- START EMAIL -->
+                <li class="sortable droppable collapsed">
+                    <div class="sortableMeta">
+                        <div class="cell cellFirst cell-subject"><a class="min" onclick="javascript:toggleProjectEmails(this, {txtID}, {txtProjectID}); return false;" href="#"></a><span class="handle">{txtSubject}</span></div>
+                        <div class="cell cell-date">{txtDate}</div>
+                        <div class="cell cell-from">{txtFrom}</div>
+                        <div class="cell cell-to">{txtTo}</div>
+                        <div class="cell cellLast cell-attach"><a href="index.php?module=projects&action=saveemailaseml&email={txtID}&projectid={txtProjectID}">.eml</a></div>
+                    </div>
+                    <div class="expandWrap" style="display:none;" id="emailholder-{txtID}">
+                    </div>
+                    
+                </li>
+                <!-- END EMAIL -->
